@@ -1,0 +1,318 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap');
+
+@mixin linkStyle() {
+  text-decoration: none;
+  color: #000000;
+}
+
+@mixin linkHover() {
+  color: #778899;
+  cursor: pointer;
+}
+
+* {
+  color: #303030;
+}
+
+html {
+  height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    margin-left: 0;
+
+    a {
+      @include linkStyle();
+    }
+
+    /* Header */
+    header {
+      background: whitesmoke;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2em;
+      padding: 1.5em;
+      margin-bottom: 10em;
+      z-index: 2;
+
+      .container {
+        height: 3em;
+        display: flex;
+        justify-content: space-around;
+        padding-bottom: 2em;
+
+        h1 {
+          margin-top: -5px;
+          margin-left: -5px;
+          font-size: 3rem;
+        }
+
+        nav {
+          ul {
+            display: flex;
+
+            li {
+              margin-right: 3em;
+              font-size: 1rem;
+              list-style-type: none;
+            }
+          }
+
+          li a:hover {
+            @include linkHover();
+          }
+        }
+
+        .header-util a {
+          font-size: 0.8rem;
+
+          &:hover {
+            @include linkHover();
+          }
+        }
+
+        .current-menu-item a {
+          font-weight: 900;
+          text-shadow: 1px #ff0000;
+        }
+      }
+    }
+
+    /* Main */
+    main {
+      display: flex;
+      flex-direction: column;
+
+      .heading-section {
+        background-image: url('../images/image-front.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        height: 50em;
+
+        .heading {
+          h2 {
+            font-size: 2.5rem;
+            color: white;
+          }
+
+          h3 {
+            color: white;
+          }
+
+          color: whitesmoke;
+          text-align: center;
+          padding: 2em 2em;
+          margin: 0 auto;
+          margin-top: 15em;
+          background-color: black;
+          opacity: 0.85;
+          width: 40%;
+          transition: all 0.2s ease-in;
+
+          &:hover {
+            opacity: 0.9;
+            background-color: #282828;
+            cursor: pointer;
+          }
+        }
+      }
+
+      .show-posts {
+        display: flex;
+
+        h2 {
+          text-align: center;
+          font-size: 2rem;
+        }
+        hr {
+          margin-bottom: 2em;
+        }
+        .post-title-style {
+          font-size: 1.2rem;
+          list-style-type: none;
+          text-align: center;
+        }
+
+        .workout-posts {
+          padding: 1em;
+          background-color: white;
+          border-right: 3px solid gray;
+        }
+
+        .nutrition-posts {
+          padding: 1em;
+          background-color: whitesmoke;
+          color: #000000;
+        }
+      }
+    }
+
+    /* Footer */
+    footer {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      width: 100%;
+      padding: 1em;
+      background-color: #708090;
+      height: 5em;
+
+      ion-icon {
+        font-size: 2rem;
+      }
+    }
+
+    hr {
+      width: 90%;
+      margin: 0 auto;
+    }
+
+    textarea {
+      height: 100px;
+      width: 600px;
+    }
+
+    .my-comments {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      justify-items: center;
+
+      .comment-title {
+        width: 600px;
+        margin: 50px 0 20px 0;
+      }
+      .comment-content {
+        width: 600px;
+        margin-bottom: 20px;
+      }
+      .comment-submit {
+        width: 100px;
+        height: 30px;
+        border-radius: 5px;
+        margin-bottom: 100px;
+        transition: all 500ms;
+        &:hover {
+          cursor: pointer;
+          background: #fffafa;
+        }
+      }
+    }
+
+    .comments-link {
+      margin: 50px 0 100px 50px;
+    }
+
+    .search-overlay {
+      background: rgb(224, 224, 224);
+      box-sizing: border-box;
+      height: 100vh;
+      visibility: hidden;
+      position: fixed;
+      z-index: 3;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0.9;
+
+      &--active {
+        visibility: visible;
+      }
+
+      .search-container {
+        position: relative;
+        left: 15%;
+        bottom: 20px;
+      }
+
+      .search-input {
+        width: 75%;
+        box-sizing: border-box;
+        border: none;
+        background: transparent;
+        position: relative;
+        top: 30px;
+        left: 80px;
+        padding: 15px 0;
+        margin: 0;
+        background-color: transparent;
+        font-size: 40px;
+        font-weight: 300;
+        outline: none;
+
+        &::placeholder {
+          font-size: 25px;
+          padding-left: 5px;
+        }
+      }
+
+      .fa-search {
+        position: relative;
+        top: 25px;
+        left: 60px;
+      }
+
+      .fa-window-close {
+        position: relative;
+        top: 20px;
+        right: 100px;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      #search-results {
+        margin-top: 50px;
+      }
+    }
+
+    .body-no-scroll {
+      overflow: hidden;
+    }
+
+    // Loading Spinner
+    @keyframes spinner {
+      from {
+        transform: translate3d(-50%, -50%, 0) rotate(0deg);
+      }
+      to {
+        transform: translate3d(-50%, -50%, 0) rotate(360deg);
+      }
+    }
+
+    .spinner {
+      height: 100vh;
+      position: relative;
+
+      &::before {
+        animation: 2s linear infinite spinner;
+        border: solid 3px #00008b;
+        border-bottom-color: #f0f8ff;
+        border-radius: 50%;
+        content: '';
+        height: 40px;
+        left: 50%;
+        position: absolute;
+        top: 10%;
+        transform: translate3d(-50%, -50%, 0);
+        width: 40px;
+      }
+    }
+  }
+}
+
+/* Portrait tablet to landscape and desktop */
+// @media screen and (min-width: 768px) and (max-width: 979px) { ... }
+
+/* Landscape phone to portrait tablet */
+// @media screen and (max-width: 767px) { ... }
+
+/* Landscape phones and down */
+// @media screen and (max-width: 480px) { ... }
