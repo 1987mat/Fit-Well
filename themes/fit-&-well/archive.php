@@ -1,8 +1,10 @@
 <?php get_header(); ?>
 
 <div class="blog-section"> 
-  <h1>Welcome to our blog!</h1>
-  <p>Keep up with the latest news.</p>
+  <h1>
+    <?php the_archive_title(); ?>
+  </h1>
+  <p><?php the_archive_description(); ?></p>
 </div>
 
 <div class="page-container"> 

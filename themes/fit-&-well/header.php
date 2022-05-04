@@ -1,22 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html <?php language_attributes(); ?>>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="<?php bloginfo('charset');?>">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <?php wp_head(); ?>
 </head>
-<body>
+<body <?php body_class();?>>
   <header class="site-header">
     <div class="container">
       <h1 class="main-title"><a href="<?php echo site_url(); ?>"><strong><h1>Fit&Well</h1></strong></a></h1>
       <nav class="main-navigation">
+    
+        <!-- <?php 
+          wp_nav_menu(array(
+            'theme_location' => 'headerMenuLocation'
+          )); 
+        ?> -->
         <ul>
           <li <?php if(get_post_type() == 'workout') echo 'class="current-menu-item"'?>><a href="<?php echo get_post_type_archive_link('workout'); ?>">Workouts</a></li>
           <li <?php if(get_post_type() == 'nutrition') echo 'class="current-menu-item"'?>><a href="<?php echo get_post_type_archive_link('nutrition'); ?>">Nutrition</a></li>
           <li <?php if(is_page('community')) echo 'class="current-menu-item"'?>><a href="<?php echo site_url('/community'); ?>">Community</a></li>
-          <li <?php if(is_page('store')) echo 'class="current-menu-item"'?>><a href="<?php echo site_url('/store'); ?>">Store</a></li>
-          <li <?php if(is_page('about')) echo 'class="current-menu-item"'?>><a href="<?php echo site_url('/about'); ?>">About</a></li?>
+          <li <?php if(is_page('contact') or wp_get_post_parent_id(0) == 2) echo 'class="current-menu-item"'?>><a href="<?php echo site_url('/contact'); ?>">Contact</a></li>
+          <li <?php if(is_page('about') or wp_get_post_parent_id(0) == 16) echo 'class="current-menu-item"'?>><a href="<?php echo site_url('/about'); ?>">About</a></li?>
+          <li <?php if(is_home()) echo 'class="current-menu-item"'?>><a href="<?php echo site_url('/blog'); ?>">Blog</a></li?>
         </ul>
       </nav>
       <div class="header-util">

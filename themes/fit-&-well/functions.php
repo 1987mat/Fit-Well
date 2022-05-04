@@ -19,7 +19,9 @@ function site_features() {
   // Create title for each page
   add_theme_support('title-tag');
   // Add header menu option in the admin bar
-  register_nav_menu('headerMenuLocation', 'Header Menu Location');
+  // register_nav_menu('headerMenuLocation', 'Header Menu Location');
+  // register_nav_menu('footerLocationOne', 'Footer Location One');
+  // register_nav_menu('footerLocationTwo', 'Footer Location Two');
 }
 
 add_action('after_setup_theme', 'site_features');

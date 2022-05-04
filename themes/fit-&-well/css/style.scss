@@ -15,13 +15,16 @@
 }
 
 html {
-  height: 100vh;
   width: 100vw;
   box-sizing: border-box;
 
   body {
     font-family: 'Montserrat', sans-serif;
     margin-left: 0;
+    min-height: 100vh;
+
+    // padding-bottom: 8em;
+    margin-bottom: 8em;
 
     a {
       @include linkStyle();
@@ -75,9 +78,10 @@ html {
           }
         }
 
+        // Highlight current page link
         .current-menu-item a {
-          font-weight: 900;
           text-shadow: 1px #ff0000;
+          color: lightgray;
         }
       }
     }
@@ -152,15 +156,21 @@ html {
       }
     }
 
+    // ABOUT PAGE
+
     /* Footer */
     footer {
       display: flex;
       flex-direction: column;
-      text-align: center;
+      justify-content: center;
+      align-items: center;
       width: 100%;
       padding: 1em;
       background-color: #708090;
       height: 5em;
+      position: fixed;
+      bottom: 0;
+      left: 0;
 
       ion-icon {
         font-size: 2rem;
@@ -304,6 +314,15 @@ html {
         transform: translate3d(-50%, -50%, 0);
         width: 40px;
       }
+    }
+
+    .blog-section {
+      margin-top: 7em;
+      text-align: center;
+    }
+
+    .page-container {
+      margin: 7em;
     }
   }
 }

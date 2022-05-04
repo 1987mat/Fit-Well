@@ -3,20 +3,16 @@
 
 <main class="main-body-content">
 
-
   <section class="heading-section">
       <div class="heading">
           <h2 class="main-title">Welcome!</h2>
           <h3 class="main-subtitle">Ready to get in shape?</h3>
       </div>
-
   </section>
 
-
   <section class="show-posts">
-
     <div class="workout-posts">
-        <h2>Workout</h2>
+        <h2>Workout Plans</h2>
         <hr>
         <?php 
           // Create custom query for Workout posts
@@ -36,7 +32,7 @@
     </div>
 
     <div class="nutrition-posts">
-      <h2>Nutrition</h2>
+      <h2>Nutrition & Diets</h2>
       <hr>
       <?php 
           // Create custom query for Nutrition posts
@@ -54,10 +50,7 @@
           <?php } 
         ?>
     </div>
-
   </section>
-
 </main>
-
 
 <?php get_footer(); ?>
