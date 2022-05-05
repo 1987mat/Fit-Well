@@ -18,7 +18,7 @@
           // Create custom query for Workout posts
           $homepageWorkouts = new WP_Query(array(
             'post_type' => 'workout',
-            'post_per_page' => 3,
+            'post_per_page' => 2,
             'order' => 'ASC'
           ));
 
@@ -26,9 +26,10 @@
           while($homepageWorkouts->have_posts()) {
             $homepageWorkouts->the_post(); ?>
             <li <?php echo 'class="post-title-style"';?>><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
-            <p <?php echo 'class="post-text"';?>><?php echo wp_trim_words(get_the_content(), 30); ?></p>
+            <p <?php echo 'class="post-text"';?>><?php echo wp_trim_words(get_the_content(), 30); ?><a href="<?php the_permalink(); ?>">Read More</p>
           <?php } 
         ?>
+       <a href="<?php echo site_url('/workout'); ?>"> <button>View Workouts</button></a>
     </div>
 
     <div class="nutrition-posts">
@@ -38,7 +39,7 @@
           // Create custom query for Nutrition posts
           $homepageNutrition = new WP_Query(array(
             'post_type' => 'nutrition',
-            'post_per_page' => 3,
+            'post_per_page' => 4,
             'order' => 'ASC'
           ));
 
@@ -46,9 +47,34 @@
           while($homepageNutrition->have_posts()) {
             $homepageNutrition->the_post(); ?>
             <li <?php echo 'class="post-title-style"';?>><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
-            <p <?php echo 'class="post-text"';?>><?php echo wp_trim_words(get_the_content(), 30); ?></p>
-          <?php } 
+            <p <?php echo 'class="post-text"';?>><?php echo wp_trim_words(get_the_content(), 30); ?><a href="<?php the_permalink(); ?>">Read More</p>
+          <?php } wp_reset_postdata();
         ?>
+       <a href="<?php echo site_url('/nutrition'); ?>"> <button>View All Diets</button></a>
+
+    </div>
+  </section>
+
+  <section class="homepage-events">
+    <div>
+      <h2>Upcoming Events</h2>
+      <hr>
+      <div class="events-container">
+        <?php 
+            // Create custom query for Nutrition posts
+            $homepageEvents = new WP_Query(array(
+              'post_type' => 'event',
+              'post_per_page' => 3,
+              'order' => 'ASC'
+            ));
+
+            // Show nutrition posts in the front page
+            while($homepageEvents->have_posts()) {
+              $homepageEvents->the_post(); ?>
+              <div class="single-event-card"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></div>
+            <?php } wp_reset_postdata();
+          ?>
+      </div>
     </div>
   </section>
 </main>

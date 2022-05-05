@@ -23,7 +23,7 @@
           <li <?php if(is_page('community')) echo 'class="current-menu-item"'?>><a href="<?php echo site_url('/community'); ?>">Community</a></li>
           <li <?php if(is_page('contact') or wp_get_post_parent_id(0) == 2) echo 'class="current-menu-item"'?>><a href="<?php echo site_url('/contact'); ?>">Contact</a></li>
           <li <?php if(is_page('about') or wp_get_post_parent_id(0) == 16) echo 'class="current-menu-item"'?>><a href="<?php echo site_url('/about'); ?>">About</a></li?>
-          <li <?php if(is_home()) echo 'class="current-menu-item"'?>><a href="<?php echo site_url('/blog'); ?>">Blog</a></li?>
+          <li <?php if(get_post_type() == 'post') echo 'class="current-menu-item"'?>><a href="<?php echo site_url('/blog'); ?>">Blog</a></li?>
         </ul>
       </nav>
       <div class="header-util">

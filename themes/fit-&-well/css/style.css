@@ -5,6 +5,7 @@
 
 html {
   width: 100vw;
+  min-height: 100%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -151,15 +152,92 @@ html body main .show-posts .post-title-style {
 }
 
 html body main .show-posts .workout-posts {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 1em;
   background-color: white;
   border-right: 3px solid gray;
 }
 
+html body main .show-posts .workout-posts button {
+  font-size: 1rem;
+  margin-top: 2em;
+  border-radius: 5px;
+  border: none;
+  background-color: lightgray;
+  padding: 1em;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+
+html body main .show-posts .workout-posts button:hover {
+  cursor: pointer;
+  background-color: whitesmoke;
+}
+
 html body main .show-posts .nutrition-posts {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 1em;
   background-color: whitesmoke;
   color: #000000;
+}
+
+html body main .show-posts .nutrition-posts button {
+  font-size: 1rem;
+  margin-top: 2em;
+  border-radius: 5px;
+  border: none;
+  background-color: lightgray;
+  padding: 1em;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+
+html body main .show-posts .nutrition-posts button:hover {
+  cursor: pointer;
+  background-color: whitesmoke;
+}
+
+html body main .homepage-events {
+  text-align: center;
+}
+
+html body main .homepage-events .events-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 5em;
+  gap: 5em;
+}
+
+html body main .homepage-events .events-container .single-event-card {
+  border: 1px solid black;
 }
 
 html body footer {
@@ -180,9 +258,10 @@ html body footer {
   padding: 1em;
   background-color: #708090;
   height: 5em;
-  position: fixed;
-  bottom: 0;
+  position: relative;
+  top: calc(100vh - 100px);
   left: 0;
+  bottom: 0;
 }
 
 html body footer ion-icon {

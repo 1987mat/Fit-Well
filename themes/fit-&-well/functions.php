@@ -24,6 +24,8 @@ function site_features() {
   // register_nav_menu('footerLocationTwo', 'Footer Location Two');
 }
 
+
+
 add_action('after_setup_theme', 'site_features');
 
 
