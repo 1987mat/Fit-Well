@@ -223,21 +223,97 @@ html body main .show-posts .nutrition-posts button:hover {
 
 html body main .homepage-events {
   text-align: center;
+  margin-top: 5em;
+}
+
+html body main .homepage-events h2 {
+  font-size: 2.5rem;
+  margin-bottom: 3em;
 }
 
 html body main .homepage-events .events-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   margin: 5em;
-  gap: 5em;
+  gap: 6em;
 }
 
-html body main .homepage-events .events-container .single-event-card {
-  border: 1px solid black;
+html body main .homepage-events .events-container .single-event h3 {
+  position: relative;
+  top: 40%;
+  width: 30%;
+  margin: 0 auto;
+  font-size: 2rem;
+  padding: 0.5em;
+  background-color: #778899;
+  opacity: 0.8;
+  color: white;
+}
+
+html body main .homepage-events .events-container .yoga {
+  background-image: url("../images/yoga.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 25em;
+  width: 45%;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+
+html body main .homepage-events .events-container .yoga:hover {
+  cursor: pointer;
+  opacity: 0.85;
+}
+
+html body main .homepage-events .events-container .zumba {
+  background-image: url("../images/zumba.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 25em;
+  width: 45%;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+
+html body main .homepage-events .events-container .zumba:hover {
+  cursor: pointer;
+  opacity: 0.85;
+}
+
+html body main .homepage-events .events-container .outdoor {
+  background-image: url("../images/outdoor.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 25em;
+  width: 45%;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+
+html body main .homepage-events .events-container .outdoor:hover {
+  cursor: pointer;
+  opacity: 0.85;
+}
+
+html body main .homepage-events .events-container .cycling {
+  background-image: url("../images/cycling.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 25em;
+  width: 45%;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+
+html body main .homepage-events .events-container .cycling:hover {
+  cursor: pointer;
+  opacity: 0.85;
 }
 
 html body footer {

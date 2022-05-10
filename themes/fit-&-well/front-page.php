@@ -57,26 +57,49 @@
 
   <section class="homepage-events">
     <div>
-      <h2>Upcoming Events</h2>
-      <hr>
+      <h2>Our Classes</h2>
       <div class="events-container">
         <?php 
             // Create custom query for Nutrition posts
             $homepageEvents = new WP_Query(array(
               'post_type' => 'event',
-              'post_per_page' => 3,
-              'order' => 'ASC'
             ));
 
-            // Show nutrition posts in the front page
+            // Show event posts in the front page
             while($homepageEvents->have_posts()) {
-              $homepageEvents->the_post(); ?>
-              <div class="single-event-card"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></div>
-            <?php } wp_reset_postdata();
+              $homepageEvents->the_post(); 
+              if(get_the_title() === 'Yoga') {
+                ?> 
+                <div class="single-event yoga">
+                  <h3><?php the_title(); ?></h3>
+                </div>
+              <?php 
+              } else if (get_the_title() == 'Zumba') {
+                ?>
+                 <div class="single-event zumba">
+                   <h3><?php the_title(); ?></h3>
+                 </div>
+                <?php 
+              } else if (get_the_title() == 'Outdoor'){
+              ?> 
+              <div class="single-event outdoor">
+                <h3><?php the_title(); ?></h3>
+              </div>
+              <?php 
+              } else {
+                ?> 
+                <div class="single-event cycling">
+                  <h3><?php the_title(); ?></h3>
+                </div>
+              <?php 
+              }
+            } 
+            wp_reset_postdata();
           ?>
       </div>
     </div>
   </section>
+
 </main>
 
 <?php get_footer(); ?>
