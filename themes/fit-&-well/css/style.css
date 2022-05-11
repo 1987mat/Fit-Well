@@ -4,10 +4,13 @@
 }
 
 html {
-  width: 100vw;
+  min-width: 100%;
   min-height: 100%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
 html body {
@@ -109,14 +112,14 @@ html body main .heading-section .heading {
   margin: 0 auto;
   margin-top: 15em;
   background-color: black;
-  opacity: 0.85;
+  opacity: 0.75;
   width: 40%;
   -webkit-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
 }
 
 html body main .heading-section .heading h2 {
-  font-size: 2.5rem;
+  font-size: 3rem;
   color: white;
 }
 
@@ -221,17 +224,17 @@ html body main .show-posts .nutrition-posts button:hover {
   background-color: whitesmoke;
 }
 
-html body main .homepage-events {
+html body main .homepage-classes {
   text-align: center;
   margin-top: 5em;
 }
 
-html body main .homepage-events h2 {
+html body main .homepage-classes h2 {
   font-size: 2.5rem;
   margin-bottom: 3em;
 }
 
-html body main .homepage-events .events-container {
+html body main .homepage-classes .classes-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -244,19 +247,18 @@ html body main .homepage-events .events-container {
   gap: 6em;
 }
 
-html body main .homepage-events .events-container .single-event h3 {
+html body main .homepage-classes .classes-container .single-class h3 {
   position: relative;
   top: 40%;
-  width: 30%;
+  width: 50%;
   margin: 0 auto;
-  font-size: 2rem;
+  font-size: 2.3rem;
+  font-weight: bolder;
   padding: 0.5em;
-  background-color: #778899;
-  opacity: 0.8;
   color: white;
 }
 
-html body main .homepage-events .events-container .yoga {
+html body main .homepage-classes .classes-container .yoga {
   background-image: url("../images/yoga.jpg");
   background-size: cover;
   background-position: center;
@@ -264,14 +266,15 @@ html body main .homepage-events .events-container .yoga {
   width: 45%;
   -webkit-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
+  opacity: 0.7;
 }
 
-html body main .homepage-events .events-container .yoga:hover {
+html body main .homepage-classes .classes-container .yoga:hover {
   cursor: pointer;
-  opacity: 0.85;
+  opacity: 0.8;
 }
 
-html body main .homepage-events .events-container .zumba {
+html body main .homepage-classes .classes-container .zumba {
   background-image: url("../images/zumba.jpg");
   background-size: cover;
   background-position: center;
@@ -279,14 +282,15 @@ html body main .homepage-events .events-container .zumba {
   width: 45%;
   -webkit-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
+  opacity: 0.7;
 }
 
-html body main .homepage-events .events-container .zumba:hover {
+html body main .homepage-classes .classes-container .zumba:hover {
   cursor: pointer;
-  opacity: 0.85;
+  opacity: 0.8;
 }
 
-html body main .homepage-events .events-container .outdoor {
+html body main .homepage-classes .classes-container .outdoor {
   background-image: url("../images/outdoor.jpg");
   background-size: cover;
   background-position: center;
@@ -294,14 +298,15 @@ html body main .homepage-events .events-container .outdoor {
   width: 45%;
   -webkit-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
+  opacity: 0.7;
 }
 
-html body main .homepage-events .events-container .outdoor:hover {
+html body main .homepage-classes .classes-container .outdoor:hover {
   cursor: pointer;
-  opacity: 0.85;
+  opacity: 0.8;
 }
 
-html body main .homepage-events .events-container .cycling {
+html body main .homepage-classes .classes-container .cycling {
   background-image: url("../images/cycling.jpg");
   background-size: cover;
   background-position: center;
@@ -309,11 +314,89 @@ html body main .homepage-events .events-container .cycling {
   width: 45%;
   -webkit-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
+  opacity: 0.7;
 }
 
-html body main .homepage-events .events-container .cycling:hover {
+html body main .homepage-classes .classes-container .cycling:hover {
   cursor: pointer;
-  opacity: 0.85;
+  opacity: 0.8;
+}
+
+html body main .our-history {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+html body main .our-history img {
+  width: 30%;
+  height: 20%;
+}
+
+html body main .homepage-events {
+  margin-top: 5em;
+}
+
+html body main .homepage-events .events-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto;
+  background-image: url("../images/events.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 40em;
+  width: 100vw;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+
+html body main .homepage-events .events-container a {
+  position: relative;
+  top: 40%;
+  width: 10em;
+  height: 10%;
+  text-align: center;
+  margin: 0 auto;
+  padding: 1.2em;
+  padding-top: 1.5em;
+  font-size: 2rem;
+  background-color: #778899;
+  opacity: 0.8;
+  color: white;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+}
+
+html body main .homepage-events .events-container a:hover {
+  cursor: pointer;
+  background-color: lightblue;
+}
+
+html body .page-container .single-event {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 3em;
+}
+
+html body .page-container .single-event .date-container {
+  background: darkblue;
+  width: 17em;
+  height: 5em;
+  border-radius: 50%;
+  margin-top: 0.5em;
+}
+
+html body .page-container .single-event .date-container p {
+  text-align: center;
+  padding-top: 0.7em;
+  color: white;
+  font-weight: bolder;
 }
 
 html body footer {
@@ -332,7 +415,7 @@ html body footer {
           align-items: center;
   width: 100%;
   padding: 1em;
-  background-color: #708090;
+  background: whitesmoke;
   height: 5em;
   position: relative;
   top: calc(100vh - 100px);

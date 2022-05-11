@@ -10,6 +10,57 @@
       </div>
   </section>
 
+  <section class="homepage-classes">
+    <h2>Our Classes</h2>
+    <div class="classes-container">
+      <?php 
+          // Create custom query for Nutrition posts
+          $homepageClasses = new WP_Query(array(
+            'post_type' => 'class',
+          ));
+
+          // Show event posts in the front page
+          while($homepageClasses->have_posts()) {
+            $homepageClasses->the_post(); 
+            if(get_the_title() === 'Yoga') {
+              ?> 
+              <div class="single-class yoga">
+                <h3><?php the_title(); ?></h3>
+              </div>
+            <?php 
+            } else if (get_the_title() == 'Zumba') {
+              ?>
+                <div class="single-class zumba">
+                  <h3><?php the_title(); ?></h3>
+                </div>
+              <?php 
+            } else if (get_the_title() == 'Outdoor'){
+            ?> 
+            <div class="single-class outdoor">
+              <h3><?php the_title(); ?></h3>
+            </div>
+            <?php 
+            } else {
+              ?> 
+              <div class="single-class cycling">
+                <h3><?php the_title(); ?></h3>
+              </div>
+            <?php 
+            }
+          } 
+          wp_reset_postdata();
+        ?>
+    </div>
+  </section>
+
+  <section class="our-history">
+    <?php
+      $img_src = get_template_directory_uri() . '/images/history.jpg';
+    ?>
+    <img src="<?php echo $img_src ?>">
+    <p>Text here</p>
+  </section>
+
   <section class="show-posts">
     <div class="workout-posts">
         <h2>Workout Plans</h2>
@@ -55,48 +106,9 @@
     </div>
   </section>
 
-  <section class="homepage-events">
-    <div>
-      <h2>Our Classes</h2>
-      <div class="events-container">
-        <?php 
-            // Create custom query for Nutrition posts
-            $homepageEvents = new WP_Query(array(
-              'post_type' => 'event',
-            ));
-
-            // Show event posts in the front page
-            while($homepageEvents->have_posts()) {
-              $homepageEvents->the_post(); 
-              if(get_the_title() === 'Yoga') {
-                ?> 
-                <div class="single-event yoga">
-                  <h3><?php the_title(); ?></h3>
-                </div>
-              <?php 
-              } else if (get_the_title() == 'Zumba') {
-                ?>
-                 <div class="single-event zumba">
-                   <h3><?php the_title(); ?></h3>
-                 </div>
-                <?php 
-              } else if (get_the_title() == 'Outdoor'){
-              ?> 
-              <div class="single-event outdoor">
-                <h3><?php the_title(); ?></h3>
-              </div>
-              <?php 
-              } else {
-                ?> 
-                <div class="single-event cycling">
-                  <h3><?php the_title(); ?></h3>
-                </div>
-              <?php 
-              }
-            } 
-            wp_reset_postdata();
-          ?>
-      </div>
+  <section class="homepage-events"> 
+    <div class="events-container">
+      <a href="<?php echo site_url('/events'); ?>">Events & More</a>
     </div>
   </section>
 

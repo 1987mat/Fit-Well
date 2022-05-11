@@ -15,16 +15,17 @@
 }
 
 html {
-  width: 100vw;
+  min-width: 100%;
   min-height: 100%;
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 
   body {
     font-family: 'Montserrat', sans-serif;
     margin-left: 0;
     min-height: 100vh;
-
-    // padding-bottom: 8em;
     margin-bottom: 8em;
 
     a {
@@ -101,7 +102,7 @@ html {
 
         .heading {
           h2 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             color: white;
           }
 
@@ -115,7 +116,7 @@ html {
           margin: 0 auto;
           margin-top: 15em;
           background-color: black;
-          opacity: 0.85;
+          opacity: 0.75;
           width: 40%;
           transition: all 0.2s ease-in;
 
@@ -194,7 +195,7 @@ html {
         }
       }
 
-      .homepage-events {
+      .homepage-classes {
         text-align: center;
         margin-top: 5em;
 
@@ -203,22 +204,21 @@ html {
           margin-bottom: 3em;
         }
 
-        .events-container {
+        .classes-container {
           display: flex;
           flex-wrap: wrap;
           justify-content: center;
           margin: 5em;
           gap: 6em;
 
-          .single-event h3 {
+          .single-class h3 {
             position: relative;
             top: 40%;
-            width: 30%;
+            width: 50%;
             margin: 0 auto;
-            font-size: 2rem;
+            font-size: 2.3rem;
+            font-weight: bolder;
             padding: 0.5em;
-            background-color: #778899;
-            opacity: 0.8;
             color: white;
           }
 
@@ -229,10 +229,11 @@ html {
             height: 25em;
             width: 45%;
             transition: all 0.2s ease-in;
+            opacity: 0.7;
 
             &:hover {
               cursor: pointer;
-              opacity: 0.85;
+              opacity: 0.8;
             }
           }
 
@@ -243,10 +244,11 @@ html {
             height: 25em;
             width: 45%;
             transition: all 0.2s ease-in;
+            opacity: 0.7;
 
             &:hover {
               cursor: pointer;
-              opacity: 0.85;
+              opacity: 0.8;
             }
           }
 
@@ -257,10 +259,11 @@ html {
             height: 25em;
             width: 45%;
             transition: all 0.2s ease-in;
+            opacity: 0.7;
 
             &:hover {
               cursor: pointer;
-              opacity: 0.85;
+              opacity: 0.8;
             }
           }
 
@@ -271,13 +274,83 @@ html {
             height: 25em;
             width: 45%;
             transition: all 0.2s ease-in;
+            opacity: 0.7;
 
             &:hover {
               cursor: pointer;
-              opacity: 0.85;
+              opacity: 0.8;
             }
           }
         }
+      }
+
+      .our-history {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+
+        img {
+          width: 30%;
+          height: 20%;
+        }
+      }
+
+      .homepage-events {
+        margin-top: 5em;
+
+        .events-container {
+          display: flex;
+          margin: 0 auto;
+          background-image: url('../images/events.jpg');
+          background-size: cover;
+          background-position: center;
+          height: 40em;
+          width: 100vw;
+          transition: all 0.2s ease-in;
+
+          a {
+            position: relative;
+            top: 40%;
+            width: 10em;
+            height: 10%;
+            text-align: center;
+            margin: 0 auto;
+            padding: 1.2em;
+            padding-top: 1.5em;
+            font-size: 2rem;
+            background-color: #778899;
+            opacity: 0.8;
+            color: white;
+            transition: all 0.3s ease-in;
+
+            &:hover {
+              cursor: pointer;
+              background-color: lightblue;
+            }
+          }
+        }
+      }
+    }
+
+    .page-container {
+      .single-event {
+        .date-container {
+          background: darkblue;
+          width: 17em;
+          height: 5em;
+          border-radius: 50%;
+          margin-top: 0.5em;
+
+          p {
+            text-align: center;
+            padding-top: 0.7em;
+            color: white;
+            font-weight: bolder;
+          }
+        }
+
+        display: flex;
+        gap: 3em;
       }
     }
 
@@ -291,7 +364,7 @@ html {
       align-items: center;
       width: 100%;
       padding: 1em;
-      background-color: #708090;
+      background: whitesmoke;
       height: 5em;
       position: relative;
       top: calc(100vh - 100px);
