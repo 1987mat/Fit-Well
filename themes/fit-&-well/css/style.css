@@ -322,19 +322,41 @@ html body main .homepage-classes .classes-container .cycling:hover {
   opacity: 0.8;
 }
 
-html body main .our-history {
+html body main .history-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+html body main .history-section h2 {
+  font-size: 2.5rem;
+}
+
+html body main .history-section .our-history {
   text-align: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin: 5em;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  gap: 2em;
 }
 
-html body main .our-history img {
-  width: 30%;
-  height: 20%;
+html body main .history-section .our-history img {
+  width: 40%;
+  height: 30%;
 }
 
 html body main .homepage-events {
@@ -359,11 +381,11 @@ html body main .homepage-events .events-container a {
   position: relative;
   top: 40%;
   width: 10em;
-  height: 10%;
+  height: 5%;
   text-align: center;
   margin: 0 auto;
   padding: 1.2em;
-  padding-top: 1.5em;
+  padding-top: 1em;
   font-size: 2rem;
   background-color: #778899;
   opacity: 0.8;
