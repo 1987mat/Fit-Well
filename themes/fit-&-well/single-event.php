@@ -7,9 +7,12 @@ while(have_posts()) {
 
   <div class="page-container">
     <h2><?php the_title();?></h2>
+    <p><?php the_time('F j y'); ?></p>
+    <hr>
+
 
     <div class="metabox">
-        <a href="<?php echo site_url('/events'); ?>">Events Home</a>
+        <a href="<?php echo get_post_type_archive_link('event'); ?>">Go Back</a>
     </div>
   
     <div class="generic-content">

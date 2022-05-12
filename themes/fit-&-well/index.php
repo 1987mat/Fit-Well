@@ -1,8 +1,8 @@
 <?php get_header(); ?>
 
 <div class="blog-section"> 
-  <h1>Welcome to our blog!</h1>
-  <p>Keep up with the latest news.</p>
+  <h1>Welcome to our blog</h1>
+  <p>Keep up with the latest news</p>
 </div>
 
 <div class="page-container"> 

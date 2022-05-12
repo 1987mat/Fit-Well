@@ -16,7 +16,10 @@
       <?php 
           // Create custom query for Class posts
           $homepageClasses = new WP_Query(array(
+            'post_per_page' => -1,
             'post_type' => 'class',
+            'orderby' => 'title',
+            'order' => 'ASC'
           ));
 
           // Show class posts in the front page
@@ -94,7 +97,7 @@
 
   <section class="homepage-events"> 
     <div class="events-container">
-      <a href="<?php echo site_url('/events'); ?>">Events & More</a>
+      <a href="<?php echo get_post_type_archive_link('event'); ?>">Events & More</a>
     </div>
   </section>
 

@@ -39,7 +39,7 @@ html {
       top: 0;
       left: 0;
       width: 100%;
-      height: 2em;
+      height: 2.5em;
       padding: 1.5em;
       margin-bottom: 10em;
       z-index: 2;
@@ -345,18 +345,69 @@ html {
       }
     }
 
+    .blog-section {
+      h1 {
+        font-size: 2.5rem;
+      }
+    }
+
+    // CONTACT PAGE
+    .form-container {
+      margin: 6em;
+      display: flex;
+      flex-direction: column;
+      justify-self: center;
+      align-items: center;
+
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      .contact-form {
+        display: flex;
+        flex-direction: column;
+
+        button {
+          margin: 0.5em;
+          padding: 1em;
+          border-radius: 5px;
+          border: none;
+          font-weight: bold;
+          height: 3.5em;
+          transition: all 0.2s ease-in;
+
+          &:hover {
+            cursor: pointer;
+            background-color: #f0f8ff;
+          }
+
+          &:active {
+            transform: translateY(-2px);
+          }
+        }
+
+        input,
+        textarea {
+          border-top: none;
+          border-radius: 5px;
+          margin: 0.5em;
+          padding: 1em;
+        }
+      }
+    }
+
     .page-container {
       .single-event {
         .date-container {
           background: darkblue;
-          width: 17em;
+          width: 5em;
           height: 5em;
           border-radius: 50%;
           margin-top: 0.5em;
 
           p {
             text-align: center;
-            padding-top: 0.7em;
+            padding: 0.5em;
             color: white;
             font-weight: bolder;
           }
@@ -376,15 +427,30 @@ html {
       justify-content: center;
       align-items: center;
       width: 100%;
+      height: 5.5em;
       padding: 1em;
       background: whitesmoke;
-      height: 5em;
       position: relative;
       top: calc(100vh - 100px);
       left: 0;
       bottom: 0;
 
-      ion-icon {
+      i {
+        margin: 0.2em;
+      }
+
+      .fa-facebook-official {
+        color: #00008b;
+        font-size: 2rem;
+      }
+
+      .fa-instagram {
+        color: red;
+        font-size: 2rem;
+      }
+
+      .fa-twitter {
+        color: lightblue;
         font-size: 2rem;
       }
     }
