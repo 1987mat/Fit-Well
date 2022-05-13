@@ -5,25 +5,31 @@
   get_header();
 ?>
 
+<div class="posts-container">
 
-<h1>Workouts</h1>
 
-<?php 
+  <h1>Workouts</h1>
+  <ul>
 
-$workouts = new WP_Query(array(
-  'post_type' => 'workout',
-  'post_per_page' => 3,
-  'order' => 'ASC'
-));
+  <?php 
 
-while($workouts->have_posts()) {
-  $workouts->the_post(); ?>
+  $workouts = new WP_Query(array(
+    'post_type' => 'workout',
+    'post_per_page' => 3,
+    'order' => 'ASC'
+  ));
 
-  <li><a href="<?php the_permalink(); ?>"><?php the_title();?></a></li>
-  <p><?php the_content();?></p>
+  while($workouts->have_posts()) {
+    $workouts->the_post(); ?>
+    
+    <li><a href="<?php the_permalink(); ?>"><?php the_title();?></a></li>
+    <p><?php the_content();?></p>
+  
+  <?php }
+  ?>
 
-<?php }
-?>
+  </ul>
+</div>
 
 
 <?php get_footer(); ?>

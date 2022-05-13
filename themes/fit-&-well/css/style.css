@@ -483,6 +483,19 @@ html body .page-container .single-event .date-container p {
   font-weight: bolder;
 }
 
+html body .posts-container {
+  margin: 8em;
+}
+
+html body .posts-container h1 {
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+html body .related-post {
+  margin: 3em;
+}
+
 html body footer {
   display: -webkit-box;
   display: -ms-flexbox;

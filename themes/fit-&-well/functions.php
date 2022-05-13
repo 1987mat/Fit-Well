@@ -24,8 +24,6 @@ function site_features() {
   // register_nav_menu('footerLocationTwo', 'Footer Location Two');
 }
 
-
-
 add_action('after_setup_theme', 'site_features');
 
 
@@ -44,3 +42,32 @@ function add_module_to_script($tag, $handle, $src) {
 }
 
 add_filter('script_loader_tag', 'add_module_to_script', 10, 3);
+
+function adjust_queries($query) {
+
+  // Customize  post type 'workout'
+  if(!is_admin() && is_post_type_archive('workout') && $query->is_main_query()) {
+    $query->set('orderby', 'title');
+    $query->set('order', 'ASC');
+    $query->set('posts_per_page', -1);
+  }
+
+  // Customize post type 'event'
+  if(!is_admin() && is_post_type_archive('event') && $query->is_main_query()) {
+    $today = date('Y-m-d');
+    $query->set('orderby','post_date');
+    $query->set('order','ASC');
+    $query->set('meta_query',array(
+      array(
+        'key' => 'event_date',
+        'compare' => '>=',
+        'value' => $today,
+        'type' => 'numeric'
+      )
+    ));
+
+    
+  }
+}
+
+add_action('pre_get_posts', 'adjust_queries');

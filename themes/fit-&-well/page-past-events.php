@@ -1,18 +1,19 @@
 <?php get_header(); ?>
 
 <div class="blog-section"> 
-  <h1>Upcoming Events</h1>
-  <p>Come join us!</p>
+  <h1>Past Events</h1>
+  <p>A recap of our past events.</p>
   <p><?php the_archive_description(); ?></p>
 </div>
 
 <div class="page-container"> 
 
   <?php 
-  
+    
   $today = date('Y-m-d');
-  $events = new WP_Query(array(
-    'posts_per_page' => 2,
+  $pastEvents = new WP_Query(array(
+    // Pagination
+    'paged' => get_query_var('paged', 1),
     'post_type' => 'event',
     'orderby' => 'post_date',
     'order' => 'ASC',
@@ -20,15 +21,15 @@
     'meta_query' => array(
       array(
         'key' => 'event_date',
-        'compare' => '>=',
+        'compare' => '<',
         'value' => $today,
         'type' => 'numeric'
       )
     )
   ));
 
-  while($events->have_posts()) {
-    $events->the_post(); ?>
+  while($pastEvents->have_posts()) {
+    $pastEvents->the_post(); ?>
 
     <div class="single-event">
       <div class="date-container">
@@ -46,14 +47,13 @@
 
   <?php }
   
-  echo paginate_links();
+  echo paginate_links(array(
+    'total' => $pastEvents->max_num_pages
+  ));
 
   ?> 
 
-  <hr>
-
-  <p>Looking for a recap of past events? <a href="<?php echo site_url('/past-events');?>">Check out our past events!</a></p>
-
+  <a href="<?php echo get_post_type_archive_link('event');?>">Go Back</a>
 
 </div>
 

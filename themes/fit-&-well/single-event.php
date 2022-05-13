@@ -19,6 +19,27 @@ while(have_posts()) {
       <?php the_content(); ?>
     </div>
 
+    <?php 
+
+      // Get the 'Event' Pod
+      $pod = pods( 'event', get_the_id() );
+      // Get the related field related_workouts
+      $relatedWorkouts = $pod->field( 'related_workouts' );
+
+      // If the array is not empty
+      if ( ! empty( $relatedWorkouts ) ) {
+        foreach ( $relatedWorkouts as $rel ) {
+          // Get the ID 
+          $id = $rel[ 'ID' ];
+
+          // Display link with the related post's title
+          echo '<a class="related-post" href="'.esc_url( get_permalink( $id ) ).'">'.get_the_title( $id ).'</a>';
+        }
+      
+      }
+    
+    ?>
+
   </div>
 
 <?php } 
