@@ -397,6 +397,12 @@ html {
     }
 
     .page-container {
+      margin-bottom: 5em;
+      .generic-content {
+        margin-top: 5em;
+        display: flex;
+        gap: 2em;
+      }
       .single-event {
         .date-container {
           background: darkblue;

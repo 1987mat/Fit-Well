@@ -71,28 +71,6 @@
         ?>
        <a href="<?php echo site_url('/workout'); ?>"> <button>View Workouts</button></a>
     </div>
-
-    <div class="nutrition-posts">
-      <h2>Nutrition & Diets</h2>
-      <hr>
-      <?php 
-          // Create custom query for Nutrition posts
-          $homepageNutrition = new WP_Query(array(
-            'post_type' => 'nutrition',
-            'post_per_page' => 4,
-            'order' => 'ASC'
-          ));
-
-          // Show nutrition posts in the front page
-          while($homepageNutrition->have_posts()) {
-            $homepageNutrition->the_post(); ?>
-            <li <?php echo 'class="post-title-style"';?>><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
-            <p <?php echo 'class="post-text"';?>><?php echo wp_trim_words(get_the_content(), 30); ?><a href="<?php the_permalink(); ?>">Read More</p>
-          <?php } wp_reset_postdata();
-        ?>
-       <a href="<?php echo site_url('/nutrition'); ?>"> <button>View All Diets</button></a>
-
-    </div>
   </section>
 
   <section class="homepage-events"> 

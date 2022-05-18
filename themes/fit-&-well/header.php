@@ -20,7 +20,7 @@
         <ul>
           <li <?php if(is_page('about') or wp_get_post_parent_id(0) == 16) echo 'class="current-menu-item"'?>><a href="<?php echo site_url('/about'); ?>">About</a></li?>
           <li <?php if(get_post_type() == 'workout') echo 'class="current-menu-item"'?>><a href="<?php echo get_post_type_archive_link('workout'); ?>">Workouts</a></li>
-          <li <?php if(get_post_type() == 'nutrition') echo 'class="current-menu-item"'?>><a href="<?php echo get_post_type_archive_link('nutrition'); ?>">Nutrition</a></li>
+          <li <?php if(get_post_type() == 'class') echo 'class="current-menu-item"'?>><a href="<?php echo get_post_type_archive_link('class'); ?>">Classes</a></li>
           <li <?php if(get_post_type() == 'event' or is_page('past-events')) echo 'class="current-menu-item"'?>><a href="<?php echo get_post_type_archive_link('event'); ?>">Events</a></li?>
           <li <?php if(get_post_type() == 'post') echo 'class="current-menu-item"'?>><a href="<?php echo site_url('/blog'); ?>">Blog</a></li?>
           <li <?php if(is_page('contact') or wp_get_post_parent_id(0) == 2) echo 'class="current-menu-item"'?>><a href="<?php echo site_url('/contact'); ?>">Contact</a></li>

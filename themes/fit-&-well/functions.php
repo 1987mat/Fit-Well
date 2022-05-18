@@ -18,6 +18,9 @@ add_action('wp_enqueue_scripts', 'loadJS');
 function site_features() {
   // Create title for each page
   add_theme_support('title-tag');
+  // Enable feature images
+  add_theme_support('post-thumbnails');
+
   // Add header menu option in the admin bar
   // register_nav_menu('headerMenuLocation', 'Header Menu Location');
   // register_nav_menu('footerLocationOne', 'Footer Location One');

@@ -461,6 +461,18 @@ html body .form-container .contact-form textarea {
   padding: 1em;
 }
 
+html body .page-container {
+  margin-bottom: 5em;
+}
+
+html body .page-container .generic-content {
+  margin-top: 5em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 2em;
+}
+
 html body .page-container .single-event {
   display: -webkit-box;
   display: -ms-flexbox;

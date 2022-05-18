@@ -7,22 +7,24 @@ while(have_posts()) {
 
   <div class="page-container">
     <h2><?php the_title();?></h2>
-    <p><?php the_time('F j y'); ?></p>
-    <hr>
-
-
     <div class="metabox">
-        <a href="<?php echo get_post_type_archive_link('event'); ?>">Go Back</a>
+        <a href="<?php echo get_post_type_archive_link('class'); ?>">Go Back</a>
     </div>
-  
+
     <div class="generic-content">
-      <?php the_content(); ?>
+      <div class="one-third">
+        <?php the_post_thumbnail('medium'); ?>
+      </div>
+
+      <div class="two-thirds">
+        <?php the_content(); ?>
+      </div>
     </div>
 
     <?php 
 
       // Get the 'Event' Pod
-      $pod = pods( 'event', get_the_id() );
+      $pod = pods( 'class', get_the_id() );
       // Get the related field related_workouts
       $relatedWorkouts = $pod->field( 'related_workouts' );
 
@@ -41,15 +43,9 @@ while(have_posts()) {
                 </li>';
         }
         echo '</ul>';
-
-      
       }
-    
     ?>
-
   </div>
-
-<?php } 
-
-
+<?php }
 get_footer();
+?>
