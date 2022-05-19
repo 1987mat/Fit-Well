@@ -189,41 +189,6 @@ html body main .show-posts .workout-posts button:hover {
   background-color: whitesmoke;
 }
 
-html body main .show-posts .nutrition-posts {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 1em;
-  background-color: whitesmoke;
-  color: #000000;
-}
-
-html body main .show-posts .nutrition-posts button {
-  font-size: 1rem;
-  margin-top: 2em;
-  border-radius: 5px;
-  border: none;
-  background-color: lightgray;
-  padding: 1em;
-  -webkit-transition: all 0.2s ease-in;
-  transition: all 0.2s ease-in;
-}
-
-html body main .show-posts .nutrition-posts button:hover {
-  cursor: pointer;
-  background-color: whitesmoke;
-}
-
 html body main .homepage-classes {
   text-align: center;
   margin-top: 5em;
@@ -465,12 +430,61 @@ html body .page-container {
   margin-bottom: 5em;
 }
 
+html body .page-container .workout-post-image {
+  width: 40%;
+}
+
 html body .page-container .generic-content {
   margin-top: 5em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   gap: 2em;
+}
+
+html body .page-container .link-list li {
+  list-style-type: none;
+}
+
+html body .page-container .link-list li a {
+  position: relative;
+  display: inline-block;
+}
+
+html body .page-container .link-list li a .related-post-container {
+  width: 30em;
+  height: 22em;
+}
+
+html body .page-container .link-list li a .related-post-container img {
+  display: block;
+  width: 30em;
+  height: 22em;
+}
+
+html body .page-container .link-list li a .related-post-container .text-overlay {
+  position: absolute;
+  text-align: center;
+  bottom: 0;
+  background-color: #f0f8ff;
+  width: 100%;
+  height: 20%;
+  opacity: 0;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+
+html body .page-container .link-list li a .related-post-container .text-overlay h3 {
+  font-size: 1rem;
+  padding-top: 0.5em;
+}
+
+html body .page-container .link-list li a:hover {
+  cursor: pointer;
+}
+
+html body .page-container .link-list li a:hover .text-overlay {
+  opacity: 0.9;
 }
 
 html body .page-container .single-event {

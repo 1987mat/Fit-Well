@@ -20,6 +20,9 @@ function site_features() {
   add_theme_support('title-tag');
   // Enable feature images
   add_theme_support('post-thumbnails');
+  // Handle image sizes
+  add_image_size('landscape', '400', '260', true);
+  add_image_size('portrait', '480', '650', true);
 
   // Add header menu option in the admin bar
   // register_nav_menu('headerMenuLocation', 'Header Menu Location');

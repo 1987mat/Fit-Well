@@ -6,9 +6,16 @@ while(have_posts()) {
   the_post(); ?>
 
   <div class="page-container">
-    <h2><?php the_title();?></h2>
+    <h2><?php the_title();?></h2>      
+    <p><?php echo get_post_meta($post->ID, 'subtitle', true); ?></p>
+    
     <div class="metabox">
         <a href="<?php echo get_post_type_archive_link('workout'); ?>">All Workouts</a>
+    </div>
+
+    <div>
+      <!-- Display image from pods custom field -->
+      <img class="workout-post-image" src="<?php echo pods_field_display( 'image' );?>" alt="workout-image">  
     </div>
   
     <div class="generic-content">
@@ -42,10 +49,6 @@ while(have_posts()) {
         <div class="single-class">
           <div class="class-info">
             <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-            <div class="generic-content">
-              <p><?php the_excerpt(); ?></p>
-              <p><a href="<?php the_permalink(); ?>">Continue reading &raquo;</a></p>
-            </div>
           </div>
         </div>
       <?php 

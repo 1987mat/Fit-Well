@@ -168,31 +168,6 @@ html {
             }
           }
         }
-
-        .nutrition-posts {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          padding: 1em;
-          background-color: whitesmoke;
-          color: #000000;
-
-          button {
-            font-size: 1rem;
-            margin-top: 2em;
-            border-radius: 5px;
-            border: none;
-            background-color: lightgray;
-            padding: 1em;
-            transition: all 0.2s ease-in;
-
-            &:hover {
-              cursor: pointer;
-              background-color: whitesmoke;
-            }
-          }
-        }
       }
 
       .homepage-classes {
@@ -398,10 +373,60 @@ html {
 
     .page-container {
       margin-bottom: 5em;
+
+      .workout-post-image {
+        width: 40%;
+      }
+
       .generic-content {
         margin-top: 5em;
         display: flex;
         gap: 2em;
+      }
+
+      .link-list {
+        li {
+          list-style-type: none;
+
+          a {
+            position: relative;
+            display: inline-block;
+
+            .related-post-container {
+              width: 30em;
+              height: 22em;
+              img {
+                display: block;
+                width: 30em;
+                height: 22em;
+              }
+
+              .text-overlay {
+                position: absolute;
+                text-align: center;
+                bottom: 0;
+                background-color: #f0f8ff;
+                width: 100%;
+                height: 20%;
+                opacity: 0;
+                transition: all 0.2s ease-in;
+
+                h3 {
+                  font-size: 1rem;
+                  padding-top: 0.5em;
+                }
+              }
+            }
+
+            &:hover {
+              cursor: pointer;
+
+              .text-overlay {
+                opacity: 0.9;
+              }
+            }
+          }
+        }
       }
       .single-event {
         .date-container {
@@ -424,7 +449,7 @@ html {
       }
     }
 
-    // Workouts & Nutrition Pages
+    // Workouts Page
     .posts-container {
       margin: 8em;
 

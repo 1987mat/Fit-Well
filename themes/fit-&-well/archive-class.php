@@ -7,6 +7,7 @@
 
   <?php 
 
+
   $classes = new WP_Query(array(
     'post_type' => 'class',
     'post_per_page' => -1,

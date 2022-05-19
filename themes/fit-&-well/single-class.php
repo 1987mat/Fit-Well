@@ -13,7 +13,7 @@ while(have_posts()) {
 
     <div class="generic-content">
       <div class="one-third">
-        <?php the_post_thumbnail('medium'); ?>
+        <?php the_post_thumbnail('portrait'); ?>
       </div>
 
       <div class="two-thirds">
@@ -36,11 +36,19 @@ while(have_posts()) {
         foreach ( $relatedWorkouts as $rel ) {
           // Get the ID 
           $id = $rel[ 'ID' ];
-
-          // Display link with the related post's title
-          echo '<li>
-                  <a class="related-post" href="'.esc_url( get_permalink( $id ) ).'">'.get_the_title( $id ).'</a>
-                </li>';
+          // Display link with the related workout post based on the id
+          ?>  
+          <li>
+            <a class="related-post" href="<?php echo get_permalink( $id ) ?>">
+              <div class="related-post-container">
+                <img class="related-workout-image" src="<?php echo get_the_post_thumbnail_url($id);?>">
+                <div class="text-overlay">
+                  <h3 class="related-workout-title"><?php echo get_the_title($id) ;?></h3>
+                </div>
+              </div>    
+            </a>
+          </li>
+          <?php 
         }
         echo '</ul>';
       }
