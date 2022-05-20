@@ -3,10 +3,12 @@
 get_header();
 
 while(have_posts()) {
-  the_post(); ?>
+  the_post(); 
+  ?>
 
   <div class="page-container">
-    <h2><?php the_title();?></h2>      
+
+  <h2><?php the_title();?></h2>      
     <p><?php echo get_post_meta($post->ID, 'subtitle', true); ?></p>
     
     <div class="metabox">
@@ -17,7 +19,7 @@ while(have_posts()) {
       <!-- Display image from pods custom field -->
       <img class="workout-post-image" src="<?php echo pods_field_display( 'image' );?>" alt="workout-image">  
     </div>
-  
+
     <div class="generic-content">
       <?php the_content(); ?>
     </div>

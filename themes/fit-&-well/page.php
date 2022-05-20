@@ -7,16 +7,20 @@ get_header(); ?>
 <?php
 
 while(have_posts()) {
-  the_post(); ?>
+  the_post(); 
+  pageBanner(); 
 
-  <h1><?php the_title(); ?> </h1>
-  
-  <?php 
+  if(pods_field_display( 'image' )){
+    echo 'exist';
+  } else {
+    echo 'no exist';
+  };
+ 
   $theParent = wp_get_post_parent_id(get_the_ID());
   // If the current page has a parent page show the navigation link
     if($theParent) {
       ?> 
-      <div class="meta-box">
+      <div class="metabox">
         <a href="<?php echo get_permalink($theParent); ?>">Go Back To <?php echo get_the_title($theParent);?></a>
         <p><?php the_title(); ?>
       </div>

@@ -5,8 +5,7 @@
 <div class="posts-container">
   <h1>Classes</h1>
 
-  <?php 
-
+  <?php
 
   $classes = new WP_Query(array(
     'post_type' => 'class',
@@ -15,7 +14,13 @@
   ));
 
   while($classes->have_posts()) {
-    $classes->the_post(); ?>
+    $classes->the_post(); 
+
+    $sub = get_post_meta($post->ID, 'subtitle', TRUE);
+    echo $sub;
+  
+    ?>
+
 
     <h2><a href="<?php the_permalink();?>"><?php the_title();?></a></h2>
     <p><?php the_content();?></p>

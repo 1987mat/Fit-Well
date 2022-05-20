@@ -5,10 +5,11 @@
   <p>Keep up with the latest news</p>
 </div>
 
-<div class="page-container"> 
+<div class="page-container">
 
   <?php while(have_posts()) {
-    the_post(); ?>
+    the_post(); 
+    ?>
 
     <div class="single-post">
 

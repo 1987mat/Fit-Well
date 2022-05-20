@@ -11,8 +11,6 @@
   <h1>Workouts</h1>
   <?php
   
- 
-
   ?>
  
   <ul>
@@ -25,7 +23,8 @@
     ));
 
     while($workouts->have_posts()) {
-      $workouts->the_post(); ?>
+      $workouts->the_post();    
+    ?>
       
       <li><a href="<?php the_permalink(); ?>"><?php the_title();?></a></li>
       <p><?php the_content();?></p>

@@ -1,5 +1,37 @@
 <?php
 
+// Display title, subtitle and image for pages
+function pageBanner($args = NULL) {
+
+  // Set title
+  if(!$args['title']) {
+    $args['title'] = get_the_title();
+  }
+
+  // Set subtitle
+  if(!$args['subtitle']) {
+    $args['subtitle'] = get_post_meta(get_the_ID(), 'subtitle', true);
+  }
+
+  // Set image
+  if (!$args['photo']) {
+    if (pods_field_display( 'image' ) AND !is_archive() AND !is_home() ) {
+      $args['photo'] = pods_field_display( 'image' );
+    } else {
+      $args['photo'] = get_theme_file_uri('/images/events.jpg');
+    }
+  }
+
+  ?>
+
+  <div>
+    <h1><?php echo $args['title']; ?></h1>
+    <p><?php echo $args['subtitle'];?></p>
+    <img src="<?php echo $args['photo'];?>">
+  </div>
+<?php
+}
+
 function loadCSS() {
   wp_register_style('style', get_template_directory_uri() . '/css/style.css');
   wp_enqueue_style('style');
