@@ -11,8 +11,7 @@ get_header();
       <input type="text" placeholder="First Name" required>
       <input type="text" placeholder="Last Name" required>
       <input type="email" placeholder="Email" required>
-      <textarea maxlength="30" placeholder="Your comments here..." required>
-      </textarea>
+      <textarea maxlength="30" placeholder="Your comments here..." required></textarea>
       <button class="submit-btn" type="submit">SUBMIT</button>
     </form>
   </div>

@@ -363,6 +363,7 @@ html {
 
         input,
         textarea {
+          font-family: 'Montserrat', sans-serif;
           border-top: none;
           border-radius: 5px;
           margin: 0.5em;
@@ -444,6 +445,7 @@ html {
       }
     }
 
+    // MAP
     .mapp-layout {
       position: relative;
       z-index: 1;
@@ -552,13 +554,11 @@ html {
       left: 0;
       right: 0;
       bottom: 0;
-      transition: 0.2s;
       opacity: 0.97;
 
       &--active {
         display: block;
         visibility: visible;
-        transition: all 0.3s;
       }
 
       .search-overlay-top {
@@ -584,7 +584,7 @@ html {
             font-weight: 300;
             color: #000000;
             outline: none;
-            padding-left: 0.5em;
+            padding-left: 1.2em;
 
             &::placeholder {
               font-size: 1.8rem;
@@ -595,7 +595,7 @@ html {
 
           .fa-search {
             margin-top: 0.5em;
-            margin-right: -0.5em;
+            margin-right: -2em;
             font-size: 1.2rem;
             color: #000000;
           }
@@ -611,13 +611,9 @@ html {
         }
 
         #search-results {
-          margin-top: 50px;
+          margin-top: 10em;
         }
       }
-    }
-
-    .body-no-scroll {
-      overflow: hidden;
     }
 
     // Loading Spinner
@@ -636,16 +632,16 @@ html {
 
       &::before {
         animation: 2s linear infinite spinner;
-        border: solid 3px #00008b;
+        border: solid 4px #00008b;
         border-bottom-color: #f0f8ff;
         border-radius: 50%;
         content: '';
-        height: 40px;
-        left: 50%;
+        height: 3em;
+        width: 3em;
         position: absolute;
         top: 10%;
+        left: 50%;
         transform: translate3d(-50%, -50%, 0);
-        width: 40px;
       }
     }
 

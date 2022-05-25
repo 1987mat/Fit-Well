@@ -420,6 +420,7 @@ html body .form-container .contact-form button:active {
 
 html body .form-container .contact-form input,
 html body .form-container .contact-form textarea {
+  font-family: 'Montserrat', sans-serif;
   border-top: none;
   border-radius: 5px;
   margin: 0.5em;
@@ -630,16 +631,12 @@ html body .search-overlay {
   left: 0;
   right: 0;
   bottom: 0;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
   opacity: 0.97;
 }
 
 html body .search-overlay--active {
   display: block;
   visibility: visible;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
 }
 
 html body .search-overlay .search-overlay-top {
@@ -672,7 +669,7 @@ html body .search-overlay .search-overlay-top .search-container .search-input {
   font-weight: 300;
   color: #000000;
   outline: none;
-  padding-left: 0.5em;
+  padding-left: 1.2em;
 }
 
 html body .search-overlay .search-overlay-top .search-container .search-input::-webkit-input-placeholder {
@@ -701,7 +698,7 @@ html body .search-overlay .search-overlay-top .search-container .search-input::p
 
 html body .search-overlay .search-overlay-top .search-container .fa-search {
   margin-top: 0.5em;
-  margin-right: -0.5em;
+  margin-right: -2em;
   font-size: 1.2rem;
   color: #000000;
 }
@@ -716,11 +713,7 @@ html body .search-overlay .search-overlay-top .search-container .fa-window-close
 }
 
 html body .search-overlay .search-overlay-top #search-results {
-  margin-top: 50px;
-}
-
-html body .body-no-scroll {
-  overflow: hidden;
+  margin-top: 10em;
 }
 
 @-webkit-keyframes spinner {
@@ -753,17 +746,17 @@ html body .spinner {
 html body .spinner::before {
   -webkit-animation: 2s linear infinite spinner;
           animation: 2s linear infinite spinner;
-  border: solid 3px #00008b;
+  border: solid 4px #00008b;
   border-bottom-color: #f0f8ff;
   border-radius: 50%;
   content: '';
-  height: 40px;
-  left: 50%;
+  height: 3em;
+  width: 3em;
   position: absolute;
   top: 10%;
+  left: 50%;
   -webkit-transform: translate3d(-50%, -50%, 0);
           transform: translate3d(-50%, -50%, 0);
-  width: 40px;
 }
 
 html body .blog-section {
