@@ -1,17 +1,12 @@
 <?php 
-
-/* Template Name: Custom Archive Page Workout */
-
   get_header();
-
 ?>
 
 <div class="posts-container">
-
-  <h1>Workouts</h1>
-  <?php
-  
-  ?>
+  <?php pageBanner(array(
+    'title' => 'Workouts',
+    'subtitle' => 'Choose your plan!'
+  ));  ?>
  
   <ul>
     <?php 
@@ -23,16 +18,10 @@
     ));
 
     while($workouts->have_posts()) {
-      $workouts->the_post();    
-    ?>
-      
-      <li><a href="<?php the_permalink(); ?>"><?php the_title();?></a></li>
-      <p><?php the_content();?></p>
-    
-    <?php 
+      $workouts->the_post(); 
+      get_template_part('content', 'event');      
     }
     ?>
-
   </ul>
 </div>
 

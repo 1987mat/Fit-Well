@@ -1,9 +1,12 @@
 <?php get_header(); ?>
 
 <div class="blog-section"> 
-  <h1>Past Events</h1>
-  <p>A recap of our past events.</p>
-  <p><?php the_archive_description(); ?></p>
+<?php 
+    pageBanner(array(
+      'title' => 'Past Events',
+      'subtitle' => 'A recap of our past events.'
+    ));
+  ?>
 </div>
 
 <div class="page-container"> 
@@ -29,23 +32,10 @@
   ));
 
   while($pastEvents->have_posts()) {
-    $pastEvents->the_post(); ?>
-
-    <div class="single-event">
-      <div class="date-container">
-        <!-- Show date from Pods custom field -->
-        <p><?php echo get_post_meta( get_the_ID(), 'event_date', true );?></p>
-      </div>
-      <div class="event-info">
-        <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-        <div class="generic-content">
-          <p><?php the_excerpt(); ?></p>
-          <p><a href="<?php the_permalink(); ?>">Continue reading &raquo;</a></p>
-        </div>
-      </div>
-    </div>
-
-  <?php }
+    $pastEvents->the_post(); 
+    get_template_part('content', 'event');   
+  
+  }
   
   echo paginate_links(array(
     'total' => $pastEvents->max_num_pages

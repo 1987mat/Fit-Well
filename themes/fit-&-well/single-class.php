@@ -6,7 +6,8 @@ while(have_posts()) {
   the_post(); ?>
 
   <div class="page-container">
-    <h2><?php the_title();?></h2>
+    <?php pageBanner(); ?>
+    
     <div class="metabox">
         <a href="<?php echo get_post_type_archive_link('class'); ?>">Go Back</a>
     </div>

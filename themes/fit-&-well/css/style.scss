@@ -20,13 +20,13 @@ html {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
 
   body {
     font-family: 'Montserrat', sans-serif;
     margin-left: 0;
     min-height: 100vh;
     margin-bottom: 8em;
+    overflow-x: hidden;
 
     a {
       @include linkStyle();
@@ -42,7 +42,7 @@ html {
       height: 2.5em;
       padding: 1.5em;
       margin-bottom: 10em;
-      z-index: 2;
+      z-index: 5;
 
       .container {
         height: 3em;
@@ -72,7 +72,7 @@ html {
           }
         }
 
-        .header-util a {
+        .header-util i {
           font-size: 0.8rem;
 
           &:hover {
@@ -444,6 +444,11 @@ html {
       }
     }
 
+    .mapp-layout {
+      position: relative;
+      z-index: 1;
+    }
+
     // Workouts Page
     .posts-container {
       margin: 8em;
@@ -542,62 +547,72 @@ html {
       height: 100vh;
       visibility: hidden;
       position: fixed;
-      z-index: 3;
+      z-index: 10;
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
-      opacity: 0.9;
+      transition: 0.2s;
+      opacity: 0.97;
 
       &--active {
+        display: block;
         visibility: visible;
+        transition: all 0.3s;
       }
 
-      .search-container {
+      .search-overlay-top {
+        background-color: #778899;
+        height: 5em;
         position: relative;
-        left: 15%;
-        bottom: 20px;
-      }
+        top: -2;
+        width: 100%;
+        opacity: 0.7;
 
-      .search-input {
-        width: 75%;
-        box-sizing: border-box;
-        border: none;
-        background: transparent;
-        position: relative;
-        top: 30px;
-        left: 80px;
-        padding: 15px 0;
-        margin: 0;
-        background-color: transparent;
-        font-size: 40px;
-        font-weight: 300;
-        outline: none;
+        .search-container {
+          display: flex;
+          justify-content: center;
+          gap: 1em;
+          padding: 1em;
 
-        &::placeholder {
-          font-size: 25px;
-          padding-left: 5px;
+          .search-input {
+            width: 75%;
+            box-sizing: border-box;
+            border: none;
+            background: transparent;
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: #000000;
+            outline: none;
+            padding-left: 0.5em;
+
+            &::placeholder {
+              font-size: 1.8rem;
+              padding-left: 0.5em;
+              color: #000000;
+            }
+          }
+
+          .fa-search {
+            margin-top: 0.5em;
+            margin-right: -0.5em;
+            font-size: 1.2rem;
+            color: #000000;
+          }
+
+          .fa-window-close {
+            font-size: 1.5rem;
+            color: #000000;
+
+            &:hover {
+              cursor: pointer;
+            }
+          }
         }
-      }
 
-      .fa-search {
-        position: relative;
-        top: 25px;
-        left: 60px;
-      }
-
-      .fa-window-close {
-        position: relative;
-        top: 20px;
-        right: 100px;
-
-        &:hover {
-          cursor: pointer;
+        #search-results {
+          margin-top: 50px;
         }
-      }
-
-      #search-results {
-        margin-top: 50px;
       }
     }
 

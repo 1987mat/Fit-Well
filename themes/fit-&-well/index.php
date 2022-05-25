@@ -1,8 +1,12 @@
 <?php get_header(); ?>
 
 <div class="blog-section"> 
-  <h1>Welcome to our blog</h1>
-  <p>Keep up with the latest news</p>
+  <?php 
+    pageBanner(array(
+      'title' => 'Welcome to our blog!',
+      'subtitle' => 'Keep up with our latest news.'
+    ));
+  ?>
 </div>
 
 <div class="page-container">
@@ -33,6 +37,5 @@
 
 
 </div>
-
 
 <?php get_footer(); ?> 

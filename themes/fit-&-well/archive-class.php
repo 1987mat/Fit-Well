@@ -3,9 +3,13 @@
 ?>
 
 <div class="posts-container">
-  <h1>Classes</h1>
 
-  <?php
+  <?php 
+  
+  pageBanner(array(
+    'title' => 'Classes',
+    'subtitle' => 'Choose the class!'
+  ));
 
   $classes = new WP_Query(array(
     'post_type' => 'class',

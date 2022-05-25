@@ -11,13 +11,15 @@
 
   <div class="search-overlay">
 
-    <div class= "search-container">
-      <i class="fa fa-search"></i>
-      <input type="text" class="search-input" placeholder="What are you looking for?">
-      <i class="fa fa-window-close" aria-hidden="true"></i>
+    <div class= "search-overlay-top">
+      <div class="search-container">
+        <i class="fa fa-search"></i>
+        <input type="text" class="search-input" id="search-input" placeholder="What are you looking for?">
+        <i class="fa fa-window-close" id="search-close-btn" aria-hidden="true"></i>
+      </div>
     </div>
 
-    <div class="container">
+    <div class="results-container">
       <div id="search-results">
       </div>
     </div>

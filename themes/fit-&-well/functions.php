@@ -8,7 +8,7 @@ function pageBanner($args = NULL) {
     $args['title'] = get_the_title();
   }
 
-  // Set subtitle
+  // Set subtitle from Pods custom field
   if(!$args['subtitle']) {
     $args['subtitle'] = get_post_meta(get_the_ID(), 'subtitle', true);
   }
@@ -18,33 +18,34 @@ function pageBanner($args = NULL) {
     if (pods_field_display( 'image' ) AND !is_archive() AND !is_home() ) {
       $args['photo'] = pods_field_display( 'image' );
     } else {
-      $args['photo'] = get_theme_file_uri('/images/events.jpg');
+      $args['photo'] = NULL;
     }
   }
 
   ?>
 
-  <div>
-    <h1><?php echo $args['title']; ?></h1>
-    <p><?php echo $args['subtitle'];?></p>
+  <div class="page-banner">
+    <h1 style="text-align:center"><?php echo $args['title']; ?></h1>
+    <p style="text-align:center"><?php echo $args['subtitle'];?></p>
     <img src="<?php echo $args['photo'];?>">
   </div>
 <?php
 }
 
-function loadCSS() {
+function CSS_JS() {
   wp_register_style('style', get_template_directory_uri() . '/css/style.css');
   wp_enqueue_style('style');
+  wp_enqueue_script('main-js', get_theme_file_uri('/build/index.js'), array('jquery'), '1.0', true);
 }
 
-add_action('wp_enqueue_scripts', 'loadCSS');
+add_action('wp_enqueue_scripts', 'CSS_JS');
 
-function loadJS() {
-  wp_register_script('custom-js', get_template_directory_uri() . '/js/scripts.js');
-  wp_enqueue_script('custom-js');
-}
+// function loadJS() {
+//   wp_register_script('custom-js', get_template_directory_uri() . '/js/scripts.js');
+//   wp_enqueue_script('custom-js');
+// }
 
-add_action('wp_enqueue_scripts', 'loadJS');
+// add_action('wp_enqueue_scripts', 'loadJS');
 
 
 function site_features() {
@@ -72,14 +73,14 @@ add_action( 'wp_footer', 'my_deregister_scripts' );
 
 
 // Add the attribute type="module" to JS
-function add_module_to_script($tag, $handle, $src) {
-  if('custom-js' == $handle ) {
-    $tag = '<script type="module" src="' . esc_url($src) . '"></script>';
-  } 
-  return $tag;
-}
+// function add_module_to_script($tag, $handle, $src) {
+//   if('custom-js' == $handle ) {
+//     $tag = '<script type="module" src="' . esc_url($src) . '"></script>';
+//   } 
+//   return $tag;
+// }
 
-add_filter('script_loader_tag', 'add_module_to_script', 10, 3);
+// add_filter('script_loader_tag', 'add_module_to_script', 10, 3);
 
 function adjust_queries($query) {
 

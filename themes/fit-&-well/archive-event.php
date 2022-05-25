@@ -1,8 +1,10 @@
 <?php get_header(); ?>
 
-<div class="blog-section"> 
-  <h1>Upcoming Events</h1>
-  <p>Come join us!</p>
+<div class="posts-container"> 
+  <?php pageBanner(array(
+    'title' => 'Upcoming Events',
+    'subtitle' => 'Come join us!'
+  ));  ?>
   <p><?php the_archive_description(); ?></p>
 </div>
 
@@ -28,33 +30,13 @@
   ));
 
   while($events->have_posts()) {
-    $events->the_post(); ?>
-
-    <div class="single-event">
-      <div class="date-container">
-        <!-- Show date from Pods custom field -->
-        <p><?php echo get_post_meta( get_the_ID(), 'event_date', true );?></p>
-      </div>
-      <div class="event-info">
-        <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-        <div class="generic-content">
-          <p><?php the_excerpt(); ?></p>
-          <p><a href="<?php the_permalink(); ?>">Continue reading &raquo;</a></p>
-        </div>
-      </div>
-    </div>
-
-  <?php }
-  
+    $events->the_post();
+    get_template_part('content', 'event');   
+  } 
   echo paginate_links();
-
   ?> 
-
   <hr>
-
   <p>Looking for a recap of past events? <a href="<?php echo site_url('/past-events');?>">Check out our past events!</a></p>
-
-
 </div>
 
 

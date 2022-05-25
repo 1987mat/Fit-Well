@@ -10,7 +10,6 @@ html {
           box-sizing: border-box;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
 }
 
 html body {
@@ -18,6 +17,7 @@ html body {
   margin-left: 0;
   min-height: 100vh;
   margin-bottom: 8em;
+  overflow-x: hidden;
   /* Header */
   /* Main */
   /* Footer */
@@ -37,7 +37,7 @@ html body header {
   height: 2.5em;
   padding: 1.5em;
   margin-bottom: 10em;
-  z-index: 2;
+  z-index: 5;
 }
 
 html body header .container {
@@ -73,11 +73,11 @@ html body header .container nav li a:hover {
   cursor: pointer;
 }
 
-html body header .container .header-util a {
+html body header .container .header-util i {
   font-size: 0.8rem;
 }
 
-html body header .container .header-util a:hover {
+html body header .container .header-util i:hover {
   color: #778899;
   cursor: pointer;
 }
@@ -505,6 +505,11 @@ html body .page-container .single-event .date-container p {
   font-weight: bolder;
 }
 
+html body .mapp-layout {
+  position: relative;
+  z-index: 1;
+}
+
 html body .posts-container {
   margin: 8em;
 }
@@ -620,78 +625,97 @@ html body .search-overlay {
   height: 100vh;
   visibility: hidden;
   position: fixed;
-  z-index: 3;
+  z-index: 10;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  opacity: 0.9;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  opacity: 0.97;
 }
 
 html body .search-overlay--active {
+  display: block;
   visibility: visible;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
-html body .search-overlay .search-container {
+html body .search-overlay .search-overlay-top {
+  background-color: #778899;
+  height: 5em;
   position: relative;
-  left: 15%;
-  bottom: 20px;
+  top: -2;
+  width: 100%;
+  opacity: 0.7;
 }
 
-html body .search-overlay .search-input {
+html body .search-overlay .search-overlay-top .search-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 1em;
+  padding: 1em;
+}
+
+html body .search-overlay .search-overlay-top .search-container .search-input {
   width: 75%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border: none;
   background: transparent;
-  position: relative;
-  top: 30px;
-  left: 80px;
-  padding: 15px 0;
-  margin: 0;
-  background-color: transparent;
-  font-size: 40px;
+  font-size: 1.8rem;
   font-weight: 300;
+  color: #000000;
   outline: none;
+  padding-left: 0.5em;
 }
 
-html body .search-overlay .search-input::-webkit-input-placeholder {
-  font-size: 25px;
-  padding-left: 5px;
+html body .search-overlay .search-overlay-top .search-container .search-input::-webkit-input-placeholder {
+  font-size: 1.8rem;
+  padding-left: 0.5em;
+  color: #000000;
 }
 
-html body .search-overlay .search-input:-ms-input-placeholder {
-  font-size: 25px;
-  padding-left: 5px;
+html body .search-overlay .search-overlay-top .search-container .search-input:-ms-input-placeholder {
+  font-size: 1.8rem;
+  padding-left: 0.5em;
+  color: #000000;
 }
 
-html body .search-overlay .search-input::-ms-input-placeholder {
-  font-size: 25px;
-  padding-left: 5px;
+html body .search-overlay .search-overlay-top .search-container .search-input::-ms-input-placeholder {
+  font-size: 1.8rem;
+  padding-left: 0.5em;
+  color: #000000;
 }
 
-html body .search-overlay .search-input::placeholder {
-  font-size: 25px;
-  padding-left: 5px;
+html body .search-overlay .search-overlay-top .search-container .search-input::placeholder {
+  font-size: 1.8rem;
+  padding-left: 0.5em;
+  color: #000000;
 }
 
-html body .search-overlay .fa-search {
-  position: relative;
-  top: 25px;
-  left: 60px;
+html body .search-overlay .search-overlay-top .search-container .fa-search {
+  margin-top: 0.5em;
+  margin-right: -0.5em;
+  font-size: 1.2rem;
+  color: #000000;
 }
 
-html body .search-overlay .fa-window-close {
-  position: relative;
-  top: 20px;
-  right: 100px;
+html body .search-overlay .search-overlay-top .search-container .fa-window-close {
+  font-size: 1.5rem;
+  color: #000000;
 }
 
-html body .search-overlay .fa-window-close:hover {
+html body .search-overlay .search-overlay-top .search-container .fa-window-close:hover {
   cursor: pointer;
 }
 
-html body .search-overlay #search-results {
+html body .search-overlay .search-overlay-top #search-results {
   margin-top: 50px;
 }
 

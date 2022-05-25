@@ -9,12 +9,6 @@ get_header(); ?>
 while(have_posts()) {
   the_post(); 
   pageBanner(); 
-
-  if(pods_field_display( 'image' )){
-    echo 'exist';
-  } else {
-    echo 'no exist';
-  };
  
   $theParent = wp_get_post_parent_id(get_the_ID());
   // If the current page has a parent page show the navigation link

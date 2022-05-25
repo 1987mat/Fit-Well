@@ -1,10 +1,17 @@
-<?php get_header(); ?>
+<?php 
+  get_header(); 
+?>
+
+<!-- Powers Category and Author Archive pages -->
 
 <div class="blog-section"> 
-  <h1>
-    <?php the_archive_title(); ?>
-  </h1>
-  <p><?php the_archive_description(); ?></p>
+  <?php 
+    pageBanner(array(
+      'title' => get_the_archive_title(),
+      'subtitle' => get_the_archive_description()
+    ));
+
+  ?>
 </div>
 
 <div class="page-container"> 

@@ -8,16 +8,10 @@ while(have_posts()) {
 
   <div class="page-container">
 
-  <h2><?php the_title();?></h2>      
-    <p><?php echo get_post_meta($post->ID, 'subtitle', true); ?></p>
+    <?php pageBanner();?>     
     
     <div class="metabox">
         <a href="<?php echo get_post_type_archive_link('workout'); ?>">All Workouts</a>
-    </div>
-
-    <div>
-      <!-- Display image from pods custom field -->
-      <img class="workout-post-image" src="<?php echo pods_field_display( 'image' );?>" alt="workout-image">  
     </div>
 
     <div class="generic-content">

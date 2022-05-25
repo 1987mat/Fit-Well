@@ -39,7 +39,7 @@
           <a href="<?php echo wp_registration_url();?>">Signup</a>
          <?php }
         ?>
-        <a href="#"><i class="fa fa-search"></i></a>
+        <i class="fa fa-search" id="search-icon"></i>
       </div>
     </div>
   </header>

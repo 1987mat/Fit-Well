@@ -1,0 +1,583 @@
+/*!***************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./css/style.scss ***!
+  \***************************************************************************************************************************************************************************************************************************************/
+@import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap);
+/*!*******************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./css/style.scss (1) ***!
+  \*******************************************************************************************************************************************************************************************************************************************/
+* {
+  color: #303030;
+}
+
+html {
+  min-width: 100%;
+  min-height: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html body {
+  font-family: "Montserrat", sans-serif;
+  margin-left: 0;
+  min-height: 100vh;
+  margin-bottom: 8em;
+  overflow-x: hidden;
+  /* Header */
+  /* Main */
+  /* Footer */
+}
+html body a {
+  text-decoration: none;
+  color: #000000;
+}
+html body header {
+  background: whitesmoke;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2.5em;
+  padding: 1.5em;
+  margin-bottom: 10em;
+  z-index: 5;
+}
+html body header .container {
+  height: 3em;
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 2em;
+}
+html body header .container h1 {
+  margin-top: -5px;
+  margin-left: -5px;
+  font-size: 3rem;
+}
+html body header .container nav ul {
+  display: flex;
+}
+html body header .container nav ul li {
+  margin-right: 3em;
+  font-size: 1rem;
+  list-style-type: none;
+}
+html body header .container nav li a:hover {
+  color: #778899;
+  cursor: pointer;
+}
+html body header .container .header-util i {
+  font-size: 0.8rem;
+}
+html body header .container .header-util i:hover {
+  color: #778899;
+  cursor: pointer;
+}
+html body header .container .current-menu-item a {
+  text-shadow: 1px #ff0000;
+  color: lightgray;
+}
+html body main {
+  display: flex;
+  flex-direction: column;
+}
+html body main .heading-section {
+  background-image: url(images/image-front.9e69640a.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 50em;
+}
+html body main .heading-section .heading {
+  color: whitesmoke;
+  text-align: center;
+  padding: 2em 2em;
+  margin: 0 auto;
+  margin-top: 15em;
+  background-color: black;
+  opacity: 0.75;
+  width: 40%;
+  transition: all 0.2s ease-in;
+}
+html body main .heading-section .heading h2 {
+  font-size: 3rem;
+  color: white;
+}
+html body main .heading-section .heading h3 {
+  color: white;
+}
+html body main .heading-section .heading:hover {
+  opacity: 0.9;
+  background-color: #282828;
+  cursor: pointer;
+}
+html body main .show-posts {
+  display: flex;
+}
+html body main .show-posts h2 {
+  text-align: center;
+  font-size: 2rem;
+}
+html body main .show-posts hr {
+  margin-bottom: 2em;
+}
+html body main .show-posts .post-title-style {
+  font-size: 1.2rem;
+  list-style-type: none;
+  text-align: center;
+}
+html body main .show-posts .workout-posts {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  background-color: white;
+  border-right: 3px solid gray;
+}
+html body main .show-posts .workout-posts button {
+  font-size: 1rem;
+  margin-top: 2em;
+  border-radius: 5px;
+  border: none;
+  background-color: lightgray;
+  padding: 1em;
+  transition: all 0.2s ease-in;
+}
+html body main .show-posts .workout-posts button:hover {
+  cursor: pointer;
+  background-color: whitesmoke;
+}
+html body main .homepage-classes {
+  text-align: center;
+  margin-top: 5em;
+}
+html body main .homepage-classes h2 {
+  font-size: 2.5rem;
+  margin-bottom: 3em;
+}
+html body main .homepage-classes .classes-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 5em;
+  gap: 6em;
+}
+html body main .homepage-classes .classes-container .single-class h3 {
+  position: relative;
+  top: 40%;
+  width: 50%;
+  margin: 0 auto;
+  font-size: 2.3rem;
+  font-weight: bolder;
+  padding: 0.5em;
+  color: white;
+}
+html body main .homepage-classes .classes-container .yoga {
+  background-image: url(images/yoga.c2837dc2.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 25em;
+  width: 45%;
+  transition: all 0.2s ease-in;
+  opacity: 0.7;
+}
+html body main .homepage-classes .classes-container .yoga:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+html body main .homepage-classes .classes-container .zumba {
+  background-image: url(images/zumba.da2eeb4c.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 25em;
+  width: 45%;
+  transition: all 0.2s ease-in;
+  opacity: 0.7;
+}
+html body main .homepage-classes .classes-container .zumba:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+html body main .homepage-classes .classes-container .outdoor {
+  background-image: url(images/outdoor.ecedb17c.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 25em;
+  width: 45%;
+  transition: all 0.2s ease-in;
+  opacity: 0.7;
+}
+html body main .homepage-classes .classes-container .outdoor:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+html body main .homepage-classes .classes-container .cycling {
+  background-image: url(images/cycling.91d00a71.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 25em;
+  width: 45%;
+  transition: all 0.2s ease-in;
+  opacity: 0.7;
+}
+html body main .homepage-classes .classes-container .cycling:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+html body main .history-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+html body main .history-section h2 {
+  font-size: 2.5rem;
+}
+html body main .history-section .our-history {
+  text-align: center;
+  display: flex;
+  margin: 5em;
+  justify-content: center;
+  gap: 2em;
+}
+html body main .history-section .our-history img {
+  width: 40%;
+  height: 30%;
+}
+html body main .homepage-events {
+  margin-top: 5em;
+}
+html body main .homepage-events .events-container {
+  display: flex;
+  margin: 0 auto;
+  background-image: url(images/events.28e83a87.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 40em;
+  width: 100vw;
+  transition: all 0.2s ease-in;
+}
+html body main .homepage-events .events-container a {
+  position: relative;
+  top: 40%;
+  width: 10em;
+  height: 5%;
+  text-align: center;
+  margin: 0 auto;
+  padding: 1.2em;
+  padding-top: 1em;
+  font-size: 2rem;
+  background-color: #778899;
+  opacity: 0.8;
+  color: white;
+  transition: all 0.3s ease-in;
+}
+html body main .homepage-events .events-container a:hover {
+  cursor: pointer;
+  background-color: lightblue;
+}
+html body .blog-section h1 {
+  font-size: 2.5rem;
+}
+html body .form-container {
+  margin: 6em;
+  display: flex;
+  flex-direction: column;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  align-items: center;
+}
+html body .form-container h1 {
+  font-size: 2.5rem;
+}
+html body .form-container .contact-form {
+  display: flex;
+  flex-direction: column;
+}
+html body .form-container .contact-form button {
+  margin: 0.5em;
+  padding: 1em;
+  border-radius: 5px;
+  border: none;
+  font-weight: bold;
+  height: 3.5em;
+  transition: all 0.2s ease-in;
+}
+html body .form-container .contact-form button:hover {
+  cursor: pointer;
+  background-color: #f0f8ff;
+}
+html body .form-container .contact-form button:active {
+  transform: translateY(-2px);
+}
+html body .form-container .contact-form input,
+html body .form-container .contact-form textarea {
+  border-top: none;
+  border-radius: 5px;
+  margin: 0.5em;
+  padding: 1em;
+}
+html body .page-container {
+  margin-bottom: 5em;
+}
+html body .page-container .generic-content {
+  margin-top: 5em;
+  display: flex;
+  gap: 2em;
+}
+html body .page-container .link-list li {
+  list-style-type: none;
+}
+html body .page-container .link-list li a {
+  position: relative;
+  display: inline-block;
+}
+html body .page-container .link-list li a .related-post-container {
+  width: 30em;
+  height: 22em;
+}
+html body .page-container .link-list li a .related-post-container img {
+  display: block;
+  width: 30em;
+  height: 22em;
+}
+html body .page-container .link-list li a .related-post-container .text-overlay {
+  position: absolute;
+  text-align: center;
+  bottom: 0;
+  background-color: #f0f8ff;
+  width: 100%;
+  height: 20%;
+  opacity: 0;
+  transition: all 0.2s ease-in;
+}
+html body .page-container .link-list li a .related-post-container .text-overlay h3 {
+  font-size: 1rem;
+  padding-top: 0.5em;
+}
+html body .page-container .link-list li a:hover {
+  cursor: pointer;
+}
+html body .page-container .link-list li a:hover .text-overlay {
+  opacity: 0.9;
+}
+html body .page-container .single-event {
+  display: flex;
+  gap: 3em;
+}
+html body .page-container .single-event .date-container {
+  background: darkblue;
+  width: 5em;
+  height: 5em;
+  border-radius: 50%;
+  margin-top: 0.5em;
+}
+html body .page-container .single-event .date-container p {
+  text-align: center;
+  padding: 0.5em;
+  color: white;
+  font-weight: bolder;
+}
+html body .mapp-layout {
+  position: relative;
+  z-index: 1;
+}
+html body .posts-container {
+  margin: 8em;
+}
+html body .posts-container h1 {
+  text-align: center;
+  font-size: 2.5rem;
+}
+html body .related-post {
+  margin: 3em;
+}
+html body footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 5.5em;
+  padding: 1em;
+  background: whitesmoke;
+  position: relative;
+  top: calc(100vh - 100px);
+  left: 0;
+  bottom: 0;
+}
+html body footer i {
+  margin: 0.2em;
+}
+html body footer .fa-facebook-official {
+  color: #00008b;
+  font-size: 2rem;
+}
+html body footer .fa-instagram {
+  color: red;
+  font-size: 2rem;
+}
+html body footer .fa-twitter {
+  color: lightblue;
+  font-size: 2rem;
+}
+html body hr {
+  width: 90%;
+  margin: 0 auto;
+}
+html body textarea {
+  height: 100px;
+  width: 600px;
+}
+html body .my-comments {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+}
+html body .my-comments .comment-title {
+  width: 600px;
+  margin: 50px 0 20px 0;
+}
+html body .my-comments .comment-content {
+  width: 600px;
+  margin-bottom: 20px;
+}
+html body .my-comments .comment-submit {
+  width: 100px;
+  height: 30px;
+  border-radius: 5px;
+  margin-bottom: 100px;
+  transition: all 500ms;
+}
+html body .my-comments .comment-submit:hover {
+  cursor: pointer;
+  background: #fffafa;
+}
+html body .comments-link {
+  margin: 50px 0 100px 50px;
+}
+html body .search-overlay {
+  background: rgb(224, 224, 224);
+  box-sizing: border-box;
+  height: 100vh;
+  visibility: hidden;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: 0.2s;
+  opacity: 0.97;
+}
+html body .search-overlay--active {
+  display: block;
+  visibility: visible;
+  transition: all 0.3s;
+}
+html body .search-overlay .search-overlay-top {
+  background-color: #778899;
+  height: 5em;
+  position: relative;
+  top: -2;
+  width: 100%;
+  opacity: 0.7;
+}
+html body .search-overlay .search-overlay-top .search-container {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  padding: 1em;
+}
+html body .search-overlay .search-overlay-top .search-container .search-input {
+  width: 75%;
+  box-sizing: border-box;
+  border: none;
+  background: transparent;
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: #000000;
+  outline: none;
+  padding-left: 0.5em;
+}
+html body .search-overlay .search-overlay-top .search-container .search-input::-moz-placeholder {
+  font-size: 1.8rem;
+  padding-left: 0.5em;
+  color: #000000;
+}
+html body .search-overlay .search-overlay-top .search-container .search-input:-ms-input-placeholder {
+  font-size: 1.8rem;
+  padding-left: 0.5em;
+  color: #000000;
+}
+html body .search-overlay .search-overlay-top .search-container .search-input::placeholder {
+  font-size: 1.8rem;
+  padding-left: 0.5em;
+  color: #000000;
+}
+html body .search-overlay .search-overlay-top .search-container .fa-search {
+  margin-top: 0.5em;
+  margin-right: -0.5em;
+  font-size: 1.2rem;
+  color: #000000;
+}
+html body .search-overlay .search-overlay-top .search-container .fa-window-close {
+  font-size: 1.5rem;
+  color: #000000;
+}
+html body .search-overlay .search-overlay-top .search-container .fa-window-close:hover {
+  cursor: pointer;
+}
+html body .search-overlay .search-overlay-top #search-results {
+  margin-top: 50px;
+}
+html body .body-no-scroll {
+  overflow: hidden;
+}
+@-webkit-keyframes spinner {
+  from {
+    transform: translate3d(-50%, -50%, 0) rotate(0deg);
+  }
+  to {
+    transform: translate3d(-50%, -50%, 0) rotate(360deg);
+  }
+}
+@keyframes spinner {
+  from {
+    transform: translate3d(-50%, -50%, 0) rotate(0deg);
+  }
+  to {
+    transform: translate3d(-50%, -50%, 0) rotate(360deg);
+  }
+}
+html body .spinner {
+  height: 100vh;
+  position: relative;
+}
+html body .spinner::before {
+  -webkit-animation: 2s linear infinite spinner;
+          animation: 2s linear infinite spinner;
+  border: solid 3px #00008b;
+  border-bottom-color: #f0f8ff;
+  border-radius: 50%;
+  content: "";
+  height: 40px;
+  left: 50%;
+  position: absolute;
+  top: 10%;
+  transform: translate3d(-50%, -50%, 0);
+  width: 40px;
+}
+html body .blog-section {
+  margin-top: 7em;
+  text-align: center;
+}
+html body .page-container {
+  margin: 7em;
+}
+
+/* Portrait tablet to landscape and desktop */
+/* Landscape phone to portrait tablet */
+/* Landscape phones and down */
+
+/*# sourceMappingURL=style-index.css.map*/
