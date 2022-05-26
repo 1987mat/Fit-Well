@@ -36,6 +36,12 @@ function CSS_JS() {
   wp_register_style('style', get_template_directory_uri() . '/css/style.css');
   wp_enqueue_style('style');
   wp_enqueue_script('main-js', get_theme_file_uri('/build/index.js'), array('jquery'), '1.0', true);
+
+  // Make url relative for AJAX requests
+  wp_localize_script('main-js', 'siteData', array(
+    'root_url' => get_site_url()
+  ));
+
 }
 
 add_action('wp_enqueue_scripts', 'CSS_JS');

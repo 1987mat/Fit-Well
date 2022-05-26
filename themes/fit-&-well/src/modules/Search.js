@@ -35,6 +35,7 @@ class Search {
     this.searchOverlay.classList.remove('search-overlay--active');
     document.body.style.overflow = '';
     this.searchInput.value = '';
+    this.resultsDiv.innerHTML = '';
     this.isOverlayOpen = false;
     this.isSpinnerVisible = false;
   }
@@ -52,7 +53,7 @@ class Search {
           this.isSpinnerVisible = true;
         }
         // Display results
-        this.typerTimer = setTimeout(this.displayResults.bind(this), 2000);
+        this.typerTimer = setTimeout(this.displayResults.bind(this), 500);
       } else {
         this.resultsDiv.innerHTML = '';
         this.isSpinnerVisible = false;
@@ -63,16 +64,42 @@ class Search {
   }
 
   displayResults() {
-    // Call the fetch function passing the url of the API as a parameter
-    fetch(
-      'http://localhost:10008/wp-json/wp/v2/posts?search=' +
-        this.searchInput.value
-    )
-      .then((response) =>
-        // Your code for handling the data you get from the API
-        response.json()
-      )
-      .then((data) => alert(data[0].title.rendered));
+    Promise.all([
+      fetch(
+        siteData.root_url +
+          '/wp-json/wp/v2/posts?search=' +
+          this.searchInput.value
+      ).then((resp) => resp.json()),
+      fetch(
+        siteData.root_url +
+          '/wp-json/wp/v2/pages?search=' +
+          this.searchInput.value
+      ).then((resp) => resp.json()),
+    ]).then(console.log);
+
+    // fetch(
+    //   siteData.root_url +
+    //     '/wp-json/wp/v2/posts?search=' +
+    //     this.searchInput.value
+    // )
+    //   .then((response) => {
+    //     return response.json();
+    //   })
+    //   .then((data) => {
+    //     this.resultsDiv.innerHTML = `
+    //     <h2>General Information</h2>
+    //     <hr>
+    //     ${data.length ? '<ul>' : '<p>No search results</p>'}
+    //         ${data
+    //           .map(
+    //             (item) =>
+    //               `<li><a href="${item.link}">${item.title.rendered}</a></li>`
+    //           )
+    //           .join('')}
+    //           ${data.length ? '</ul>' : ''}
+    //     `;
+    //     this.isSpinnerVisible = false;
+    //   });
   }
 
   keyPressed(e) {

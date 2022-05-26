@@ -543,79 +543,6 @@ html {
       margin: 50px 0 100px 50px;
     }
 
-    .search-overlay {
-      background: rgb(224, 224, 224);
-      box-sizing: border-box;
-      height: 100vh;
-      visibility: hidden;
-      position: fixed;
-      z-index: 10;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      opacity: 0.97;
-
-      &--active {
-        display: block;
-        visibility: visible;
-      }
-
-      .search-overlay-top {
-        background-color: #778899;
-        height: 5em;
-        position: relative;
-        top: -2;
-        width: 100%;
-        opacity: 0.7;
-
-        .search-container {
-          display: flex;
-          justify-content: center;
-          gap: 1em;
-          padding: 1em;
-
-          .search-input {
-            width: 75%;
-            box-sizing: border-box;
-            border: none;
-            background: transparent;
-            font-size: 1.8rem;
-            font-weight: 300;
-            color: #000000;
-            outline: none;
-            padding-left: 1.2em;
-
-            &::placeholder {
-              font-size: 1.8rem;
-              padding-left: 0.5em;
-              color: #000000;
-            }
-          }
-
-          .fa-search {
-            margin-top: 0.5em;
-            margin-right: -2em;
-            font-size: 1.2rem;
-            color: #000000;
-          }
-
-          .fa-window-close {
-            font-size: 1.5rem;
-            color: #000000;
-
-            &:hover {
-              cursor: pointer;
-            }
-          }
-        }
-
-        #search-results {
-          margin-top: 10em;
-        }
-      }
-    }
-
     // Loading Spinner
     @keyframes spinner {
       from {
@@ -652,6 +579,149 @@ html {
 
     .page-container {
       margin: 7em;
+    }
+  }
+  .search-overlay {
+    background: rgb(224, 224, 224);
+    box-sizing: border-box;
+    height: 100vh;
+    visibility: hidden;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.97;
+
+    &--active {
+      display: block;
+      visibility: visible;
+    }
+
+    .search-overlay-top {
+      background-color: #778899;
+      height: 5em;
+      position: relative;
+      top: -2;
+      width: 100%;
+      opacity: 0.7;
+
+      .search-container {
+        display: flex;
+        justify-content: center;
+        gap: 1em;
+        padding: 1em;
+
+        .search-input {
+          width: 75%;
+          box-sizing: border-box;
+          border: none;
+          background: transparent;
+          font-size: 1.8rem;
+          font-weight: 300;
+          color: #000000;
+          outline: none;
+          padding-left: 1.2em;
+
+          &::placeholder {
+            font-size: 1.8rem;
+            color: #000000;
+          }
+        }
+
+        .fa-search {
+          margin-top: 0.5em;
+          margin-right: -2em;
+          font-size: 1.2rem;
+          color: #000000;
+        }
+
+        .fa-window-close {
+          font-size: 1.5rem;
+          color: #000000;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+
+      #search-results {
+        margin-top: 10em;
+      }
+    }
+  }
+}
+
+.search-overlay {
+  background: rgb(224, 224, 224);
+  box-sizing: border-box;
+  height: 100vh;
+  visibility: hidden;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.97;
+
+  &--active {
+    display: block;
+    visibility: visible;
+  }
+
+  .search-overlay-top {
+    background-color: #778899;
+    height: 5em;
+    position: relative;
+    top: -2;
+    width: 100%;
+    opacity: 0.7;
+
+    .search-container {
+      display: flex;
+      justify-content: center;
+      gap: 1em;
+      padding: 1em;
+
+      .search-input {
+        width: 75%;
+        box-sizing: border-box;
+        border: none;
+        background: transparent;
+        font-size: 1.8rem;
+        font-weight: 300;
+        color: #000000;
+        outline: none;
+        padding-left: 1.2em;
+
+        &::placeholder {
+          font-size: 1.8rem;
+          color: #000000;
+        }
+      }
+
+      .fa-search {
+        margin-top: 0.5em;
+        margin-right: -2em;
+        font-size: 1.2rem;
+        color: #000000;
+      }
+
+      .fa-window-close {
+        font-size: 1.5rem;
+        color: #000000;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+
+    #search-results {
+      margin-top: 10em;
     }
   }
 }
