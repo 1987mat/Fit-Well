@@ -64,7 +64,8 @@ class Search {
   }
 
   displayResults() {
-    Promise.all([
+    // Fetch posts and pages
+    const promises = [
       fetch(
         siteData.root_url +
           '/wp-json/wp/v2/posts?search=' +
@@ -75,31 +76,30 @@ class Search {
           '/wp-json/wp/v2/pages?search=' +
           this.searchInput.value
       ).then((resp) => resp.json()),
-    ]).then(console.log);
+    ];
 
-    // fetch(
-    //   siteData.root_url +
-    //     '/wp-json/wp/v2/posts?search=' +
-    //     this.searchInput.value
-    // )
-    //   .then((response) => {
-    //     return response.json();
-    //   })
-    //   .then((data) => {
-    //     this.resultsDiv.innerHTML = `
-    //     <h2>General Information</h2>
-    //     <hr>
-    //     ${data.length ? '<ul>' : '<p>No search results</p>'}
-    //         ${data
-    //           .map(
-    //             (item) =>
-    //               `<li><a href="${item.link}">${item.title.rendered}</a></li>`
-    //           )
-    //           .join('')}
-    //           ${data.length ? '</ul>' : ''}
-    //     `;
-    //     this.isSpinnerVisible = false;
-    //   });
+    Promise.all(promises)
+      .then((response) => {
+        // Merge results for posts and pages
+        let data = response[0].concat(response[1]);
+        // Display results on the page
+        this.resultsDiv.innerHTML = `
+          <h2>General Information</h2>
+          <hr>
+          ${data.length ? '<ul>' : '<p>No search results</p>'}
+          ${data
+            .map(
+              (item) =>
+                `<li><a href="${item.link}">${item.title.rendered}</a> 
+                ${item.type == 'post' ? `by ${item.authorName}` : ''}</li>`
+            )
+            .join('')}
+          `;
+        this.isSpinnerVisible = false;
+      })
+      .catch(
+        (error) => (this.resultsDiv.innerHTML = `No results found. ${error}`)
+      );
   }
 
   keyPressed(e) {

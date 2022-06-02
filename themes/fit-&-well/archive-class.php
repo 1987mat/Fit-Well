@@ -22,12 +22,15 @@
 
     $sub = get_post_meta($post->ID, 'subtitle', TRUE);
     echo $sub;
-  
+    $classTitle = lcfirst(get_the_title());
+      
     ?>
-
-
-    <h2><a href="<?php the_permalink();?>"><?php the_title();?></a></h2>
-    <p><?php the_content();?></p>
+    <div class="class-wrapper">
+      <a href="<?php the_permalink();?>"><h3><?php the_title(); ?></h3></a>
+      <div class="single-class <?php echo $classTitle; ?>">
+    </div>  
+      
+    </div>
 
   <?php }
   ?>

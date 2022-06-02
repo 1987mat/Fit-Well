@@ -378,6 +378,81 @@ html body .page-container .single-event .date-container p {
   color: white;
   font-weight: bolder;
 }
+html body .class-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 1em;
+}
+html body .class-wrapper a {
+  text-align: center;
+  font-size: 2.3rem;
+  font-weight: bolder;
+  padding: 0.5em;
+  color: black;
+}
+html body .class-wrapper .yoga {
+  background-image: url(images/yoga.c2837dc2.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 60em;
+  height: 60em;
+  transition: all 0.2s ease-in;
+  opacity: 0.7;
+}
+html body .class-wrapper .yoga:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+html body .class-wrapper .zumba {
+  background-image: url(images/zumba.da2eeb4c.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 60em;
+  height: 60em;
+  transition: all 0.2s ease-in;
+  opacity: 0.7;
+}
+html body .class-wrapper .zumba:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+html body .class-wrapper .outdoor {
+  background-image: url(images/outdoor-workout.3e0644e5.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 60em;
+  height: 60em;
+  transition: all 0.2s ease-in;
+  opacity: 0.7;
+}
+html body .class-wrapper .outdoor:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+html body .class-wrapper .cycling {
+  background-image: url(images/cycling.91d00a71.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 60em;
+  height: 60em;
+  transition: all 0.2s ease-in;
+  opacity: 0.7;
+}
+html body .class-wrapper .cycling:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+html body .class-wrapper:hover {
+  cursor: pointer;
+}
+html body .class-wrapper:hover .text-overlay-class {
+  opacity: 0.9;
+}
 html body .mapp-layout {
   position: relative;
   z-index: 1;
@@ -457,6 +532,76 @@ html body .my-comments .comment-submit:hover {
 html body .comments-link {
   margin: 50px 0 100px 50px;
 }
+html body .search-overlay {
+  background: rgb(224, 224, 224);
+  box-sizing: border-box;
+  height: 100vh;
+  visibility: hidden;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.97;
+}
+html body .search-overlay--active {
+  display: block;
+  visibility: visible;
+}
+html body .search-overlay .search-overlay-top {
+  background-color: #778899;
+  height: 5em;
+  position: relative;
+  top: -2;
+  width: 100%;
+  opacity: 0.7;
+}
+html body .search-overlay .search-overlay-top .search-container {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  padding: 1em;
+}
+html body .search-overlay .search-overlay-top .search-container .search-input {
+  width: 75%;
+  box-sizing: border-box;
+  border: none;
+  background: transparent;
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: #000000;
+  outline: none;
+  padding-left: 1.2em;
+}
+html body .search-overlay .search-overlay-top .search-container .search-input::-moz-placeholder {
+  font-size: 1.8rem;
+  color: #000000;
+}
+html body .search-overlay .search-overlay-top .search-container .search-input:-ms-input-placeholder {
+  font-size: 1.8rem;
+  color: #000000;
+}
+html body .search-overlay .search-overlay-top .search-container .search-input::placeholder {
+  font-size: 1.8rem;
+  color: #000000;
+}
+html body .search-overlay .search-overlay-top .search-container .fa-search {
+  margin-top: 0.5em;
+  margin-right: -2em;
+  font-size: 1.2rem;
+  color: #000000;
+}
+html body .search-overlay .search-overlay-top .search-container .fa-window-close {
+  font-size: 1.5rem;
+  color: #000000;
+}
+html body .search-overlay .search-overlay-top .search-container .fa-window-close:hover {
+  cursor: pointer;
+}
+html body .search-overlay .search-overlay-top #search-results {
+  margin-top: 10em;
+}
 @-webkit-keyframes spinner {
   from {
     transform: translate3d(-50%, -50%, 0) rotate(0deg);
@@ -497,147 +642,6 @@ html body .blog-section {
 }
 html body .page-container {
   margin: 7em;
-}
-html .search-overlay {
-  background: rgb(224, 224, 224);
-  box-sizing: border-box;
-  height: 100vh;
-  visibility: hidden;
-  position: fixed;
-  z-index: 10;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  opacity: 0.97;
-}
-html .search-overlay--active {
-  display: block;
-  visibility: visible;
-}
-html .search-overlay .search-overlay-top {
-  background-color: #778899;
-  height: 5em;
-  position: relative;
-  top: -2;
-  width: 100%;
-  opacity: 0.7;
-}
-html .search-overlay .search-overlay-top .search-container {
-  display: flex;
-  justify-content: center;
-  gap: 1em;
-  padding: 1em;
-}
-html .search-overlay .search-overlay-top .search-container .search-input {
-  width: 75%;
-  box-sizing: border-box;
-  border: none;
-  background: transparent;
-  font-size: 1.8rem;
-  font-weight: 300;
-  color: #000000;
-  outline: none;
-  padding-left: 1.2em;
-}
-html .search-overlay .search-overlay-top .search-container .search-input::-moz-placeholder {
-  font-size: 1.8rem;
-  color: #000000;
-}
-html .search-overlay .search-overlay-top .search-container .search-input:-ms-input-placeholder {
-  font-size: 1.8rem;
-  color: #000000;
-}
-html .search-overlay .search-overlay-top .search-container .search-input::placeholder {
-  font-size: 1.8rem;
-  color: #000000;
-}
-html .search-overlay .search-overlay-top .search-container .fa-search {
-  margin-top: 0.5em;
-  margin-right: -2em;
-  font-size: 1.2rem;
-  color: #000000;
-}
-html .search-overlay .search-overlay-top .search-container .fa-window-close {
-  font-size: 1.5rem;
-  color: #000000;
-}
-html .search-overlay .search-overlay-top .search-container .fa-window-close:hover {
-  cursor: pointer;
-}
-html .search-overlay .search-overlay-top #search-results {
-  margin-top: 10em;
-}
-
-.search-overlay {
-  background: rgb(224, 224, 224);
-  box-sizing: border-box;
-  height: 100vh;
-  visibility: hidden;
-  position: fixed;
-  z-index: 10;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  opacity: 0.97;
-}
-.search-overlay--active {
-  display: block;
-  visibility: visible;
-}
-.search-overlay .search-overlay-top {
-  background-color: #778899;
-  height: 5em;
-  position: relative;
-  top: -2;
-  width: 100%;
-  opacity: 0.7;
-}
-.search-overlay .search-overlay-top .search-container {
-  display: flex;
-  justify-content: center;
-  gap: 1em;
-  padding: 1em;
-}
-.search-overlay .search-overlay-top .search-container .search-input {
-  width: 75%;
-  box-sizing: border-box;
-  border: none;
-  background: transparent;
-  font-size: 1.8rem;
-  font-weight: 300;
-  color: #000000;
-  outline: none;
-  padding-left: 1.2em;
-}
-.search-overlay .search-overlay-top .search-container .search-input::-moz-placeholder {
-  font-size: 1.8rem;
-  color: #000000;
-}
-.search-overlay .search-overlay-top .search-container .search-input:-ms-input-placeholder {
-  font-size: 1.8rem;
-  color: #000000;
-}
-.search-overlay .search-overlay-top .search-container .search-input::placeholder {
-  font-size: 1.8rem;
-  color: #000000;
-}
-.search-overlay .search-overlay-top .search-container .fa-search {
-  margin-top: 0.5em;
-  margin-right: -2em;
-  font-size: 1.2rem;
-  color: #000000;
-}
-.search-overlay .search-overlay-top .search-container .fa-window-close {
-  font-size: 1.5rem;
-  color: #000000;
-}
-.search-overlay .search-overlay-top .search-container .fa-window-close:hover {
-  cursor: pointer;
-}
-.search-overlay .search-overlay-top #search-results {
-  margin-top: 10em;
 }
 
 /* Portrait tablet to landscape and desktop */

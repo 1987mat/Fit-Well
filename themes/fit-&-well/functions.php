@@ -1,5 +1,16 @@
 <?php
 
+require get_theme_file_path('/includes/search-route.php');
+
+// Register authorName field on JSON data
+function custom_rest() {
+  register_rest_field('post', 'authorName', array(
+    'get_callback' => function() {return get_the_author();}
+  ));
+}
+
+add_action('rest_api_init', 'custom_rest');
+
 // Display title, subtitle and image for pages
 function pageBanner($args = NULL) {
 

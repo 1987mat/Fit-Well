@@ -7,7 +7,7 @@ while(have_posts()) {
 
   <div class="page-container">
     <?php pageBanner(); ?>
-    
+
     <div class="metabox">
         <a href="<?php echo get_post_type_archive_link('class'); ?>">Go Back</a>
     </div>
@@ -42,9 +42,9 @@ while(have_posts()) {
           <li>
             <a class="related-post" href="<?php echo get_permalink( $id ) ?>">
               <div class="related-post-container">
-                <img class="related-workout-image" src="<?php echo get_the_post_thumbnail_url($id);?>">
+                <img class="post-image" src="<?php echo get_the_post_thumbnail_url($id);?>">
                 <div class="text-overlay">
-                  <h3 class="related-workout-title"><?php echo get_the_title($id) ;?></h3>
+                  <h3 class="post-title"><?php echo get_the_title($id) ;?></h3>
                 </div>
               </div>    
             </a>
