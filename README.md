@@ -1,1 +1,1 @@
-Simple Wordpress Fitness Website.
+Wordpress Fitness Website / Custom theme / HTML CSS JS PHP
