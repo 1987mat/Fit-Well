@@ -1,1 +1,0 @@
-Simple Wordpress Fitness Website.
