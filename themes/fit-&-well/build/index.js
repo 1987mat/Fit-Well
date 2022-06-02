@@ -4046,21 +4046,38 @@ class Search {
   }
 
   displayResults() {
-    // Fetch posts and pages
-    const promises = [fetch(siteData.root_url + '/wp-json/wp/v2/posts?search=' + this.searchInput.value).then(resp => resp.json()), fetch(siteData.root_url + '/wp-json/wp/v2/pages?search=' + this.searchInput.value).then(resp => resp.json())];
-    Promise.all(promises).then(response => {
-      // Merge results for posts and pages
-      let data = response[0].concat(response[1]); // Display results on the page
+    fetch(siteData.root_url + '/wp-json/fitness/v1/search?term=' + this.searchInput.value).then(response => response.json()).then(results => {
+      this.resultsDiv.innerHTML = `<div class="row">
+          <div class="one-third">
+            <h2>General Information</h2>
+            <hr>
+            ${results.generalInfo.length ? '<ul>' : '<p>No general information found.</p>'}
+            ${results.generalInfo.map(item => `<li><a href="${item.url}">${item.title}</a> 
+                  ${item.postType == 'post' ? `by ${item.authorName}` : ''}</li>`).join('')}
 
-      this.resultsDiv.innerHTML = `
-          <h2>General Information</h2>
-          <hr>
-          ${data.length ? '<ul>' : '<p>No search results</p>'}
-          ${data.map(item => `<li><a href="${item.link}">${item.title.rendered}</a> 
-                ${item.type == 'post' ? `by ${item.authorName}` : ''}</li>`).join('')}
-          `;
+          </div>
+          <div class="one-third">
+            <h2>Classes</h2>
+            <hr>
+            ${results.classes.length ? '<ul>' : `<p>No class matches that search. <a href="${siteData.root_url}/classes">View all classes.</a></p>`}
+            ${results.classes.map(item => `<li><a href="${item.url}">${item.title}</a></li>`).join('')}
+            <h2>Workouts</h2>
+            <hr>
+            ${results.workouts.length ? '<ul>' : `<p>No class matches that search. <a href="${siteData.root_url}/workouts">View all workouts.</a></p>`}
+            ${results.workouts.map(item => `<li><a href="${item.url}">${item.title}</a></li>`).join('')}
+          </div>
+          <div class="one-third">
+            <h2>Events</h2>
+            <hr>
+            ${results.events.length ? '<ul>' : '<p>No event matches that search.</p>'}
+            ${results.events.map(item => `<li><a href="${item.url}">${item.title}</a></li>`).join('')}
+          </div>
+        </div>        
+        `;
       this.isSpinnerVisible = false;
-    }).catch(error => this.resultsDiv.innerHTML = `No results found. ${error}`);
+    }); // .catch(
+    //   (error) => (this.resultsDiv.innerHTML = `No results found. ${error}`)
+    // );
   }
 
   keyPressed(e) {

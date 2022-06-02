@@ -1,5 +1,6 @@
 <?php
 
+// Customize search url
 function registerSearch() {
   register_rest_route('fitness/v1', 'search', array(
     'methods' => WP_REST_SERVER::READABLE,
@@ -14,21 +15,24 @@ function searchResults($data) {
     's' => sanitize_text_field($data['term'])
   ));
 
-  // Populate the array with the results
+  // Create empty arrays for every post type
   $results = array(
     'generalInfo' => array(),
     'classes' => array(),
-    'events' => array(),
-    'workouts' => array()
+    'workouts' => array(),
+    'events' => array()
   );
 
   while($mainQuery->have_posts()) {
     $mainQuery->the_post();
 
+    // Populate the arrays with the results
     if(get_post_type() == 'post' OR get_post_type() == 'page') {
       array_push($results['generalInfo'], array( 
         'title' => get_the_title(),
-        'url' => get_the_permalink()
+        'url' => get_the_permalink(),
+        'postType' => get_post_type(),
+        'authorName' => get_the_author()
       ));
     }
 
