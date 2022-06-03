@@ -3985,7 +3985,7 @@ __webpack_require__.r(__webpack_exports__);
 class Search {
   // Initiate object
   constructor() {
-    this.resultsDiv = document.getElementById('search-results');
+    this.resultsDiv = document.querySelector('.results-container');
     this.openOverlayBtn = document.getElementById('search-icon');
     this.closeOverlayBtn = document.getElementById('search-close-btn');
     this.searchOverlay = document.querySelector('.search-overlay');
@@ -4059,25 +4059,47 @@ class Search {
           <div class="one-third">
             <h2>Classes</h2>
             <hr>
-            ${results.classes.length ? '<ul>' : `<p>No class matches that search. <a href="${siteData.root_url}/classes">View all classes.</a></p>`}
-            ${results.classes.map(item => `<li><a href="${item.url}">${item.title}</a></li>`).join('')}
+            ${results.classes.length ? '<ul class="search-list">' : `<p>No class matches that search. <a href="${siteData.root_url}/classes">View all classes.</a></p>`}
+            ${results.classes.map(item => `
+                <li>
+                  <a href="${item.url}" class="image-link">
+                    <img src="${item.image}" alt="image-link">
+                    <span>${item.title}</span>
+                  </a>
+                </li>
+              `).join('')}
+              ${results.classes.length ? '</ul>' : ''}
             <h2>Workouts</h2>
             <hr>
-            ${results.workouts.length ? '<ul>' : `<p>No class matches that search. <a href="${siteData.root_url}/workouts">View all workouts.</a></p>`}
-            ${results.workouts.map(item => `<li><a href="${item.url}">${item.title}</a></li>`).join('')}
+            ${results.workouts.length ? '<ul class="search-list">' : `<p>No class matches that search. <a href="${siteData.root_url}/workouts">View all workouts.</a></p>`}
+            ${results.workouts.map(item => ` <li>
+              <a href="${item.url}" class="image-link">
+                <img src="${item.image}" alt="image-link">
+                <span>${item.title}</span>
+              </a>
+            </li>`).join('')}
           </div>
           <div class="one-third">
             <h2>Events</h2>
             <hr>
-            ${results.events.length ? '<ul>' : '<p>No event matches that search.</p>'}
-            ${results.events.map(item => `<li><a href="${item.url}">${item.title}</a></li>`).join('')}
+            ${results.events.length ? '' : '<p>No event matches that search.</p>'}
+            ${results.events.map(item => `
+                <div class="single-event">
+                  <div class="date-container">
+                    <p>${item.date}</p>
+                  </div>
+                  <div class="event-info">
+                    <h2><a href="${item.url}">${item.title}</a></h2>
+                  </div>
+                </div>
+              `).join('')}
           </div>
-        </div>        
-        `;
+        </div>`;
       this.isSpinnerVisible = false;
-    }); // .catch(
-    //   (error) => (this.resultsDiv.innerHTML = `No results found. ${error}`)
-    // );
+    }).catch(error => {
+      this.resultsDiv.innerHTML = 'Something went wrong.';
+      this.isSpinnerVisible = false;
+    });
   }
 
   keyPressed(e) {

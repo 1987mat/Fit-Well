@@ -428,10 +428,13 @@ html {
       }
 
       .single-event {
+        display: flex;
+        gap: 3em;
+
         .date-container {
           background: darkblue;
-          width: 5em;
-          height: 5em;
+          width: 30%;
+          height: 30%;
           border-radius: 50%;
           margin-top: 0.5em;
 
@@ -442,9 +445,6 @@ html {
             font-weight: bolder;
           }
         }
-
-        display: flex;
-        gap: 3em;
       }
     }
 
@@ -592,46 +592,46 @@ html {
       }
     }
 
-    hr {
-      width: 90%;
-      margin: 0 auto;
-    }
+    // hr {
+    //   width: 90%;
+    //   margin: 0 auto;
+    // }
 
-    textarea {
-      height: 100px;
-      width: 600px;
-    }
+    // textarea {
+    //   height: 100px;
+    //   width: 600px;
+    // }
 
-    .my-comments {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      justify-items: center;
+    // .my-comments {
+    //   display: flex;
+    //   flex-direction: column;
+    //   justify-content: center;
+    //   justify-items: center;
 
-      .comment-title {
-        width: 600px;
-        margin: 50px 0 20px 0;
-      }
-      .comment-content {
-        width: 600px;
-        margin-bottom: 20px;
-      }
-      .comment-submit {
-        width: 100px;
-        height: 30px;
-        border-radius: 5px;
-        margin-bottom: 100px;
-        transition: all 500ms;
-        &:hover {
-          cursor: pointer;
-          background: #fffafa;
-        }
-      }
-    }
+    //   .comment-title {
+    //     width: 600px;
+    //     margin: 50px 0 20px 0;
+    //   }
+    //   .comment-content {
+    //     width: 600px;
+    //     margin-bottom: 20px;
+    //   }
+    //   .comment-submit {
+    //     width: 100px;
+    //     height: 30px;
+    //     border-radius: 5px;
+    //     margin-bottom: 100px;
+    //     transition: all 500ms;
+    //     &:hover {
+    //       cursor: pointer;
+    //       background: #fffafa;
+    //     }
+    //   }
+    // }
 
-    .comments-link {
-      margin: 50px 0 100px 50px;
-    }
+    // .comments-link {
+    //   margin: 50px 0 100px 50px;
+    // }
 
     .search-overlay {
       background: rgb(224, 224, 224);
@@ -698,9 +698,95 @@ html {
             }
           }
         }
+      }
 
-        #search-results {
-          margin-top: 10em;
+      .results-container {
+        max-height: 100%;
+        overflow-y: auto;
+        padding: 2em;
+
+        .row {
+          display: flex;
+          justify-content: space-around;
+
+          .one-third {
+            display: flex;
+            flex-direction: column;
+
+            a {
+              text-decoration: underline;
+            }
+
+            h2 {
+              font-size: 2rem;
+              text-align: center;
+            }
+
+            p {
+              text-align: center;
+            }
+
+            li {
+              list-style-type: none;
+              margin: 0.5em;
+            }
+
+            // Style classes and workouts search list
+            .search-list {
+              display: flex;
+              flex-direction: row;
+              justify-content: center;
+
+              // Text overlay on image
+              .image-link {
+                text-decoration: none;
+                position: relative;
+                text-align: center;
+
+                img {
+                  height: 80%;
+                  width: 80%;
+                }
+
+                span {
+                  width: 100%;
+                  background-color: lightgray;
+                  color: #000000;
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                  padding-top: 0.5em;
+                  padding-bottom: 0.5em;
+                }
+              }
+            }
+          }
+
+          .single-event {
+            display: flex;
+            gap: 1em;
+
+            // Date circle
+            .date-container {
+              background: darkblue;
+              width: 30%;
+              height: 30%;
+              border-radius: 50%;
+              margin-top: 0.5em;
+
+              p {
+                text-align: center;
+                color: white;
+                font-weight: bolder;
+                font-size: 70%;
+              }
+            }
+
+            h2 {
+              font-size: 1.5rem;
+            }
+          }
         }
       }
     }

@@ -20,8 +20,6 @@
     </div>
 
     <div class="results-container">
-      <div id="search-results">
-      </div>
     </div>
 
   </div>

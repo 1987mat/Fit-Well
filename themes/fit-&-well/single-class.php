@@ -24,7 +24,7 @@ while(have_posts()) {
 
     <?php 
 
-      // Get the 'Event' Pod
+      // Get the 'Class' Pod
       $pod = pods( 'class', get_the_id() );
       // Get the related field related_workouts
       $relatedWorkouts = $pod->field( 'related_workouts' );

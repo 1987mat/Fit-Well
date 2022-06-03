@@ -493,8 +493,8 @@ html body .page-container .single-event {
 
 html body .page-container .single-event .date-container {
   background: darkblue;
-  width: 5em;
-  height: 5em;
+  width: 30%;
+  height: 30%;
   border-radius: 50%;
   margin-top: 0.5em;
 }
@@ -665,58 +665,6 @@ html body footer .fa-twitter {
   font-size: 2rem;
 }
 
-html body hr {
-  width: 90%;
-  margin: 0 auto;
-}
-
-html body textarea {
-  height: 100px;
-  width: 600px;
-}
-
-html body .my-comments {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  justify-items: center;
-}
-
-html body .my-comments .comment-title {
-  width: 600px;
-  margin: 50px 0 20px 0;
-}
-
-html body .my-comments .comment-content {
-  width: 600px;
-  margin-bottom: 20px;
-}
-
-html body .my-comments .comment-submit {
-  width: 100px;
-  height: 30px;
-  border-radius: 5px;
-  margin-bottom: 100px;
-  -webkit-transition: all 500ms;
-  transition: all 500ms;
-}
-
-html body .my-comments .comment-submit:hover {
-  cursor: pointer;
-  background: #fffafa;
-}
-
-html body .comments-link {
-  margin: 50px 0 100px 50px;
-}
-
 html body .search-overlay {
   background: #e0e0e0;
   -webkit-box-sizing: border-box;
@@ -806,8 +754,109 @@ html body .search-overlay .search-overlay-top .search-container .fa-window-close
   cursor: pointer;
 }
 
-html body .search-overlay .search-overlay-top #search-results {
-  margin-top: 10em;
+html body .search-overlay .results-container {
+  max-height: 100%;
+  overflow-y: auto;
+  padding: 2em;
+}
+
+html body .search-overlay .results-container .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+html body .search-overlay .results-container .row .one-third {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+html body .search-overlay .results-container .row .one-third a {
+  text-decoration: underline;
+}
+
+html body .search-overlay .results-container .row .one-third h2 {
+  font-size: 2rem;
+  text-align: center;
+}
+
+html body .search-overlay .results-container .row .one-third p {
+  text-align: center;
+}
+
+html body .search-overlay .results-container .row .one-third li {
+  list-style-type: none;
+  margin: 0.5em;
+}
+
+html body .search-overlay .results-container .row .one-third .search-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+html body .search-overlay .results-container .row .one-third .search-list .image-link {
+  text-decoration: none;
+  position: relative;
+  text-align: center;
+}
+
+html body .search-overlay .results-container .row .one-third .search-list .image-link img {
+  height: 80%;
+  width: 80%;
+}
+
+html body .search-overlay .results-container .row .one-third .search-list .image-link span {
+  width: 100%;
+  background-color: lightgray;
+  color: #000000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+html body .search-overlay .results-container .row .single-event {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1em;
+}
+
+html body .search-overlay .results-container .row .single-event .date-container {
+  background: darkblue;
+  width: 30%;
+  height: 30%;
+  border-radius: 50%;
+  margin-top: 0.5em;
+}
+
+html body .search-overlay .results-container .row .single-event .date-container p {
+  text-align: center;
+  color: white;
+  font-weight: bolder;
+  font-size: 70%;
+}
+
+html body .search-overlay .results-container .row .single-event h2 {
+  font-size: 1.5rem;
 }
 
 @-webkit-keyframes spinner {
