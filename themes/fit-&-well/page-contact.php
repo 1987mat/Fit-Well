@@ -4,6 +4,7 @@ get_header();
 
 ?>
 
+<!-- CONTACT FORM -->
 <div>
   <div class="form-container">
     <h1>Get in touch!</h1>
@@ -11,7 +12,7 @@ get_header();
       <input type="text" placeholder="First Name" required>
       <input type="text" placeholder="Last Name" required>
       <input type="email" placeholder="Email" required>
-      <textarea maxlength="30" placeholder="Your comments here..." required></textarea>
+      <textarea rows="8" maxlength="30" placeholder="Your comments here..." required></textarea>
       <button class="submit-btn" type="submit">SUBMIT</button>
     </form>
   </div>

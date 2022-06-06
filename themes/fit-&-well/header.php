@@ -39,7 +39,7 @@
           <a href="<?php echo wp_registration_url();?>">Signup</a>
          <?php }
         ?>
-        <i class="fa fa-search" id="search-icon"></i>
+        <a onclick="return false;" href="<?php echo esc_url(site_url('/search'));?>"><i class="fa fa-search" id="search-icon"></i></a>
       </div>
     </div>
   </header>

@@ -10,6 +10,11 @@
   cursor: pointer;
 }
 
+@mixin buttonHover() {
+  cursor: pointer;
+  background-color: #f0f8ff;
+}
+
 * {
   color: #303030;
 }
@@ -28,11 +33,15 @@ html {
     margin-bottom: 8em;
     overflow-x: hidden;
 
+    &.no-scroll {
+      overflow-y: hidden;
+    }
+
     a {
       @include linkStyle();
     }
 
-    /* Header */
+    /* HEADER */
     header {
       background: whitesmoke;
       position: fixed;
@@ -80,7 +89,7 @@ html {
           }
         }
 
-        // Highlight current page link
+        /* Highlight current page link */
         .current-menu-item a {
           text-shadow: 1px #ff0000;
           color: lightgray;
@@ -88,7 +97,7 @@ html {
       }
     }
 
-    /* Main */
+    /* MAIN */
     main {
       display: flex;
       flex-direction: column;
@@ -283,6 +292,7 @@ html {
         }
       }
 
+      /* EVENTS */
       .homepage-events {
         margin-top: 5em;
 
@@ -326,7 +336,7 @@ html {
       }
     }
 
-    // CONTACT PAGE
+    /* CONTACT PAGE */
     .form-container {
       margin: 6em;
       display: flex;
@@ -341,6 +351,7 @@ html {
       .contact-form {
         display: flex;
         flex-direction: column;
+        width: 60%;
 
         button {
           margin: 0.5em;
@@ -352,8 +363,7 @@ html {
           transition: all 0.2s ease-in;
 
           &:hover {
-            cursor: pointer;
-            background-color: #f0f8ff;
+            @include buttonHover();
           }
 
           &:active {
@@ -429,315 +439,371 @@ html {
 
       .single-event {
         display: flex;
-        gap: 3em;
+        gap: 2em;
 
         .date-container {
           background: darkblue;
-          width: 30%;
-          height: 30%;
-          border-radius: 50%;
           margin-top: 0.5em;
+          height: 4em;
+          width: 4em;
+          border-radius: 50%;
+          padding: 1em;
 
           p {
             text-align: center;
-            padding: 0.5em;
             color: white;
             font-weight: bolder;
+            font-size: 0.8rem;
+            height: 4em;
+            width: 4em;
           }
         }
       }
     }
 
-    .class-wrapper {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      margin: 1em;
-
-      a {
-        text-align: center;
-        font-size: 2.3rem;
-        font-weight: bolder;
-        padding: 0.5em;
-        color: black;
+    .page-banner {
+      margin-top: 8em;
+      h1 {
+        font-size: 3rem;
       }
+    }
+    .generic-content {
+      /* SEARCH FORM WITH JS DISABLED */
+      .search-form-container {
+        .search-form {
+          margin: 0 auto;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 1em;
+          background-color: #778899;
+          width: 50%;
+          padding: 1em;
+          border: none;
+          border-radius: 4px;
 
-      .yoga {
-        background-image: url('../images/yoga.jpg');
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: contain;
-        width: 60em;
-        height: 60em;
-        transition: all 0.2s ease-in;
-        opacity: 0.7;
+          label {
+            font-size: 1.5rem;
+          }
 
-        &:hover {
-          cursor: pointer;
-          opacity: 0.8;
+          .search-form-inputs {
+            input {
+              padding: 0.8em;
+              width: 100%;
+              border: none;
+              border-radius: 4px;
+              margin: 0.2em;
+            }
+
+            .search-input-submit:hover {
+              @include buttonHover();
+            }
+          }
         }
       }
+    }
+  }
 
-      .zumba {
-        background-image: url('../images/zumba.jpg');
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: contain;
-        width: 60em;
-        height: 60em;
-        transition: all 0.2s ease-in;
-        opacity: 0.7;
+  .class-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 1em;
 
-        &:hover {
-          cursor: pointer;
-          opacity: 0.8;
-        }
-      }
+    a {
+      text-align: center;
+      font-size: 2.3rem;
+      font-weight: bolder;
+      padding: 0.5em;
+      color: black;
+    }
 
-      .outdoor {
-        background-image: url('../images/outdoor-workout.jpg');
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: contain;
-        width: 60em;
-        height: 60em;
-        transition: all 0.2s ease-in;
-        opacity: 0.7;
-
-        &:hover {
-          cursor: pointer;
-          opacity: 0.8;
-        }
-      }
-
-      .cycling {
-        background-image: url('../images/cycling.jpg');
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: contain;
-        width: 60em;
-        height: 60em;
-        transition: all 0.2s ease-in;
-        opacity: 0.7;
-
-        &:hover {
-          cursor: pointer;
-          opacity: 0.8;
-        }
-      }
+    .yoga {
+      background-image: url('../images/yoga.jpg');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      width: 60em;
+      height: 60em;
+      transition: all 0.2s ease-in;
+      opacity: 0.7;
 
       &:hover {
         cursor: pointer;
-
-        .text-overlay-class {
-          opacity: 0.9;
-        }
+        opacity: 0.8;
       }
     }
 
-    // MAP
-    .mapp-layout {
+    .zumba {
+      background-image: url('../images/zumba.jpg');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      width: 60em;
+      height: 60em;
+      transition: all 0.2s ease-in;
+      opacity: 0.7;
+
+      &:hover {
+        cursor: pointer;
+        opacity: 0.8;
+      }
+    }
+
+    .outdoor {
+      background-image: url('../images/outdoor-workout.jpg');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      width: 60em;
+      height: 60em;
+      transition: all 0.2s ease-in;
+      opacity: 0.7;
+
+      &:hover {
+        cursor: pointer;
+        opacity: 0.8;
+      }
+    }
+
+    .cycling {
+      background-image: url('../images/cycling.jpg');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      width: 60em;
+      height: 60em;
+      transition: all 0.2s ease-in;
+      opacity: 0.7;
+
+      &:hover {
+        cursor: pointer;
+        opacity: 0.8;
+      }
+    }
+
+    &:hover {
+      cursor: pointer;
+
+      .text-overlay-class {
+        opacity: 0.9;
+      }
+    }
+  }
+
+  /* MAP */
+  .mapp-layout {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* WORKOUTS PAGE */
+  .posts-container {
+    margin: 8em;
+
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+    }
+  }
+
+  .related-post {
+    margin: 3em;
+  }
+
+  /* ABOUT PAGE */
+
+  /* FOOTER */
+  footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 5.5em;
+    padding: 1em;
+    background: whitesmoke;
+    position: relative;
+    top: calc(100vh - 100px);
+    left: 0;
+    bottom: 0;
+
+    i {
+      margin: 0.2em;
+    }
+
+    .fa-facebook-official {
+      color: #00008b;
+      font-size: 2rem;
+    }
+
+    .fa-instagram {
+      color: red;
+      font-size: 2rem;
+    }
+
+    .fa-twitter {
+      color: lightblue;
+      font-size: 2rem;
+    }
+  }
+
+  // hr {
+  //   width: 90%;
+  //   margin: 0 auto;
+  // }
+
+  // textarea {
+  //   height: 100px;
+  //   width: 600px;
+  // }
+
+  // .my-comments {
+  //   display: flex;
+  //   flex-direction: column;
+  //   justify-content: center;
+  //   justify-items: center;
+
+  //   .comment-title {
+  //     width: 600px;
+  //     margin: 50px 0 20px 0;
+  //   }
+  //   .comment-content {
+  //     width: 600px;
+  //     margin-bottom: 20px;
+  //   }
+  //   .comment-submit {
+  //     width: 100px;
+  //     height: 30px;
+  //     border-radius: 5px;
+  //     margin-bottom: 100px;
+  //     transition: all 500ms;
+  //     &:hover {
+  //       cursor: pointer;
+  //       background: #fffafa;
+  //     }
+  //   }
+  // }
+
+  // .comments-link {
+  //   margin: 50px 0 100px 50px;
+  // }
+
+  /* SEARCH OVERLAY */
+  .search-overlay {
+    background: rgb(224, 224, 224);
+    box-sizing: border-box;
+    visibility: hidden;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.98;
+    min-height: 100%;
+
+    &--active {
+      display: block;
+      visibility: visible;
+    }
+
+    .search-overlay-top {
+      background-color: #778899;
+      height: 5em;
       position: relative;
-      z-index: 1;
-    }
-
-    // Workouts Page
-    .posts-container {
-      margin: 8em;
-
-      h1 {
-        text-align: center;
-        font-size: 2.5rem;
-      }
-    }
-
-    .related-post {
-      margin: 3em;
-    }
-
-    // ABOUT PAGE
-
-    /* Footer */
-    footer {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      top: -2;
       width: 100%;
-      height: 5.5em;
-      padding: 1em;
-      background: whitesmoke;
-      position: relative;
-      top: calc(100vh - 100px);
-      left: 0;
-      bottom: 0;
 
-      i {
-        margin: 0.2em;
-      }
+      .search-container {
+        display: flex;
+        justify-content: center;
+        gap: 1em;
+        padding: 1em;
 
-      .fa-facebook-official {
-        color: #00008b;
-        font-size: 2rem;
-      }
+        .search-input {
+          width: 75%;
+          box-sizing: border-box;
+          border: none;
+          background: transparent;
+          font-size: 1.8rem;
+          font-weight: 300;
+          color: #000000;
+          outline: none;
+          padding-left: 1.2em;
 
-      .fa-instagram {
-        color: red;
-        font-size: 2rem;
-      }
-
-      .fa-twitter {
-        color: lightblue;
-        font-size: 2rem;
-      }
-    }
-
-    // hr {
-    //   width: 90%;
-    //   margin: 0 auto;
-    // }
-
-    // textarea {
-    //   height: 100px;
-    //   width: 600px;
-    // }
-
-    // .my-comments {
-    //   display: flex;
-    //   flex-direction: column;
-    //   justify-content: center;
-    //   justify-items: center;
-
-    //   .comment-title {
-    //     width: 600px;
-    //     margin: 50px 0 20px 0;
-    //   }
-    //   .comment-content {
-    //     width: 600px;
-    //     margin-bottom: 20px;
-    //   }
-    //   .comment-submit {
-    //     width: 100px;
-    //     height: 30px;
-    //     border-radius: 5px;
-    //     margin-bottom: 100px;
-    //     transition: all 500ms;
-    //     &:hover {
-    //       cursor: pointer;
-    //       background: #fffafa;
-    //     }
-    //   }
-    // }
-
-    // .comments-link {
-    //   margin: 50px 0 100px 50px;
-    // }
-
-    .search-overlay {
-      background: rgb(224, 224, 224);
-      box-sizing: border-box;
-      height: 100vh;
-      visibility: hidden;
-      position: fixed;
-      z-index: 10;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      opacity: 0.97;
-
-      &--active {
-        display: block;
-        visibility: visible;
-      }
-
-      .search-overlay-top {
-        background-color: #778899;
-        height: 5em;
-        position: relative;
-        top: -2;
-        width: 100%;
-        opacity: 0.7;
-
-        .search-container {
-          display: flex;
-          justify-content: center;
-          gap: 1em;
-          padding: 1em;
-
-          .search-input {
-            width: 75%;
-            box-sizing: border-box;
-            border: none;
-            background: transparent;
+          &::placeholder {
             font-size: 1.8rem;
-            font-weight: 300;
-            color: #000000;
-            outline: none;
-            padding-left: 1.2em;
-
-            &::placeholder {
-              font-size: 1.8rem;
-              color: #000000;
-            }
-          }
-
-          .fa-search {
-            margin-top: 0.5em;
-            margin-right: -2em;
-            font-size: 1.2rem;
             color: #000000;
           }
+        }
 
-          .fa-window-close {
-            font-size: 1.5rem;
-            color: #000000;
+        .fa-search {
+          margin-top: 0.5em;
+          margin-right: -2em;
+          font-size: 1.2rem;
+          color: #000000;
+        }
 
-            &:hover {
-              cursor: pointer;
-            }
+        .fa-window-close {
+          font-size: 1.5rem;
+          color: #000000;
+
+          &:hover {
+            cursor: pointer;
           }
         }
       }
+    }
 
-      .results-container {
-        max-height: 100%;
-        overflow-y: auto;
-        padding: 2em;
+    .results-container {
+      overflow-y: auto;
+      padding: 2em;
+      margin-top: -2em;
+      height: 100%;
+      overflow-y: scroll;
 
-        .row {
+      .row {
+        display: flex;
+        justify-content: space-around;
+
+        .one-third {
           display: flex;
-          justify-content: space-around;
+          flex-direction: column;
 
-          .one-third {
+          a {
+            text-decoration: underline;
+          }
+
+          h2 {
+            font-size: 2rem;
+            text-align: center;
+          }
+
+          p {
+            text-align: center;
+          }
+
+          li {
+            list-style-type: none;
+            margin: 0.5em;
+          }
+
+          /* Style classes and workouts search list */
+          .search-list {
             display: flex;
-            flex-direction: column;
-
-            a {
-              text-decoration: underline;
-            }
-
-            h2 {
-              font-size: 2rem;
-              text-align: center;
-            }
-
-            p {
-              text-align: center;
-            }
+            flex-direction: row;
+            justify-content: center;
 
             li {
-              list-style-type: none;
-              margin: 0.5em;
-            }
+              transition: transform 0.2s ease-in;
 
-            // Style classes and workouts search list
-            .search-list {
-              display: flex;
-              flex-direction: row;
-              justify-content: center;
+              &:hover {
+                transform: scale(1.1);
+              }
 
-              // Text overlay on image
+              /* Text overlay on image */
               .image-link {
                 text-decoration: none;
                 position: relative;
@@ -762,72 +828,71 @@ html {
               }
             }
           }
+        }
 
-          .single-event {
-            display: flex;
-            gap: 1em;
+        .single-event {
+          display: flex;
+          gap: 2em;
 
-            // Date circle
-            .date-container {
-              background: darkblue;
-              width: 30%;
-              height: 30%;
-              border-radius: 50%;
-              margin-top: 0.5em;
+          .date-container {
+            background: darkblue;
+            margin-top: 0.5em;
+            height: 4em;
+            width: 4em;
+            border-radius: 50%;
+            padding: 1em;
 
-              p {
-                text-align: center;
-                color: white;
-                font-weight: bolder;
-                font-size: 70%;
-              }
-            }
-
-            h2 {
-              font-size: 1.5rem;
+            p {
+              text-align: center;
+              padding: 0.5em 0.5em;
+              color: white;
+              font-weight: bolder;
+              font-size: 0.8rem;
+              height: 4em;
+              width: 4em;
             }
           }
         }
       }
     }
+  }
 
-    // Loading Spinner
-    @keyframes spinner {
-      from {
-        transform: translate3d(-50%, -50%, 0) rotate(0deg);
-      }
-      to {
-        transform: translate3d(-50%, -50%, 0) rotate(360deg);
-      }
+  /* Loading Spinner */
+  @keyframes spinner {
+    from {
+      transform: translate3d(-50%, -50%, 0) rotate(0deg);
     }
-
-    .spinner {
-      height: 100vh;
-      position: relative;
-
-      &::before {
-        animation: 2s linear infinite spinner;
-        border: solid 4px #00008b;
-        border-bottom-color: #f0f8ff;
-        border-radius: 50%;
-        content: '';
-        height: 3em;
-        width: 3em;
-        position: absolute;
-        top: 10%;
-        left: 50%;
-        transform: translate3d(-50%, -50%, 0);
-      }
+    to {
+      transform: translate3d(-50%, -50%, 0) rotate(360deg);
     }
+  }
 
-    .blog-section {
-      margin-top: 7em;
-      text-align: center;
-    }
+  .spinner {
+    height: 100vh;
+    position: relative;
 
-    .page-container {
-      margin: 7em;
+    &::before {
+      animation: 2s linear infinite spinner;
+      border: solid 4px #00008b;
+      border-bottom-color: #f0f8ff;
+      border-radius: 50%;
+      content: '';
+      height: 3em;
+      width: 3em;
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      transform: translate3d(-50%, -50%, 0);
     }
+  }
+
+  .blog-section {
+    margin-top: 7em;
+    text-align: center;
+  }
+
+  .page-container {
+    margin: 7em;
   }
 }
 

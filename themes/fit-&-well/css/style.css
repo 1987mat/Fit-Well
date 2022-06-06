@@ -10,6 +10,12 @@ html {
           box-sizing: border-box;
   margin: 0;
   padding: 0;
+  /* MAP */
+  /* WORKOUTS PAGE */
+  /* ABOUT PAGE */
+  /* FOOTER */
+  /* SEARCH OVERLAY */
+  /* Loading Spinner */
 }
 
 html body {
@@ -18,9 +24,13 @@ html body {
   min-height: 100vh;
   margin-bottom: 8em;
   overflow-x: hidden;
-  /* Header */
-  /* Main */
-  /* Footer */
+  /* HEADER */
+  /* MAIN */
+  /* CONTACT PAGE */
+}
+
+html body.no-scroll {
+  overflow-y: hidden;
 }
 
 html body a {
@@ -48,6 +58,7 @@ html body header .container {
   -ms-flex-pack: distribute;
       justify-content: space-around;
   padding-bottom: 2em;
+  /* Highlight current page link */
 }
 
 html body header .container h1 {
@@ -95,6 +106,7 @@ html body main {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  /* EVENTS */
 }
 
 html body main .heading-section {
@@ -395,6 +407,7 @@ html body .form-container .contact-form {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  width: 60%;
 }
 
 html body .form-container .contact-form button {
@@ -488,25 +501,80 @@ html body .page-container .single-event {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 3em;
+  gap: 2em;
 }
 
 html body .page-container .single-event .date-container {
   background: darkblue;
-  width: 30%;
-  height: 30%;
-  border-radius: 50%;
   margin-top: 0.5em;
+  height: 4em;
+  width: 4em;
+  border-radius: 50%;
+  padding: 1em;
 }
 
 html body .page-container .single-event .date-container p {
   text-align: center;
-  padding: 0.5em;
   color: white;
   font-weight: bolder;
+  font-size: 0.8rem;
+  height: 4em;
+  width: 4em;
 }
 
-html body .class-wrapper {
+html body .page-banner {
+  margin-top: 8em;
+}
+
+html body .page-banner h1 {
+  font-size: 3rem;
+}
+
+html body .generic-content {
+  /* SEARCH FORM WITH JS DISABLED */
+}
+
+html body .generic-content .search-form-container .search-form {
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1em;
+  background-color: #778899;
+  width: 50%;
+  padding: 1em;
+  border: none;
+  border-radius: 4px;
+}
+
+html body .generic-content .search-form-container .search-form label {
+  font-size: 1.5rem;
+}
+
+html body .generic-content .search-form-container .search-form .search-form-inputs input {
+  padding: 0.8em;
+  width: 100%;
+  border: none;
+  border-radius: 4px;
+  margin: 0.2em;
+}
+
+html body .generic-content .search-form-container .search-form .search-form-inputs .search-input-submit:hover {
+  cursor: pointer;
+  background-color: #f0f8ff;
+}
+
+html .class-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -520,7 +588,7 @@ html body .class-wrapper {
   margin: 1em;
 }
 
-html body .class-wrapper a {
+html .class-wrapper a {
   text-align: center;
   font-size: 2.3rem;
   font-weight: bolder;
@@ -528,7 +596,7 @@ html body .class-wrapper a {
   color: black;
 }
 
-html body .class-wrapper .yoga {
+html .class-wrapper .yoga {
   background-image: url("../images/yoga.jpg");
   background-position: center;
   background-repeat: no-repeat;
@@ -540,12 +608,12 @@ html body .class-wrapper .yoga {
   opacity: 0.7;
 }
 
-html body .class-wrapper .yoga:hover {
+html .class-wrapper .yoga:hover {
   cursor: pointer;
   opacity: 0.8;
 }
 
-html body .class-wrapper .zumba {
+html .class-wrapper .zumba {
   background-image: url("../images/zumba.jpg");
   background-position: center;
   background-repeat: no-repeat;
@@ -557,12 +625,12 @@ html body .class-wrapper .zumba {
   opacity: 0.7;
 }
 
-html body .class-wrapper .zumba:hover {
+html .class-wrapper .zumba:hover {
   cursor: pointer;
   opacity: 0.8;
 }
 
-html body .class-wrapper .outdoor {
+html .class-wrapper .outdoor {
   background-image: url("../images/outdoor-workout.jpg");
   background-position: center;
   background-repeat: no-repeat;
@@ -574,12 +642,12 @@ html body .class-wrapper .outdoor {
   opacity: 0.7;
 }
 
-html body .class-wrapper .outdoor:hover {
+html .class-wrapper .outdoor:hover {
   cursor: pointer;
   opacity: 0.8;
 }
 
-html body .class-wrapper .cycling {
+html .class-wrapper .cycling {
   background-image: url("../images/cycling.jpg");
   background-position: center;
   background-repeat: no-repeat;
@@ -591,38 +659,38 @@ html body .class-wrapper .cycling {
   opacity: 0.7;
 }
 
-html body .class-wrapper .cycling:hover {
+html .class-wrapper .cycling:hover {
   cursor: pointer;
   opacity: 0.8;
 }
 
-html body .class-wrapper:hover {
+html .class-wrapper:hover {
   cursor: pointer;
 }
 
-html body .class-wrapper:hover .text-overlay-class {
+html .class-wrapper:hover .text-overlay-class {
   opacity: 0.9;
 }
 
-html body .mapp-layout {
+html .mapp-layout {
   position: relative;
   z-index: 1;
 }
 
-html body .posts-container {
+html .posts-container {
   margin: 8em;
 }
 
-html body .posts-container h1 {
+html .posts-container h1 {
   text-align: center;
   font-size: 2.5rem;
 }
 
-html body .related-post {
+html .related-post {
   margin: 3em;
 }
 
-html body footer {
+html footer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -646,30 +714,29 @@ html body footer {
   bottom: 0;
 }
 
-html body footer i {
+html footer i {
   margin: 0.2em;
 }
 
-html body footer .fa-facebook-official {
+html footer .fa-facebook-official {
   color: #00008b;
   font-size: 2rem;
 }
 
-html body footer .fa-instagram {
+html footer .fa-instagram {
   color: red;
   font-size: 2rem;
 }
 
-html body footer .fa-twitter {
+html footer .fa-twitter {
   color: lightblue;
   font-size: 2rem;
 }
 
-html body .search-overlay {
+html .search-overlay {
   background: #e0e0e0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  height: 100vh;
   visibility: hidden;
   position: fixed;
   z-index: 10;
@@ -677,24 +744,24 @@ html body .search-overlay {
   left: 0;
   right: 0;
   bottom: 0;
-  opacity: 0.97;
+  opacity: 0.98;
+  min-height: 100%;
 }
 
-html body .search-overlay--active {
+html .search-overlay--active {
   display: block;
   visibility: visible;
 }
 
-html body .search-overlay .search-overlay-top {
+html .search-overlay .search-overlay-top {
   background-color: #778899;
   height: 5em;
   position: relative;
   top: -2;
   width: 100%;
-  opacity: 0.7;
 }
 
-html body .search-overlay .search-overlay-top .search-container {
+html .search-overlay .search-overlay-top .search-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -705,7 +772,7 @@ html body .search-overlay .search-overlay-top .search-container {
   padding: 1em;
 }
 
-html body .search-overlay .search-overlay-top .search-container .search-input {
+html .search-overlay .search-overlay-top .search-container .search-input {
   width: 75%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -718,49 +785,51 @@ html body .search-overlay .search-overlay-top .search-container .search-input {
   padding-left: 1.2em;
 }
 
-html body .search-overlay .search-overlay-top .search-container .search-input::-webkit-input-placeholder {
+html .search-overlay .search-overlay-top .search-container .search-input::-webkit-input-placeholder {
   font-size: 1.8rem;
   color: #000000;
 }
 
-html body .search-overlay .search-overlay-top .search-container .search-input:-ms-input-placeholder {
+html .search-overlay .search-overlay-top .search-container .search-input:-ms-input-placeholder {
   font-size: 1.8rem;
   color: #000000;
 }
 
-html body .search-overlay .search-overlay-top .search-container .search-input::-ms-input-placeholder {
+html .search-overlay .search-overlay-top .search-container .search-input::-ms-input-placeholder {
   font-size: 1.8rem;
   color: #000000;
 }
 
-html body .search-overlay .search-overlay-top .search-container .search-input::placeholder {
+html .search-overlay .search-overlay-top .search-container .search-input::placeholder {
   font-size: 1.8rem;
   color: #000000;
 }
 
-html body .search-overlay .search-overlay-top .search-container .fa-search {
+html .search-overlay .search-overlay-top .search-container .fa-search {
   margin-top: 0.5em;
   margin-right: -2em;
   font-size: 1.2rem;
   color: #000000;
 }
 
-html body .search-overlay .search-overlay-top .search-container .fa-window-close {
+html .search-overlay .search-overlay-top .search-container .fa-window-close {
   font-size: 1.5rem;
   color: #000000;
 }
 
-html body .search-overlay .search-overlay-top .search-container .fa-window-close:hover {
+html .search-overlay .search-overlay-top .search-container .fa-window-close:hover {
   cursor: pointer;
 }
 
-html body .search-overlay .results-container {
-  max-height: 100%;
+html .search-overlay .results-container {
   overflow-y: auto;
   padding: 2em;
+  margin-top: -2em;
+  height: 100%;
+  overflow-y: scroll;
 }
 
-html body .search-overlay .results-container .row {
+html .search-overlay .results-container .row {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -768,7 +837,7 @@ html body .search-overlay .results-container .row {
       justify-content: space-around;
 }
 
-html body .search-overlay .results-container .row .one-third {
+html .search-overlay .results-container .row .one-third {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -776,27 +845,28 @@ html body .search-overlay .results-container .row .one-third {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  /* Style classes and workouts search list */
 }
 
-html body .search-overlay .results-container .row .one-third a {
+html .search-overlay .results-container .row .one-third a {
   text-decoration: underline;
 }
 
-html body .search-overlay .results-container .row .one-third h2 {
+html .search-overlay .results-container .row .one-third h2 {
   font-size: 2rem;
   text-align: center;
 }
 
-html body .search-overlay .results-container .row .one-third p {
+html .search-overlay .results-container .row .one-third p {
   text-align: center;
 }
 
-html body .search-overlay .results-container .row .one-third li {
+html .search-overlay .results-container .row .one-third li {
   list-style-type: none;
   margin: 0.5em;
 }
 
-html body .search-overlay .results-container .row .one-third .search-list {
+html .search-overlay .results-container .row .one-third .search-list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -809,18 +879,31 @@ html body .search-overlay .results-container .row .one-third .search-list {
           justify-content: center;
 }
 
-html body .search-overlay .results-container .row .one-third .search-list .image-link {
+html .search-overlay .results-container .row .one-third .search-list li {
+  -webkit-transition: -webkit-transform 0.2s ease-in;
+  transition: -webkit-transform 0.2s ease-in;
+  transition: transform 0.2s ease-in;
+  transition: transform 0.2s ease-in, -webkit-transform 0.2s ease-in;
+  /* Text overlay on image */
+}
+
+html .search-overlay .results-container .row .one-third .search-list li:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+html .search-overlay .results-container .row .one-third .search-list li .image-link {
   text-decoration: none;
   position: relative;
   text-align: center;
 }
 
-html body .search-overlay .results-container .row .one-third .search-list .image-link img {
+html .search-overlay .results-container .row .one-third .search-list li .image-link img {
   height: 80%;
   width: 80%;
 }
 
-html body .search-overlay .results-container .row .one-third .search-list .image-link span {
+html .search-overlay .results-container .row .one-third .search-list li .image-link span {
   width: 100%;
   background-color: lightgray;
   color: #000000;
@@ -833,30 +916,30 @@ html body .search-overlay .results-container .row .one-third .search-list .image
   padding-bottom: 0.5em;
 }
 
-html body .search-overlay .results-container .row .single-event {
+html .search-overlay .results-container .row .single-event {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 1em;
+  gap: 2em;
 }
 
-html body .search-overlay .results-container .row .single-event .date-container {
+html .search-overlay .results-container .row .single-event .date-container {
   background: darkblue;
-  width: 30%;
-  height: 30%;
-  border-radius: 50%;
   margin-top: 0.5em;
+  height: 4em;
+  width: 4em;
+  border-radius: 50%;
+  padding: 1em;
 }
 
-html body .search-overlay .results-container .row .single-event .date-container p {
+html .search-overlay .results-container .row .single-event .date-container p {
   text-align: center;
+  padding: 0.5em 0.5em;
   color: white;
   font-weight: bolder;
-  font-size: 70%;
-}
-
-html body .search-overlay .results-container .row .single-event h2 {
-  font-size: 1.5rem;
+  font-size: 0.8rem;
+  height: 4em;
+  width: 4em;
 }
 
 @-webkit-keyframes spinner {
@@ -881,12 +964,12 @@ html body .search-overlay .results-container .row .single-event h2 {
   }
 }
 
-html body .spinner {
+html .spinner {
   height: 100vh;
   position: relative;
 }
 
-html body .spinner::before {
+html .spinner::before {
   -webkit-animation: 2s linear infinite spinner;
           animation: 2s linear infinite spinner;
   border: solid 4px #00008b;
@@ -902,12 +985,12 @@ html body .spinner::before {
           transform: translate3d(-50%, -50%, 0);
 }
 
-html body .blog-section {
+html .blog-section {
   margin-top: 7em;
   text-align: center;
 }
 
-html body .page-container {
+html .page-container {
   margin: 7em;
 }
 

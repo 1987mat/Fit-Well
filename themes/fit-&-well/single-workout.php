@@ -15,7 +15,7 @@ while(have_posts()) {
     </div>
 
     <div class="generic-content">
-      <?php the_content(); ?>
+      <?php echo get_post_meta( get_the_ID(), 'main_body_content', true );?>
     </div>
 
     <?php

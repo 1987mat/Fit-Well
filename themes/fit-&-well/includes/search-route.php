@@ -77,12 +77,22 @@ function searchResults($data) {
     }
   
     $relationshipQuery = new WP_Query(array(
-      'post_type' => 'class',
+      'post_type' => array('class', 'event'),
       'meta_query' => $relationshipMetaQuery
     ));
   
     while($relationshipQuery->have_posts()) {
       $relationshipQuery->the_post();
+
+      if(get_post_type() == 'event') {
+        $date = get_post_meta( get_the_ID(), 'event_date', true );
+  
+        array_push($results['events'], array( 
+          'title' => get_the_title(),
+          'url' => get_the_permalink(),
+          'date' => $date
+        ));
+      } 
   
       if(get_post_type() == 'class') {
         array_push($results['classes'], array( 
@@ -91,10 +101,12 @@ function searchResults($data) {
           'image' => get_the_post_thumbnail_url(0, 'landscape')
         ));
       }
-  
     }
   
+    // Remove duplicates from search results
     $results['classes'] =  array_values(array_unique($results['classes'], SORT_REGULAR));
+    $results['events'] =  array_values(array_unique($results['events'], SORT_REGULAR));
+
   }
   return $results;
 }

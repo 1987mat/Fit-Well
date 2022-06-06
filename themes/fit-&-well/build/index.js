@@ -4008,13 +4008,13 @@ class Search {
   openOverlay() {
     this.searchOverlay.classList.add('search-overlay--active');
     this.searchInput.focus();
-    document.body.style.overflow = 'hidden';
+    document.body.classList.add('no-scroll');
     this.isOverlayOpen = true;
   }
 
   closeOverlay() {
     this.searchOverlay.classList.remove('search-overlay--active');
-    document.body.style.overflow = '';
+    document.body.classList.remove('no-scroll');
     this.searchInput.value = '';
     this.resultsDiv.innerHTML = '';
     this.isOverlayOpen = false;
