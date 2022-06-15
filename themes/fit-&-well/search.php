@@ -11,12 +11,22 @@
 
 <div class="page-container">
 
-  <?php while(have_posts()) {
-    the_post(); 
-    get_template_part('content', get_post_type());   
+  <?php 
+  if(have_posts()) {
+    while(have_posts()) {
+      the_post(); 
+      // Show different post types dinamically
+      get_template_part('content', get_post_type());   
+    }
+    echo paginate_links();
+  } else {
+    echo '<h2 class="search-headline">No results match that search.</h2>';
   }
-  echo paginate_links();
+  // Display search form
+  get_search_form();
   ?> 
 </div>
 
-<?php get_footer(); ?> 
+<?php 
+  get_footer(); 
+?> 

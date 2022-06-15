@@ -1,5 +1,91 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap');
 
+@mixin classImage($height, $width) {
+  /* Text overlay on image */
+  .image-link {
+    text-decoration: none;
+    position: relative;
+    text-align: center;
+
+    img {
+      height: $height;
+      width: $width;
+    }
+
+    span {
+      width: 100%;
+      background-color: lightgray;
+      color: #000000;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding-top: 0.5em;
+      padding-bottom: 0.5em;
+    }
+  }
+}
+
+@mixin singleEventStyle() {
+  .single-event {
+    display: flex;
+    gap: 2em;
+
+    .date-container {
+      background: darkblue;
+      margin-top: 0.5em;
+      height: 4em;
+      width: 4em;
+      border-radius: 50%;
+      padding: 1em;
+
+      p {
+        text-align: center;
+        padding: 0.5em 0.5em;
+        color: white;
+        font-weight: bolder;
+        font-size: 0.8rem;
+        height: 4em;
+        width: 4em;
+      }
+    }
+  }
+}
+
+@mixin searchForm($width) {
+  .search-form {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    background-color: #778899;
+    width: $width;
+    padding: 1em;
+    border: none;
+    border-radius: 4px;
+
+    label {
+      font-size: 1.5rem;
+    }
+
+    .search-form-inputs {
+      input {
+        padding: 0.8em;
+        width: 100%;
+        border: none;
+        border-radius: 4px;
+        margin: 0.2em;
+      }
+
+      .search-input-submit:hover {
+        @include buttonHover();
+      }
+    }
+  }
+}
+
 @mixin linkStyle() {
   text-decoration: none;
   color: #000000;
@@ -17,6 +103,18 @@
 
 * {
   color: #303030;
+}
+
+/* Override Wordpress official styles for login page */
+.login {
+  h1 {
+    a {
+      background-image: none;
+      text-indent: 0%;
+      font-size: 3rem;
+      width: 100%;
+    }
+  }
 }
 
 html {
@@ -388,8 +486,16 @@ html {
       .generic-content {
         margin-top: 5em;
         display: flex;
+        justify-content: center;
         gap: 2em;
+
+        /* SEARCH FORM WITH JS DISABLED */
+        .search-form-container {
+          @include searchForm(100%);
+        }
       }
+
+      @include classImage(25%, 25%);
 
       .link-list {
         li {
@@ -437,28 +543,7 @@ html {
         }
       }
 
-      .single-event {
-        display: flex;
-        gap: 2em;
-
-        .date-container {
-          background: darkblue;
-          margin-top: 0.5em;
-          height: 4em;
-          width: 4em;
-          border-radius: 50%;
-          padding: 1em;
-
-          p {
-            text-align: center;
-            color: white;
-            font-weight: bolder;
-            font-size: 0.8rem;
-            height: 4em;
-            width: 4em;
-          }
-        }
-      }
+      @include singleEventStyle();
     }
 
     .page-banner {
@@ -467,40 +552,11 @@ html {
         font-size: 3rem;
       }
     }
+
     .generic-content {
       /* SEARCH FORM WITH JS DISABLED */
       .search-form-container {
-        .search-form {
-          margin: 0 auto;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          gap: 1em;
-          background-color: #778899;
-          width: 50%;
-          padding: 1em;
-          border: none;
-          border-radius: 4px;
-
-          label {
-            font-size: 1.5rem;
-          }
-
-          .search-form-inputs {
-            input {
-              padding: 0.8em;
-              width: 100%;
-              border: none;
-              border-radius: 4px;
-              margin: 0.2em;
-            }
-
-            .search-input-submit:hover {
-              @include buttonHover();
-            }
-          }
-        }
+        @include searchForm(50%);
       }
     }
   }
@@ -804,60 +860,38 @@ html {
               }
 
               /* Text overlay on image */
-              .image-link {
-                text-decoration: none;
-                position: relative;
-                text-align: center;
+              @include classImage(80%, 80%);
+              // .image-link {
+              //   text-decoration: none;
+              //   position: relative;
+              //   text-align: center;
 
-                img {
-                  height: 80%;
-                  width: 80%;
-                }
+              //   img {
+              //     height: 80%;
+              //     width: 80%;
+              //   }
 
-                span {
-                  width: 100%;
-                  background-color: lightgray;
-                  color: #000000;
-                  position: absolute;
-                  top: 50%;
-                  left: 50%;
-                  transform: translate(-50%, -50%);
-                  padding-top: 0.5em;
-                  padding-bottom: 0.5em;
-                }
-              }
+              //   span {
+              //     width: 100%;
+              //     background-color: lightgray;
+              //     color: #000000;
+              //     position: absolute;
+              //     top: 50%;
+              //     left: 50%;
+              //     transform: translate(-50%, -50%);
+              //     padding-top: 0.5em;
+              //     padding-bottom: 0.5em;
+              //   }
+              // }
             }
           }
         }
-
-        .single-event {
-          display: flex;
-          gap: 2em;
-
-          .date-container {
-            background: darkblue;
-            margin-top: 0.5em;
-            height: 4em;
-            width: 4em;
-            border-radius: 50%;
-            padding: 1em;
-
-            p {
-              text-align: center;
-              padding: 0.5em 0.5em;
-              color: white;
-              font-weight: bolder;
-              font-size: 0.8rem;
-              height: 4em;
-              width: 4em;
-            }
-          }
-        }
+        @include singleEventStyle();
       }
     }
   }
 
-  /* Loading Spinner */
+  /* LOADING SPINNER */
   @keyframes spinner {
     from {
       transform: translate3d(-50%, -50%, 0) rotate(0deg);

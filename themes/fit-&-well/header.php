@@ -29,16 +29,17 @@
       <div class="header-util">
 
         <!-- Leave a comment if user is logged in or Log Out  -->
-        <?php if(is_user_logged_in()) { ?>
-          <span <?php if(is_page('my-comments')) echo 'class="current-menu-item"';?>><a href="<?php echo site_url('/my-comments'); ?>">My Comments</a></span>
-          <a href="<?php echo wp_logout_url(); ?>">Log Out</a>
-
+         <?php if(is_user_logged_in()) { ?>
+          <a href="<?php echo wp_logout_url(); ?>">
+            <span><?php echo get_avatar(get_current_user_id(), 60);?></span>
+            <span>Log Out</span>
+          </a>
           <!-- Login if user is logged out or Sign up if new user -->
         <?php } else { ?>
           <a href="<?php echo wp_login_url();?>">Login</a>
-          <a href="<?php echo wp_registration_url();?>">Signup</a>
+          <a href="<?php echo wp_registration_url();?>">Sign Up</a>
          <?php }
-        ?>
+        ?> 
         <a onclick="return false;" href="<?php echo esc_url(site_url('/search'));?>"><i class="fa fa-search" id="search-icon"></i></a>
       </div>
     </div>

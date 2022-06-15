@@ -9,6 +9,14 @@
   color: #303030;
 }
 
+/* Override Wordpress official styles for login page */
+.login h1 a {
+  background-image: none;
+  text-indent: 0%;
+  font-size: 3rem;
+  width: 100%;
+}
+
 html {
   min-width: 100%;
   min-height: 100%;
@@ -20,7 +28,7 @@ html {
   /* ABOUT PAGE */
   /* FOOTER */
   /* SEARCH OVERLAY */
-  /* Loading Spinner */
+  /* LOADING SPINNER */
 }
 html body {
   font-family: "Montserrat", sans-serif;
@@ -331,11 +339,61 @@ html body .form-container .contact-form textarea {
 }
 html body .page-container {
   margin-bottom: 5em;
+  /* Text overlay on image */
 }
 html body .page-container .generic-content {
   margin-top: 5em;
   display: flex;
+  justify-content: center;
   gap: 2em;
+  /* SEARCH FORM WITH JS DISABLED */
+}
+html body .page-container .generic-content .search-form-container .search-form {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  background-color: #778899;
+  width: 100%;
+  padding: 1em;
+  border: none;
+  border-radius: 4px;
+}
+html body .page-container .generic-content .search-form-container .search-form label {
+  font-size: 1.5rem;
+}
+html body .page-container .generic-content .search-form-container .search-form .search-form-inputs input {
+  padding: 0.8em;
+  width: 100%;
+  border: none;
+  border-radius: 4px;
+  margin: 0.2em;
+}
+html body .page-container .generic-content .search-form-container .search-form .search-form-inputs .search-input-submit:hover {
+  cursor: pointer;
+  background-color: #f0f8ff;
+}
+html body .page-container .image-link {
+  text-decoration: none;
+  position: relative;
+  text-align: center;
+}
+html body .page-container .image-link img {
+  height: 25%;
+  width: 25%;
+}
+html body .page-container .image-link span {
+  width: 100%;
+  background-color: lightgray;
+  color: #000000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
 }
 html body .page-container .link-list li {
   list-style-type: none;
@@ -387,6 +445,7 @@ html body .page-container .single-event .date-container {
 }
 html body .page-container .single-event .date-container p {
   text-align: center;
+  padding: 0.5em 0.5em;
   color: white;
   font-weight: bolder;
   font-size: 0.8rem;
@@ -650,6 +709,7 @@ html .search-overlay .results-container .row .one-third .search-list {
 }
 html .search-overlay .results-container .row .one-third .search-list li {
   transition: transform 0.2s ease-in;
+  /* Text overlay on image */
   /* Text overlay on image */
 }
 html .search-overlay .results-container .row .one-third .search-list li:hover {

@@ -120,10 +120,50 @@ function adjust_queries($query) {
         'value' => $today,
         'type' => 'numeric'
       )
-    ));
-
-    
+    ));  
   }
 }
 
 add_action('pre_get_posts', 'adjust_queries');
+
+
+// Redirect subscriber accounts out of admin and onto homepage
+add_action('admin_init', 'redirectSubsToFrontend');
+
+function redirectSubsToFrontend() {
+  $ourCurrentUser = wp_get_current_user();
+  if(count($ourCurrentUser->roles) == 1 AND $ourCurrentUser->roles[0] == 'subscriber') {
+    wp_redirect(site_url('/'));
+    exit;
+  }
+}
+
+add_action('wp_loaded', 'noAdminBar');
+
+function noAdminBar() {
+  $ourCurrentUser = wp_get_current_user();
+  if(count($ourCurrentUser->roles) == 1 AND $ourCurrentUser->roles[0] == 'subscriber') {
+    show_admin_bar(false);
+  }
+}
+
+// Customize login screen
+add_filter('login_headerurl', 'ourHeaderUrl');
+
+function ourHeaderUrl() {
+  return esc_url(site_url('/'));
+}
+
+// Load CSS into WP login page
+add_action('login_enqueue_scripts', 'ourLoginCSS');
+
+function ourLoginCSS() {
+  wp_register_style('style', get_template_directory_uri() . '/css/style.css');
+  wp_enqueue_style('style');
+}
+
+add_filter('login_headertitle', 'ourLoginTitle');
+
+function ourLoginTitle() {
+  return get_bloginfo('name');
+}
