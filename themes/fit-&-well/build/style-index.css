@@ -340,6 +340,7 @@ html body .form-container .contact-form textarea {
 html body .page-container {
   margin-bottom: 5em;
   /* Text overlay on image */
+  /* MY COMMENTS PAGE */
 }
 html body .page-container .generic-content {
   margin-top: 5em;
@@ -451,6 +452,60 @@ html body .page-container .single-event .date-container p {
   font-size: 0.8rem;
   height: 4em;
   width: 4em;
+}
+html body .page-container #my-comments li {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  list-style-type: none;
+  margin: 3em;
+}
+html body .page-container #my-comments li .comment-top input {
+  border: none;
+  font-size: 2rem;
+  outline: none;
+}
+html body .page-container #my-comments li .comment-top input.edit-mode {
+  outline: auto;
+}
+html body .page-container #my-comments li .comment-top button {
+  border: none;
+  padding: 1em;
+  border-radius: 5px;
+  transition: all 0.2s ease-in;
+}
+html body .page-container #my-comments li .comment-top button:hover {
+  cursor: pointer;
+  background-color: #f0f8ff;
+}
+html body .page-container #my-comments li .comment-top button i {
+  margin: 0.2em;
+}
+html body .page-container #my-comments li textarea {
+  width: 70%;
+  border: none;
+  outline: none;
+  resize: none;
+}
+html body .page-container #my-comments li textarea.edit-mode {
+  outline: auto;
+}
+html body .page-container #my-comments li .update-comment {
+  display: none;
+  border: none;
+  padding: 1em;
+  border-radius: 5px;
+  width: 6em;
+  background-color: darkblue;
+  color: #f0f8ff;
+  transition: all 0.2s ease-in;
+}
+html body .page-container #my-comments li .update-comment:hover {
+  cursor: pointer;
+}
+html body .page-container #my-comments li .update-comment i {
+  color: #f0f8ff;
+  margin: 0.2em;
 }
 html body .page-banner {
   margin-top: 8em;

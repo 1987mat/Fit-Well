@@ -50,7 +50,8 @@ function CSS_JS() {
 
   // Make url relative for AJAX requests
   wp_localize_script('main-js', 'siteData', array(
-    'root_url' => get_site_url()
+    'root_url' => get_site_url(),
+    'nonce' => wp_create_nonce('wp_rest')
   ));
 
 }

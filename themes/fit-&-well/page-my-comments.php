@@ -1,22 +1,54 @@
 <?php
-get_header(); ?>
 
-<div class="my-comments">
-  <h1>Leave a comment!</h1>
-  <input type="text" name="comment-title" class="comment-title" placeholder="Title...">
-  <textarea class="comment-content"></textarea>
-  <button class="comment-submit">SUBMIT</button>
-</div>
+  // Prevent user to visit the page if not logged in
+  if(!is_user_logged_in()) {
+    wp_redirect(esc_url(site_url('/')));
+    exit;
+  }
 
-<div class="comment-field">
-  <ul class="comment-list" id="new-comments">
-  
-  </ul>
-</div>
+  get_header();
 
- 
+  while(have_posts()) {
+    the_post();
+    pageBanner();
+
+  ?>
+
+  <div class="page-container">
+    <ul id="my-comments">
+      <?php
+
+      $userComments = new WP_Query(array(
+        'post_type' => 'comment',
+        'posts_per_page' => -1,
+        'author' => get_current_user_id()
+      ));
+
+      while($userComments->have_posts()) {
+        $userComments->the_post(); ?>
+
+        <li data-id="<?php the_ID();?>">
+          <div class="comment-top">
+            <input readonly value="<?php echo esc_attr(get_the_title()); ?>">
+            <button class="edit-comment"><i class="fa fa-pencil" aria-hidden="true"></i>Edit</button>
+            <button class="delete-comment"><i class="fa fa-trash-o" aria-hidden="true"></i>Delete</button>
+         </div>
+          <textarea readonly>"<?php echo esc_attr(wp_strip_all_tags(get_the_content())); ?>"</textarea>
+          <button class="update-comment"><i class="fa fa-check" aria-hidden="true"></i>Save</button>
+
+        </li>
+
+      <?php }
+
+      ?>
 
 
+    </ul>
+  </div>
 
+  <?php } 
 
-<?php get_footer(); ?>
+  get_footer();
+
+?>
+

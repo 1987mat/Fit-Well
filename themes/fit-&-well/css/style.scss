@@ -544,6 +544,75 @@ html {
       }
 
       @include singleEventStyle();
+
+      /* MY COMMENTS PAGE */
+      #my-comments {
+        li {
+          display: flex;
+          flex-direction: column;
+          gap: 1em;
+          list-style-type: none;
+          margin: 3em;
+
+          .comment-top {
+            input {
+              border: none;
+              font-size: 2rem;
+              outline: none;
+
+              &.edit-mode {
+                outline: auto;
+              }
+            }
+
+            button {
+              border: none;
+              padding: 1em;
+              border-radius: 5px;
+              transition: all 0.2s ease-in;
+
+              &:hover {
+                @include buttonHover();
+              }
+
+              i {
+                margin: 0.2em;
+              }
+            }
+          }
+
+          textarea {
+            width: 70%;
+            border: none;
+            outline: none;
+            resize: none;
+
+            &.edit-mode {
+              outline: auto;
+            }
+          }
+
+          .update-comment {
+            display: none;
+            border: none;
+            padding: 1em;
+            border-radius: 5px;
+            width: 6em;
+            background-color: darkblue;
+            color: #f0f8ff;
+            transition: all 0.2s ease-in;
+
+            &:hover {
+              cursor: pointer;
+            }
+
+            i {
+              color: #f0f8ff;
+              margin: 0.2em;
+            }
+          }
+        }
+      }
     }
 
     .page-banner {
@@ -704,47 +773,6 @@ html {
       font-size: 2rem;
     }
   }
-
-  // hr {
-  //   width: 90%;
-  //   margin: 0 auto;
-  // }
-
-  // textarea {
-  //   height: 100px;
-  //   width: 600px;
-  // }
-
-  // .my-comments {
-  //   display: flex;
-  //   flex-direction: column;
-  //   justify-content: center;
-  //   justify-items: center;
-
-  //   .comment-title {
-  //     width: 600px;
-  //     margin: 50px 0 20px 0;
-  //   }
-  //   .comment-content {
-  //     width: 600px;
-  //     margin-bottom: 20px;
-  //   }
-  //   .comment-submit {
-  //     width: 100px;
-  //     height: 30px;
-  //     border-radius: 5px;
-  //     margin-bottom: 100px;
-  //     transition: all 500ms;
-  //     &:hover {
-  //       cursor: pointer;
-  //       background: #fffafa;
-  //     }
-  //   }
-  // }
-
-  // .comments-link {
-  //   margin: 50px 0 100px 50px;
-  // }
 
   /* SEARCH OVERLAY */
   .search-overlay {

@@ -30,6 +30,8 @@
 
         <!-- Leave a comment if user is logged in or Log Out  -->
          <?php if(is_user_logged_in()) { ?>
+          <!-- Leave comment button -->
+          <a href="<?php echo esc_url(site_url('/my-comments'));?>">My Comments</a>
           <a href="<?php echo wp_logout_url(); ?>">
             <span><?php echo get_avatar(get_current_user_id(), 60);?></span>
             <span>Log Out</span>
