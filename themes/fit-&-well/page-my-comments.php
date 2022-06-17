@@ -29,13 +29,12 @@
 
         <li data-id="<?php the_ID();?>">
           <div class="comment-top">
-            <input readonly value="<?php echo esc_attr(get_the_title()); ?>">
-            <button class="edit-comment"><i class="fa fa-pencil" aria-hidden="true"></i>Edit</button>
-            <button class="delete-comment"><i class="fa fa-trash-o" aria-hidden="true"></i>Delete</button>
+            <input class="comment-input-field" readonly value="<?php echo esc_attr(get_the_title()); ?>">
+            <button class="edit-btn"><i class="fa fa-pencil" aria-hidden="true"></i>Edit</button>
+            <button class="delete-btn"><i class="fa fa-trash-o" aria-hidden="true"></i>Delete</button>
          </div>
-          <textarea readonly>"<?php echo esc_attr(wp_strip_all_tags(get_the_content())); ?>"</textarea>
-          <button class="update-comment"><i class="fa fa-check" aria-hidden="true"></i>Save</button>
-
+          <textarea class="comment-body-field" readonly>"<?php echo esc_attr(wp_strip_all_tags(get_the_content())); ?>"</textarea>
+          <button class="update-btn"><i class="fa fa-check" aria-hidden="true"></i>Save</button>
         </li>
 
       <?php }
