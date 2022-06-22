@@ -15,6 +15,17 @@
   ?>
 
   <div class="page-container">
+
+    <div class="create-comment">
+    <span class="message"></span>
+      <h2>Add New Comment</h2>
+      <input class="comment-title" placeholder="Title">
+      <textarea class="comment-body" rows="6"
+      placeholder="Your comment here..."></textarea>
+      <input type="submit" class="submit-comment-btn">
+    </div>
+
+
     <ul id="my-comments">
       <?php
 

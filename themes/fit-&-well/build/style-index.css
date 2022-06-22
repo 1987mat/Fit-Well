@@ -453,6 +453,43 @@ html body .page-container .single-event .date-container p {
   height: 4em;
   width: 4em;
 }
+html body .page-container .create-comment {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #778899;
+  border-radius: 2px;
+  width: 60%;
+  margin: 0 auto;
+  margin-top: -5em;
+  margin-bottom: 6em;
+  padding: 1em;
+}
+html body .page-container .create-comment h2 {
+  text-align: center;
+  font-size: 2rem;
+}
+html body .page-container .create-comment input,
+html body .page-container .create-comment textarea {
+  margin: 0.5em;
+  padding: 0.5em;
+  border: none;
+  border-radius: 2px;
+  resize: none;
+  outline: none;
+  font-family: "Montserrat", sans-serif;
+}
+html body .page-container .create-comment .message {
+  font-size: 0.8rem;
+  color: orange;
+}
+html body .page-container .create-comment .submit-comment-btn {
+  font-weight: bold;
+}
+html body .page-container .create-comment .submit-comment-btn:hover {
+  color: #778899;
+  cursor: pointer;
+}
 html body .page-container #my-comments li {
   display: flex;
   flex-direction: column;

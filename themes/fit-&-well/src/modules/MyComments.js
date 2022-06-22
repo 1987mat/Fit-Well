@@ -1,29 +1,51 @@
 class MyComments {
   constructor() {
-    this.editButton = document.querySelectorAll('.edit-btn');
-    this.deleteButton = document.querySelectorAll('.delete-btn');
-    this.updateButton = document.querySelectorAll('.update-btn');
-    this.events();
+    if (document.querySelector('#my-comments')) {
+      this.myComments = document.querySelector('#my-comments');
+      this.events();
+    }
   }
 
   events() {
-    this.editButton.forEach((item) => {
-      item.addEventListener('click', this.editComment.bind(this));
-    });
+    this.myComments.addEventListener('click', (e) => this.clickHandler(e));
 
-    this.deleteButton.forEach((item) => {
-      item.addEventListener('click', this.deleteComment);
-    });
-
-    this.updateButton.forEach((item) => {
-      item.addEventListener('click', this.updateComment.bind(this));
-    });
+    document
+      .querySelector('.submit-comment-btn')
+      .addEventListener('click', (e) => this.createNewComment(e));
   }
 
-  // METHODS
+  clickHandler(e) {
+    if (
+      e.target.classList.contains('delete-btn') ||
+      e.target.classList.contains('fa-trash-o')
+    )
+      this.deleteComment(e);
+
+    if (
+      e.target.classList.contains('edit-btn') ||
+      e.target.classList.contains('fa-pencil') ||
+      e.target.classList.contains('fa-times')
+    )
+      this.editComment(e);
+
+    if (
+      e.target.classList.contains('update-btn') ||
+      e.target.classList.contains('fa-check')
+    )
+      this.updateComment(e);
+  }
+
+  findNearestParentLi(el) {
+    let thisComment = el;
+    while (thisComment.tagName != 'LI') {
+      thisComment = thisComment.parentElement;
+    }
+    return thisComment;
+  }
+
   editComment(e) {
     // Get clicked comment
-    let comment = e.target.parentElement.parentElement;
+    let comment = this.findNearestParentLi(e.target);
 
     if (comment.dataset.state == 'editable') {
       this.makeCommentReadOnly(comment);
@@ -68,12 +90,10 @@ class MyComments {
 
   deleteComment(e) {
     // Get clicked comment
-    let comment = e.target.parentElement.parentElement;
-
+    let comment = this.findNearestParentLi(e.target);
     // Send delete request
     let url =
       siteData.root_url + '/wp-json/wp/v2/comment/' + comment.dataset.id;
-
     fetch(url, {
       headers: {
         'X-WP-Nonce': siteData.nonce,
@@ -92,7 +112,7 @@ class MyComments {
 
   updateComment(e) {
     // Get clicked comment
-    let comment = e.target.parentElement;
+    let comment = this.findNearestParentLi(e.target);
 
     // Send post request
     let url =
@@ -118,6 +138,62 @@ class MyComments {
         console.log(data);
       })
       .catch((error) => console.log(error));
+  }
+
+  createNewComment(e) {
+    const parent = e.target.parentElement;
+
+    let title = parent.querySelector('.comment-title').value;
+    let content = parent.querySelector('.comment-body').value;
+
+    if (title !== '' && content !== '') {
+      let ourNewComment = {
+        title: title,
+        content: content,
+        status: 'publish',
+      };
+
+      let url = siteData.root_url + '/wp-json/wp/v2/comment/';
+
+      fetch(url, {
+        headers: {
+          'X-WP-Nonce': siteData.nonce,
+          'Content-Type': 'application/json',
+        },
+        method: 'POST',
+        body: JSON.stringify(ourNewComment),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          // Clear input fields
+          parent.querySelector('.comment-title').value = '';
+          parent.querySelector('.comment-body').value = '';
+
+          // Add the new comment to the list
+          let newComment = document.createElement('li');
+          newComment.innerHTML = `
+            <div class="comment-top">
+              <input class="comment-input-field" readonly value="${data.title.raw}">
+              <button class="edit-btn"><i class="fa fa-pencil" aria-hidden="true"></i>Edit</button>
+              <button class="delete-btn"><i class="fa fa-trash-o" aria-hidden="true"></i>Delete</button>
+            </div>
+            <textarea class="comment-body-field" readonly>${data.content.raw}</textarea>
+            <button class="update-btn"><i class="fa fa-check" aria-hidden="true"></i>Save</button>`;
+
+          newComment.dataset.id = data.id;
+          document.querySelector('#my-comments').prepend(newComment);
+
+          console.log('Congrats');
+          console.log(data);
+        })
+        .catch((error) => console.log(error));
+    } else {
+      // Show message alert
+      parent.querySelector('.message').innerHTML = 'Please fill both fields.';
+      setTimeout(() => {
+        parent.querySelector('.message').innerHTML = '';
+      }, 2000);
+    }
   }
 }
 

@@ -546,6 +546,48 @@ html {
       @include singleEventStyle();
 
       /* MY COMMENTS PAGE */
+      .create-comment {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: #778899;
+        border-radius: 2px;
+        width: 60%;
+        margin: 0 auto;
+        margin-top: -5em;
+        margin-bottom: 6em;
+        padding: 1em;
+
+        h2 {
+          text-align: center;
+          font-size: 2rem;
+        }
+
+        input,
+        textarea {
+          margin: 0.5em;
+          padding: 0.5em;
+          border: none;
+          border-radius: 2px;
+          resize: none;
+          outline: none;
+          font-family: 'Montserrat', sans-serif;
+        }
+
+        .message {
+          font-size: 0.8rem;
+          color: orange;
+        }
+
+        .submit-comment-btn {
+          font-weight: bold;
+
+          &:hover {
+            @include linkHover();
+          }
+        }
+      }
+
       #my-comments {
         li {
           display: flex;
@@ -564,22 +606,6 @@ html {
                 outline: auto;
               }
             }
-
-            // button {
-            //   border: none;
-            //   padding: 1em;
-            //   border-radius: 5px;
-            //   transition: all 0.2s ease-in;
-
-            //   &:hover {
-            //     // @include buttonHover();
-            //     cursor: pointer;
-            //   }
-
-            //   i {
-            //     margin: 0.2em;
-            //   }
-            // }
           }
 
           textarea {
