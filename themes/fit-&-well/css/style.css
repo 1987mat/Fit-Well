@@ -702,6 +702,11 @@ html body .page-container #my-comments li button i {
   margin: 0.2em;
 }
 
+html body .page-container #my-comments li .delete-btn,
+html body .page-container #my-comments li .fa-trash-o {
+  color: #ff0000;
+}
+
 html body .page-container #my-comments li .update-btn {
   display: none;
   border: none;

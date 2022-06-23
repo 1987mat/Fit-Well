@@ -107,7 +107,10 @@ class MyComments {
         console.log('Congrats');
         console.log(data);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log('Sorry');
+        console.log(data);
+      });
   }
 
   updateComment(e) {
@@ -137,7 +140,7 @@ class MyComments {
         console.log('Congrats');
         console.log(data);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => console.log('Sorry'));
   }
 
   createNewComment(e) {
@@ -186,7 +189,9 @@ class MyComments {
           console.log('Congrats');
           console.log(data);
         })
-        .catch((error) => console.log(error));
+        .catch((error) => {
+          console.log('Sorry');
+        });
     } else {
       // Show message alert
       parent.querySelector('.message').innerHTML = 'Please fill both fields.';

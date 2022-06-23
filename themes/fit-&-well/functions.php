@@ -168,3 +168,33 @@ add_filter('login_headertitle', 'ourLoginTitle');
 function ourLoginTitle() {
   return get_bloginfo('name');
 }
+
+// Force comment posts to be private
+add_filter('wp_insert_post_data', 'makeCommentPrivate', 10, 2);
+
+function makeCommentPrivate($data, $postarr) {
+  
+  if ($data['post_type'] == 'comment') {
+
+    // Limit number of comment posts
+    if (count_user_posts(get_current_user_id(), 'comment') > 4 AND !$postarr['ID']) {
+      die('You have reached your comment limit.');
+    }
+
+    $data['post_content'] = sanitize_textarea_field($data['post_content']);
+    $data['post_title'] = sanitize_text_field($data['post_title']);
+  }
+
+  if ($data['post_type'] == 'comment' AND $data['post_status'] != 'trash') {
+    $data['post_status'] = "private";
+  }
+
+  return $data;
+}
+
+// Remove 'private' from post title
+function remove_private_prefix($title) {
+	$title = str_replace('Private: ', '', $title);
+	return $title;
+}
+add_filter('the_title', 'remove_private_prefix');

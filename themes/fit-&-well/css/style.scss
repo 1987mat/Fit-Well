@@ -634,6 +634,11 @@ html {
             }
           }
 
+          .delete-btn,
+          .fa-trash-o {
+            color: #ff0000;
+          }
+
           .update-btn {
             display: none;
             border: none;
