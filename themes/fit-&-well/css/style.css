@@ -644,11 +644,23 @@ html body .page-container .create-comment .message {
 
 html body .page-container .create-comment .submit-comment-btn {
   font-weight: bold;
+  width: 15%;
 }
 
 html body .page-container .create-comment .submit-comment-btn:hover {
   color: #778899;
   cursor: pointer;
+}
+
+html body .page-container .create-comment .comment-limit-message {
+  visibility: hidden;
+  font-size: 0.8rem;
+  color: orange;
+  margin-left: 1em;
+}
+
+html body .page-container .create-comment .comment-limit-message.visible {
+  visibility: visible;
 }
 
 html body .page-container #my-comments li {

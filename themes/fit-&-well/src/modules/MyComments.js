@@ -91,25 +91,32 @@ class MyComments {
   deleteComment(e) {
     // Get clicked comment
     let comment = this.findNearestParentLi(e.target);
+
     // Send delete request
     let url =
       siteData.root_url + '/wp-json/wp/v2/comment/' + comment.dataset.id;
+
+    function handleErrors(response) {
+      if (!response.ok) {
+        throw Error(response.statusText);
+      } else {
+        return response.json();
+      }
+    }
+
     fetch(url, {
       headers: {
         'X-WP-Nonce': siteData.nonce,
       },
       method: 'DELETE',
     })
-      .then((response) => response.json())
-      .then((data) => {
-        // Delete li element from the page
+      .then(handleErrors)
+      .then(function (response) {
+        console.log('ok', response);
         comment.remove();
-        console.log('Congrats');
-        console.log(data);
       })
-      .catch((error) => {
-        console.log('Sorry');
-        console.log(data);
+      .catch(function (error) {
+        console.log(error);
       });
   }
 
@@ -126,6 +133,17 @@ class MyComments {
       content: comment.querySelector('.comment-body-field').value,
     };
 
+    function handleErrors(response) {
+      if (!response.ok) {
+        throw Error(response.statusText);
+      } else {
+        return response.json();
+      }
+    }
+
+    // Reference to myComments
+    const that = this;
+
     fetch(url, {
       headers: {
         'X-WP-Nonce': siteData.nonce,
@@ -134,18 +152,18 @@ class MyComments {
       method: 'POST',
       body: JSON.stringify(ourUpdateComment),
     })
-      .then((response) => response.json())
-      .then((data) => {
-        this.makeCommentReadOnly(comment);
-        console.log('Congrats');
-        console.log(data);
+      .then(handleErrors)
+      .then(function (response) {
+        console.log('ok', response);
+        that.makeCommentReadOnly(comment);
       })
-      .catch((error) => console.log('Sorry'));
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
   createNewComment(e) {
-    const parent = e.target.parentElement;
-
+    const parent = e.target.parentElement.parentElement;
     let title = parent.querySelector('.comment-title').value;
     let content = parent.querySelector('.comment-body').value;
 
@@ -158,40 +176,56 @@ class MyComments {
 
       let url = siteData.root_url + '/wp-json/wp/v2/comment/';
 
-      fetch(url, {
-        headers: {
-          'X-WP-Nonce': siteData.nonce,
-          'Content-Type': 'application/json',
-        },
-        method: 'POST',
-        body: JSON.stringify(ourNewComment),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          // Clear input fields
-          parent.querySelector('.comment-title').value = '';
-          parent.querySelector('.comment-body').value = '';
+      async function newComment() {
+        try {
+          const response = await fetch(url, {
+            headers: {
+              'X-WP-Nonce': siteData.nonce,
+              'Content-Type': 'application/json',
+            },
+            method: 'POST',
+            body: JSON.stringify(ourNewComment),
+          });
 
-          // Add the new comment to the list
-          let newComment = document.createElement('li');
-          newComment.innerHTML = `
-            <div class="comment-top">
-              <input class="comment-input-field" readonly value="${data.title.raw}">
-              <button class="edit-btn"><i class="fa fa-pencil" aria-hidden="true"></i>Edit</button>
-              <button class="delete-btn"><i class="fa fa-trash-o" aria-hidden="true"></i>Delete</button>
-            </div>
-            <textarea class="comment-body-field" readonly>${data.content.raw}</textarea>
-            <button class="update-btn"><i class="fa fa-check" aria-hidden="true"></i>Save</button>`;
+          const data = await response.text();
 
-          newComment.dataset.id = data.id;
-          document.querySelector('#my-comments').prepend(newComment);
+          // Check if the user reached the max number of comments
+          if (data !== 'You have reached your comment limit.') {
+            const result = JSON.parse(data);
 
-          console.log('Congrats');
-          console.log(data);
-        })
-        .catch((error) => {
-          console.log('Sorry');
-        });
+            // Clear input fields
+            parent.querySelector('.comment-title').value = '';
+            parent.querySelector('.comment-body').value = '';
+
+            // Add the new comment to the list
+            let newComment = document.createElement('li');
+            newComment.innerHTML = `
+          <div class="comment-top">
+            <input class="comment-input-field" readonly value="${result.title.raw}">
+            <button class="edit-btn"><i class="fa fa-pencil" aria-hidden="true"></i>Edit</button>
+            <button class="delete-btn"><i class="fa fa-trash-o" aria-hidden="true"></i>Delete</button>
+          </div>
+          <textarea class="comment-body-field" readonly>${result.content.raw}</textarea>
+          <button class="update-btn"><i class="fa fa-check" aria-hidden="true"></i>Save</button>`;
+            newComment.dataset.id = result.id;
+            document.querySelector('#my-comments').prepend(newComment);
+          } else {
+            // Show message alert
+            document
+              .querySelector('.comment-limit-message')
+              .classList.add('visible');
+            setTimeout(() => {
+              document
+                .querySelector('.comment-limit-message')
+                .classList.remove('visible');
+            }, 5000);
+          }
+        } catch {
+          alert('Sorry! Something went wrong. Try again later.');
+        }
+      }
+
+      newComment();
     } else {
       // Show message alert
       parent.querySelector('.message').innerHTML = 'Please fill both fields.';

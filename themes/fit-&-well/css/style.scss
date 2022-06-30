@@ -581,9 +581,21 @@ html {
 
         .submit-comment-btn {
           font-weight: bold;
+          width: 15%;
 
           &:hover {
             @include linkHover();
+          }
+        }
+
+        .comment-limit-message {
+          visibility: hidden;
+          font-size: 0.8rem;
+          color: orange;
+          margin-left: 1em;
+
+          &.visible {
+            visibility: visible;
           }
         }
       }

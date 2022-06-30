@@ -22,7 +22,10 @@
       <input class="comment-title" placeholder="Title">
       <textarea class="comment-body" rows="6"
       placeholder="Your comment here..."></textarea>
-      <input type="submit" class="submit-comment-btn">
+      <div>
+        <input type="submit" class="submit-comment-btn">
+        <span class="comment-limit-message">Comment limit reached. Please delete any existing comment below.</span> 
+      </div>
     </div>
 
 
