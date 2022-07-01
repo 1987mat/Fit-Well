@@ -7,7 +7,7 @@ while(have_posts()) {
   ?>
   <div class="page-container">
   <?php
-  pageBanner();
+    pageBanner();
   ?>
 
     <p><?php the_time('F j y'); ?></p>
@@ -17,7 +17,45 @@ while(have_posts()) {
     </div>
   
     <div class="generic-content">
-      <?php the_content(); ?>
+      <?php the_content(); 
+
+        // Create the query object for the like count
+        $likeCount = new WP_Query(array(
+          'post_type' => 'like',
+          'meta_query' => array(
+            array(
+              'key' => 'liked_event_id',
+              'compare' => '=',
+              'value' => get_the_ID()
+            )
+          )
+        ));
+
+        $existStatus = 'no';
+
+        $existQuery = new WP_Query(array(
+          'author' => get_current_user_id(),
+          'post_type' => 'like',
+          'meta_query' => array(
+            array(
+              'key' => 'liked_event_id',
+              'compare' => '=',
+              'value' => get_the_ID()
+            )
+          )
+        ));
+
+        if($existQuery->found_posts) {
+          $existStatus = 'yes';
+        }
+
+      ?>
+
+      <span class="like-box" data-exist="<?php echo $existStatus; ?>">
+        <i class="fa fa-heart-o" aria-hidden="true"></i>
+        <i class="fa fa-heart" aria-hidden="true"></i>
+        <span class="like-count"><?php echo $likeCount->found_posts; ?></span>
+      </span>
     </div>
 
     <?php 

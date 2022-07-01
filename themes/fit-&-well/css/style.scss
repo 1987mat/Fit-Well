@@ -489,6 +489,41 @@ html {
         justify-content: center;
         gap: 2em;
 
+        .like-box {
+          display: flex;
+          background-color: #778899;
+          padding: 0.5em;
+          height: 2em;
+          border-radius: 5px;
+
+          i {
+            margin: 0.2em;
+            color: red;
+          }
+        }
+
+        [data-exist='yes'] {
+          .fa-heart {
+            z-index: 10;
+          }
+
+          .fa-heart-o {
+            position: absolute;
+            z-index: -2;
+          }
+        }
+
+        [data-exist='no'] {
+          .fa-heart-o {
+            z-index: 10;
+          }
+
+          .fa-heart {
+            position: absolute;
+            z-index: -2;
+          }
+        }
+
         /* SEARCH FORM WITH JS DISABLED */
         .search-form-container {
           @include searchForm(100%);
@@ -1005,11 +1040,8 @@ html {
 
   /* LOADING SPINNER */
   @keyframes spinner {
-    from {
-      transform: translate3d(-50%, -50%, 0) rotate(0deg);
-    }
     to {
-      transform: translate3d(-50%, -50%, 0) rotate(360deg);
+      transform: rotate(360deg);
     }
   }
 
@@ -1018,17 +1050,17 @@ html {
     position: relative;
 
     &::before {
-      animation: 2s linear infinite spinner;
-      border: solid 4px #00008b;
-      border-bottom-color: #f0f8ff;
-      border-radius: 50%;
       content: '';
-      height: 3em;
-      width: 3em;
+      box-sizing: border-box;
       position: absolute;
       top: 10%;
       left: 50%;
-      transform: translate3d(-50%, -50%, 0);
+      width: 4em;
+      height: 4em;
+      border: solid 2px #00008b;
+      border-bottom-color: #f0f8ff;
+      border-radius: 50%;
+      animation: spinner 0.6s linear infinite;
     }
   }
 
