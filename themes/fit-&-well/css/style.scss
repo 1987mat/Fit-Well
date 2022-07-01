@@ -607,6 +607,26 @@ html {
           gap: 1em;
           list-style-type: none;
           margin: 3em;
+          transition: all 0.4s ease-out;
+          opacity: 1;
+
+          &.fade-out {
+            height: 0px !important;
+            overflow: hidden !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            opacity: 0.5;
+          }
+
+          &.fade-in-calc {
+            padding: 0 !important;
+            margin: 0 !important;
+            border: none !important;
+            position: absolute;
+            left: 0;
+            right: 0;
+            opacity: 0;
+          }
 
           .comment-top {
             input {

@@ -119,8 +119,19 @@ class MyComments {
       },
       method: 'DELETE'
     }).then(handleErrors).then(function (response) {
-      console.log('ok', response);
-      comment.remove();
+      console.log('Comment Deleted', response); // Fade out transition
+
+      comment.style.height = `${comment.offsetHeight}px`;
+      setTimeout(() => {
+        comment.classList.add('fade-out');
+      }, 20);
+      setTimeout(() => {
+        comment.remove();
+      }, 300); // Remove message alert when user deletes an existing comment
+
+      if (response.userCommentCount < 5) {
+        document.querySelector('.comment-limit-message').classList.remove('visible');
+      }
     }).catch(function (error) {
       console.log(error);
     });
@@ -167,6 +178,7 @@ class MyComments {
     let content = parent.querySelector('.comment-body').value;
 
     if (title !== '' && content !== '') {
+      // Construct the new comment object
       let ourNewComment = {
         title: title,
         content: content,
@@ -192,26 +204,39 @@ class MyComments {
             parent.querySelector('.comment-title').value = '';
             parent.querySelector('.comment-body').value = ''; // Add the new comment to the list
 
-            let newComment = document.createElement('li');
-            newComment.innerHTML = `
-          <div class="comment-top">
-            <input class="comment-input-field" readonly value="${result.title.raw}">
-            <button class="edit-btn"><i class="fa fa-pencil" aria-hidden="true"></i>Edit</button>
-            <button class="delete-btn"><i class="fa fa-trash-o" aria-hidden="true"></i>Delete</button>
-          </div>
-          <textarea class="comment-body-field" readonly>${result.content.raw}</textarea>
-          <button class="update-btn"><i class="fa fa-check" aria-hidden="true"></i>Save</button>`;
-            newComment.dataset.id = result.id;
-            document.querySelector('#my-comments').prepend(newComment);
+            document.querySelector('#my-comments').insertAdjacentHTML('afterbegin', `
+              <li data-id="${result.id}" class="fade-in-calc">
+                <div class="comment-top">
+                  <input class="comment-input-field" readonly value="${result.title.raw}">
+                  <button class="edit-btn"><i class="fa fa-pencil" aria-hidden="true"></i>Edit</button>
+                  <button class="delete-btn"><i class="fa fa-trash-o" aria-hidden="true"></i>Delete</button>
+                </div>
+                <textarea class="comment-body-field" readonly>${result.content.raw}</textarea>
+                <button class="update-btn"><i class="fa fa-check" aria-hidden="true"></i>Save</button>
+              </li>`); // Fade in transition
+
+            let finalHeight,
+                newlyCreated = document.querySelector('#my-comments li'); // give the browser 30 milliseconds to have the invisible element added to the DOM before moving on
+
+            setTimeout(function () {
+              finalHeight = `${newlyCreated.offsetHeight}px`;
+              newlyCreated.style.height = '0px';
+            }, 30); // give the browser another 20 milliseconds to count the height of the invisible element before moving on
+
+            setTimeout(function () {
+              newlyCreated.classList.remove('fade-in-calc');
+              newlyCreated.style.height = finalHeight;
+            }, 50); // wait the duration of the CSS transition before removing the hardcoded calculated height from the element so that our design is responsive once again
+
+            setTimeout(function () {
+              newlyCreated.style.removeProperty('height');
+            }, 450);
           } else {
             // Show message alert
             document.querySelector('.comment-limit-message').classList.add('visible');
-            setTimeout(() => {
-              document.querySelector('.comment-limit-message').classList.remove('visible');
-            }, 5000);
           }
-        } catch {
-          alert('Sorry! Something went wrong. Try again later.');
+        } catch (err) {
+          console.log(err);
         }
       }
 
