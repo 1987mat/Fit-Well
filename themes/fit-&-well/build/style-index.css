@@ -360,6 +360,9 @@ html body .page-container .generic-content .like-box i {
   margin: 0.2em;
   color: red;
 }
+html body .page-container .generic-content .like-box i:hover {
+  cursor: pointer;
+}
 html body .page-container .generic-content [data-exist=yes] .fa-heart {
   z-index: 10;
 }

@@ -12,9 +12,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _css_style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../css/style.scss */ "./css/style.scss");
 /* harmony import */ var _modules_Search__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/Search */ "./src/modules/Search.js");
 /* harmony import */ var _modules_MyComments__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/MyComments */ "./src/modules/MyComments.js");
+/* harmony import */ var _modules_Like__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/Like */ "./src/modules/Like.js");
  // Our modules / classes
 // import MobileMenu from './modules/MobileMenu';
 // import HeroSlider from './modules/HeroSlider';
+
 
 
  // Instantiate a new object using our modules/classes
@@ -23,6 +25,85 @@ __webpack_require__.r(__webpack_exports__);
 
 const search = new _modules_Search__WEBPACK_IMPORTED_MODULE_1__["default"]();
 const myComments = new _modules_MyComments__WEBPACK_IMPORTED_MODULE_2__["default"]();
+const likes = new _modules_Like__WEBPACK_IMPORTED_MODULE_3__["default"]();
+
+/***/ }),
+
+/***/ "./src/modules/Like.js":
+/*!*****************************!*\
+  !*** ./src/modules/Like.js ***!
+  \*****************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+class Like {
+  constructor() {
+    this.likeBox = document.querySelector('.like-box');
+    this.events();
+    this.isLiked = false;
+  }
+
+  events() {
+    this.likeBox.addEventListener('click', e => this.clickHandler(e));
+  } // Methods
+
+
+  clickHandler(e) {
+    let currentLikeBox = e.target.closest('.like-box');
+
+    if (currentLikeBox.dataset.exist === 'yes') {
+      this.deleteLike(currentLikeBox);
+    } else {
+      this.createLike(currentLikeBox);
+    }
+  }
+
+  createLike(currentLikeBox) {
+    let url = siteData.root_url + '/wp-json/fitness/v1/manageLike';
+
+    async function create() {
+      try {
+        const response = await fetch(url, {
+          headers: {
+            'X-WP-Nonce': siteData.nonce,
+            'Content-Type': 'application/json'
+          },
+          method: 'POST',
+          body: JSON.stringify({
+            eventID: currentLikeBox.dataset.event
+          })
+        });
+        const data = await response.json();
+        console.log(data);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+
+    create();
+  }
+
+  deleteLike(currentLikeBox) {
+    let url = siteData.root_url + '/wp-json/fitness/v1/manageLike';
+
+    async function remove() {
+      try {
+        const response = await fetch(url, {
+          method: 'DELETE'
+        });
+        const data = await response.json();
+        console.log(data);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+
+    remove();
+  }
+
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Like);
 
 /***/ }),
 

@@ -1,5 +1,7 @@
 <?php
 
+// Import files from includes folder
+require get_theme_file_path('/includes/like-route.php');
 require get_theme_file_path('/includes/search-route.php');
 
 // Register authorName field on JSON data

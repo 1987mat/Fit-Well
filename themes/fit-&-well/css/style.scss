@@ -499,6 +499,10 @@ html {
           i {
             margin: 0.2em;
             color: red;
+
+            &:hover {
+              cursor: pointer;
+            }
           }
         }
 
