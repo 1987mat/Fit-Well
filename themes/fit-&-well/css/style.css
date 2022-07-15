@@ -467,40 +467,63 @@ html body .page-container .generic-content {
 }
 
 html body .page-container .generic-content .like-box {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  background-color: #778899;
-  padding: 0.5em;
-  height: 2em;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 0.2em;
+  height: 100%;
+  width: 25%;
   border-radius: 5px;
 }
 
-html body .page-container .generic-content .like-box i {
-  margin: 0.2em;
-  color: red;
+html body .page-container .generic-content .like-box span {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 1em;
+          flex: 0 0 1em;
 }
 
-html body .page-container .generic-content .like-box i:hover {
+html body .page-container .generic-content .like-box .fa-heart-o {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 0.5em;
+          flex: 0 0 0.5em;
+  color: red;
+  position: absolute;
+  z-index: 5;
+  right: 10.4em;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+html body .page-container .generic-content .like-box .fa-heart-o:hover {
+  cursor: pointer;
+}
+
+html body .page-container .generic-content .like-box .fa-heart {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 0.5em;
+          flex: 0 0 0.5em;
+  color: transparent;
+  position: absolute;
+  z-index: -1;
+  right: 10.4em;
+  -webkit-transition: all 0.5s ease-in;
+  transition: all 0.5s ease-in;
+}
+
+html body .page-container .generic-content .like-box .fa-heart:hover {
   cursor: pointer;
 }
 
 html body .page-container .generic-content [data-exist='yes'] .fa-heart {
-  z-index: 10;
+  z-index: 5;
+  color: #ff0000;
 }
 
 html body .page-container .generic-content [data-exist='yes'] .fa-heart-o {
-  position: absolute;
-  z-index: -2;
-}
-
-html body .page-container .generic-content [data-exist='no'] .fa-heart-o {
-  z-index: 10;
-}
-
-html body .page-container .generic-content [data-exist='no'] .fa-heart {
-  position: absolute;
-  z-index: -2;
+  z-index: -1;
 }
 
 html body .page-container .generic-content .search-form-container .search-form {

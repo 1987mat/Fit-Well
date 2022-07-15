@@ -351,31 +351,18 @@ html body .page-container .generic-content {
 }
 html body .page-container .generic-content .like-box {
   display: flex;
+  justify-content: space-between;
   background-color: #778899;
   padding: 0.5em;
   height: 2em;
+  width: 4em;
   border-radius: 5px;
 }
 html body .page-container .generic-content .like-box i {
-  margin: 0.2em;
   color: red;
 }
 html body .page-container .generic-content .like-box i:hover {
   cursor: pointer;
-}
-html body .page-container .generic-content [data-exist=yes] .fa-heart {
-  z-index: 10;
-}
-html body .page-container .generic-content [data-exist=yes] .fa-heart-o {
-  position: absolute;
-  z-index: -2;
-}
-html body .page-container .generic-content [data-exist=no] .fa-heart-o {
-  z-index: 10;
-}
-html body .page-container .generic-content [data-exist=no] .fa-heart {
-  position: absolute;
-  z-index: -2;
 }
 html body .page-container .generic-content .search-form-container .search-form {
   margin: 0 auto;

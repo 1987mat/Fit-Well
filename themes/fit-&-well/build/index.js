@@ -74,9 +74,14 @@ class Like {
           })
         });
         const data = await response.json();
-        console.log(data);
+        currentLikeBox.dataset.exist = 'yes'; // Get number value of like
+
+        let likeCount = parseInt(currentLikeBox.querySelector('.like-count').innerHTML);
+        likeCount++;
+        currentLikeBox.querySelector('.like-count').innerHTML = likeCount;
+        currentLikeBox.dataset.like = data;
       } catch (err) {
-        console.log(err);
+        console.log('Sorry');
       }
     }
 
@@ -89,10 +94,22 @@ class Like {
     async function remove() {
       try {
         const response = await fetch(url, {
-          method: 'DELETE'
+          headers: {
+            'X-WP-Nonce': siteData.nonce,
+            'Content-Type': 'application/json'
+          },
+          method: 'DELETE',
+          body: JSON.stringify({
+            like: currentLikeBox.dataset.like
+          })
         });
         const data = await response.json();
-        console.log(data);
+        currentLikeBox.dataset.exist = 'no'; // Get number value of like
+
+        let likeCount = parseInt(currentLikeBox.querySelector('.like-count').innerHTML);
+        likeCount--;
+        currentLikeBox.querySelector('.like-count').innerHTML = likeCount;
+        currentLikeBox.dataset.like = '';
       } catch (err) {
         console.log(err);
       }

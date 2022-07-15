@@ -490,15 +490,37 @@ html {
         gap: 2em;
 
         .like-box {
-          display: flex;
-          background-color: #778899;
-          padding: 0.5em;
-          height: 2em;
+          display: inline-flex;
+          justify-content: center;
+          gap: 0.2em;
+          height: 100%;
+          width: 25%;
           border-radius: 5px;
 
-          i {
-            margin: 0.2em;
+          span {
+            flex: 0 0 1em;
+          }
+
+          .fa-heart-o {
+            flex: 0 0 0.5em;
             color: red;
+            position: absolute;
+            z-index: 5;
+            right: 10.4em;
+            transition: all 0.1s linear;
+
+            &:hover {
+              cursor: pointer;
+            }
+          }
+
+          .fa-heart {
+            flex: 0 0 0.5em;
+            color: transparent;
+            position: absolute;
+            z-index: -1;
+            right: 10.4em;
+            transition: all 0.5s ease-in;
 
             &:hover {
               cursor: pointer;
@@ -508,23 +530,12 @@ html {
 
         [data-exist='yes'] {
           .fa-heart {
-            z-index: 10;
+            z-index: 5;
+            color: #ff0000;
           }
 
           .fa-heart-o {
-            position: absolute;
-            z-index: -2;
-          }
-        }
-
-        [data-exist='no'] {
-          .fa-heart-o {
-            z-index: 10;
-          }
-
-          .fa-heart {
-            position: absolute;
-            z-index: -2;
+            z-index: -1;
           }
         }
 
