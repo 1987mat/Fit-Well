@@ -38,9 +38,11 @@ const likes = new _modules_Like__WEBPACK_IMPORTED_MODULE_3__["default"]();
 __webpack_require__.r(__webpack_exports__);
 class Like {
   constructor() {
-    this.likeBox = document.querySelector('.like-box');
-    this.events();
-    this.isLiked = false;
+    if (document.querySelector('.like-box')) {
+      this.likeBox = document.querySelector('.like-box');
+      this.events();
+      this.isLiked = false;
+    }
   }
 
   events() {
@@ -111,7 +113,7 @@ class Like {
         currentLikeBox.querySelector('.like-count').innerHTML = likeCount;
         currentLikeBox.dataset.like = '';
       } catch (err) {
-        console.log(err);
+        console.log('Sorry');
       }
     }
 

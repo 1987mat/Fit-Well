@@ -27,13 +27,13 @@
         </ul>
       </nav>
       <div class="header-util">
-
+        <a onclick="return false;" href="<?php echo esc_url(site_url('/search'));?>"><i class="fa fa-search" id="search-icon"></i></a>
         <!-- Leave a comment if user is logged in or Log Out  -->
          <?php if(is_user_logged_in()) { ?>
           <!-- Leave comment button -->
           <a href="<?php echo esc_url(site_url('/my-comments'));?>">My Comments</a>
           <a href="<?php echo wp_logout_url(); ?>">
-            <span><?php echo get_avatar(get_current_user_id(), 60);?></span>
+            <span><?php echo get_avatar(get_current_user_id(), 30);?></span>
             <span>Log Out</span>
           </a>
           <!-- Login if user is logged out or Sign up if new user -->
@@ -42,7 +42,6 @@
           <a href="<?php echo wp_registration_url();?>">Sign Up</a>
          <?php }
         ?> 
-        <a onclick="return false;" href="<?php echo esc_url(site_url('/search'));?>"><i class="fa fa-search" id="search-icon"></i></a>
       </div>
     </div>
   </header>

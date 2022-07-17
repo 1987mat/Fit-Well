@@ -4,13 +4,15 @@
 <main class="main-body-content">
 
   <section class="heading-section">
-      <div class="heading">
+      <a href="#classes">
+        <div class="heading">
           <h2 class="main-title">Welcome!</h2>
           <h3 class="main-subtitle">Ready to get in shape?</h3>
-      </div>
+        </div>
+     </a>
   </section>
 
-  <section class="homepage-classes">
+  <section class="homepage-classes" id="classes">
     <h2>Our Classes</h2>
     <div class="classes-container">
       <?php 
@@ -29,9 +31,9 @@
             ?>
 
             <!-- Have different classes based on post title -->
-            <div class="single-class <?php echo $classTitle; ?>">
-              <h3><?php the_title(); ?></h3>
-            </div>  
+            <a class="single-class <?php echo $classTitle; ?>" href="<?php echo get_post_type_archive_link('class'); ?>">              
+              <h3><?php the_title(); ?></h3> 
+            </a>
 
           <?php } 
           wp_reset_postdata();
@@ -50,31 +52,24 @@
     </div>
   </section>
 
-  <section class="show-posts">
-    <div class="workout-posts">
-        <h2>Workout Plans</h2>
-        <hr>
-        <?php 
-          // Create custom query for Workout posts
-          $homepageWorkouts = new WP_Query(array(
-            'post_type' => 'workout',
-            'post_per_page' => 2,
-            'order' => 'ASC'
-          ));
-
-          // Show workout posts in the front page
-          while($homepageWorkouts->have_posts()) {
-            $homepageWorkouts->the_post(); ?>
-            <li <?php echo 'class="post-title-style"';?>><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
-            <p <?php echo 'class="post-text"';?>><?php echo wp_trim_words(get_the_content(), 30); ?><a href="<?php the_permalink(); ?>">Read More</p>
-          <?php } 
+  <section class="homepage-workouts">
+    <h2>Workout Plans</h2>
+    <div class="workouts-container">
+      <p>lorem ipsum</p>
+      <div class="workouts-heading">
+        <?php
+          $img_src = get_template_directory_uri() . '/images/outdoor.jpg';
         ?>
-       <a href="<?php echo site_url('/workout'); ?>"> <button>View Workouts</button></a>
+        <div class="workout-image-container">
+          <img src="<?php echo $img_src ?>">
+          <a href="<?php echo site_url('/workout'); ?>">View More</a>
+        </div>
+      </div>
     </div>
   </section>
 
   <section class="homepage-events"> 
-    <div class="events-container">
+    <div class="events-heading">
       <a href="<?php echo get_post_type_archive_link('event'); ?>">Events & More</a>
     </div>
   </section>

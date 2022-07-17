@@ -123,6 +123,7 @@ html {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
 
   body {
     font-family: 'Montserrat', sans-serif;
@@ -179,11 +180,28 @@ html {
           }
         }
 
-        .header-util i {
-          font-size: 0.8rem;
+        .header-util {
+          margin-top: 0.5em;
+          .fa-search {
+            margin-right: 0.5em;
+          }
 
-          &:hover {
-            @include linkHover();
+          a,
+          span {
+            font-size: 0.8rem;
+            margin-right: 0.5em;
+
+            &:hover {
+              @include linkHover();
+            }
+          }
+
+          i {
+            font-size: 0.8rem;
+
+            &:hover {
+              @include linkHover();
+            }
           }
         }
 
@@ -223,56 +241,15 @@ html {
           margin: 0 auto;
           margin-top: 15em;
           background-color: black;
-          opacity: 0.75;
+          opacity: 0.7;
+          border-radius: 2px;
           width: 40%;
-          transition: all 0.2s ease-in;
+          transition: all 0.5s ease-in;
 
           &:hover {
-            opacity: 0.9;
+            opacity: 0.75;
             background-color: #282828;
             cursor: pointer;
-          }
-        }
-      }
-
-      .show-posts {
-        display: flex;
-
-        h2 {
-          text-align: center;
-          font-size: 2rem;
-        }
-        hr {
-          margin-bottom: 2em;
-        }
-        .post-title-style {
-          font-size: 1.2rem;
-          list-style-type: none;
-          text-align: center;
-        }
-
-        .workout-posts {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          padding: 1em;
-          background-color: white;
-          border-right: 3px solid gray;
-
-          button {
-            font-size: 1rem;
-            margin-top: 2em;
-            border-radius: 5px;
-            border: none;
-            background-color: lightgray;
-            padding: 1em;
-            transition: all 0.2s ease-in;
-
-            &:hover {
-              cursor: pointer;
-              background-color: whitesmoke;
-            }
           }
         }
       }
@@ -390,11 +367,66 @@ html {
         }
       }
 
-      /* EVENTS */
+      /* HOMEPAGE WORKOUTS */
+      .homepage-workouts {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        h2 {
+          font-size: 2.5rem;
+        }
+
+        .workouts-container {
+          margin: 5em;
+          display: flex;
+          justify-content: center;
+          gap: 1em;
+        }
+
+        .workouts-heading {
+          padding: 3em;
+          display: flex;
+          justify-content: space-around;
+
+          .workout-image-container {
+            position: relative;
+            transition: all 0.2s ease-in;
+
+            img {
+              width: 25em;
+              height: 40em;
+            }
+
+            a {
+              position: absolute;
+              left: 40%;
+              top: 50%;
+              background-color: #778899;
+              padding: 1em;
+              border-radius: 5px;
+              opacity: 0;
+              transition: all 0.2s ease-in;
+            }
+
+            &:hover {
+              cursor: pointer;
+              opacity: 0.9;
+
+              a {
+                opacity: 0.9;
+              }
+            }
+          }
+        }
+      }
+
+      /* HOMEPAGE EVENTS */
       .homepage-events {
         margin-top: 5em;
 
-        .events-container {
+        .events-heading {
           display: flex;
           margin: 0 auto;
           background-image: url('../images/events.jpg');
@@ -420,8 +452,9 @@ html {
             transition: all 0.3s ease-in;
 
             &:hover {
+              opacity: 0.75;
+              background-color: #282828;
               cursor: pointer;
-              background-color: lightblue;
             }
           }
         }
@@ -489,6 +522,7 @@ html {
         justify-content: center;
         gap: 2em;
 
+        /* LIKE HEART */
         .like-box {
           display: inline-flex;
           justify-content: center;
