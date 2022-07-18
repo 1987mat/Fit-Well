@@ -75,24 +75,26 @@ html body header .container nav ul {
   display: flex;
 }
 html body header .container nav ul li {
+  list-style-type: none;
+}
+html body header .container nav ul li a {
   margin-right: 3em;
   font-size: 1rem;
-  list-style-type: none;
+  transition: all 0.2s ease-in;
 }
 html body header .container nav li a:hover {
   color: #778899;
   cursor: pointer;
 }
 html body header .container .header-util {
-  margin-top: 0.5em;
-}
-html body header .container .header-util .fa-search {
-  margin-right: 0.5em;
+  margin-top: -1em;
+  margin-right: 2em;
 }
 html body header .container .header-util a,
 html body header .container .header-util span {
   font-size: 0.8rem;
   margin-right: 0.5em;
+  transition: all 0.2s ease-in;
 }
 html body header .container .header-util a:hover,
 html body header .container .header-util span:hover {
@@ -115,6 +117,7 @@ html body main {
   flex-direction: column;
   /* HOMEPAGE WORKOUTS */
   /* HOMEPAGE EVENTS */
+  /* HOMEPAGE SOCIAL MEDIA FEEDS */
 }
 html body main .heading-section {
   background-image: url(images/image-front.9e69640a.jpg);
@@ -122,34 +125,57 @@ html body main .heading-section {
   background-position: center;
   background-attachment: fixed;
   height: 50em;
+  width: 100vw;
 }
 html body main .heading-section .heading {
-  color: whitesmoke;
+  color: white;
   text-align: center;
-  padding: 2em 2em;
+  padding: 2em;
   margin: 0 auto;
   margin-top: 15em;
-  background-color: black;
   opacity: 0.7;
+  background-color: #282828;
   border-radius: 2px;
-  width: 40%;
+  width: 35em;
   transition: all 0.5s ease-in;
 }
-html body main .heading-section .heading h2 {
+html body main .heading-section .heading h1 {
   font-size: 3rem;
   color: white;
 }
-html body main .heading-section .heading h3 {
+html body main .heading-section .heading h4 {
+  margin-top: -2em;
   color: white;
 }
 html body main .heading-section .heading:hover {
-  opacity: 0.75;
-  background-color: #282828;
+  opacity: 0.8;
   cursor: pointer;
+}
+html body main .history-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2em;
+}
+html body main .history-section h2 {
+  font-size: 2.5rem;
+}
+html body main .history-section .our-history {
+  text-align: center;
+  display: flex;
+  margin: 5em;
+  justify-content: center;
+  gap: 2em;
+}
+html body main .history-section .our-history img {
+  width: 40%;
+  height: 30%;
+  border-radius: 2px;
 }
 html body main .homepage-classes {
   text-align: center;
-  margin-top: 5em;
+  margin-top: 3em;
 }
 html body main .homepage-classes h2 {
   font-size: 2.5rem;
@@ -180,6 +206,7 @@ html body main .homepage-classes .classes-container .yoga {
   width: 45%;
   transition: all 0.2s ease-in;
   opacity: 0.7;
+  border-radius: 2px;
 }
 html body main .homepage-classes .classes-container .yoga:hover {
   cursor: pointer;
@@ -193,6 +220,7 @@ html body main .homepage-classes .classes-container .zumba {
   width: 45%;
   transition: all 0.2s ease-in;
   opacity: 0.7;
+  border-radius: 2px;
 }
 html body main .homepage-classes .classes-container .zumba:hover {
   cursor: pointer;
@@ -206,6 +234,7 @@ html body main .homepage-classes .classes-container .outdoor {
   width: 45%;
   transition: all 0.2s ease-in;
   opacity: 0.7;
+  border-radius: 2px;
 }
 html body main .homepage-classes .classes-container .outdoor:hover {
   cursor: pointer;
@@ -219,30 +248,11 @@ html body main .homepage-classes .classes-container .cycling {
   width: 45%;
   transition: all 0.2s ease-in;
   opacity: 0.7;
+  border-radius: 2px;
 }
 html body main .homepage-classes .classes-container .cycling:hover {
   cursor: pointer;
   opacity: 0.8;
-}
-html body main .history-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-html body main .history-section h2 {
-  font-size: 2.5rem;
-}
-html body main .history-section .our-history {
-  text-align: center;
-  display: flex;
-  margin: 5em;
-  justify-content: center;
-  gap: 2em;
-}
-html body main .history-section .our-history img {
-  width: 40%;
-  height: 30%;
 }
 html body main .homepage-workouts {
   display: flex;
@@ -257,40 +267,41 @@ html body main .homepage-workouts .workouts-container {
   margin: 5em;
   display: flex;
   justify-content: center;
-  gap: 1em;
+  gap: 15em;
 }
-html body main .homepage-workouts .workouts-heading {
-  padding: 3em;
+html body main .homepage-workouts .workouts-container .workouts-heading {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 5em;
 }
-html body main .homepage-workouts .workouts-heading .workout-image-container {
+html body main .homepage-workouts .workouts-container .workouts-heading .workout-image-container {
   position: relative;
   transition: all 0.2s ease-in;
 }
-html body main .homepage-workouts .workouts-heading .workout-image-container img {
-  width: 25em;
-  height: 40em;
+html body main .homepage-workouts .workouts-container .workouts-heading .workout-image-container img {
+  width: 100%;
+  height: 80%;
+  border-radius: 2px;
 }
-html body main .homepage-workouts .workouts-heading .workout-image-container a {
+html body main .homepage-workouts .workouts-container .workouts-heading .workout-image-container a {
   position: absolute;
   left: 40%;
-  top: 50%;
+  top: 30%;
+  width: 8em;
+  text-align: center;
   background-color: #778899;
+  border-radius: 2px;
+  color: #f0f8ff;
   padding: 1em;
-  border-radius: 5px;
   opacity: 0;
   transition: all 0.2s ease-in;
 }
-html body main .homepage-workouts .workouts-heading .workout-image-container:hover {
+html body main .homepage-workouts .workouts-container .workouts-heading .workout-image-container:hover {
   cursor: pointer;
   opacity: 0.9;
 }
-html body main .homepage-workouts .workouts-heading .workout-image-container:hover a {
+html body main .homepage-workouts .workouts-container .workouts-heading .workout-image-container:hover a {
   opacity: 0.9;
-}
-html body main .homepage-events {
-  margin-top: 5em;
 }
 html body main .homepage-events .events-heading {
   display: flex;
@@ -313,6 +324,7 @@ html body main .homepage-events .events-heading a {
   padding-top: 1em;
   font-size: 2rem;
   background-color: #778899;
+  border-radius: 2px;
   opacity: 0.8;
   color: white;
   transition: all 0.3s ease-in;
@@ -321,6 +333,51 @@ html body main .homepage-events .events-heading a:hover {
   opacity: 0.75;
   background-color: #282828;
   cursor: pointer;
+}
+html body main .homepage-feeds {
+  margin-top: 5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+html body main .homepage-feeds h2 {
+  font-size: 2.5rem;
+  text-align: center;
+}
+html body main .homepage-feeds .social-media-container {
+  margin-bottom: 4em;
+}
+html body main .homepage-feeds .social-media-container i {
+  margin: 0.5em;
+  font-size: 3rem;
+  transition: all 0.1s linear;
+}
+html body main .homepage-feeds .social-media-container i:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+html body main .homepage-feeds .social-media-container .fa-facebook-official {
+  color: #00008b;
+}
+html body main .homepage-feeds .social-media-container .fa-instagram {
+  color: darkred;
+}
+html body main .homepage-feeds .social-media-container .fa-twitter {
+  color: lightblue;
+}
+html body main .homepage-feeds .social-media-container .fa-pinterest {
+  color: red;
+}
+html body main .homepage-feeds .feed-container {
+  margin-top: 2em;
+  display: flex;
+  justify-content: space-around;
+}
+html body main .homepage-feeds .feed-container img {
+  width: 25%;
+  height: 15%;
+  border-radius: 2px;
 }
 html body .blog-section h1 {
   font-size: 2.5rem;
@@ -780,28 +837,13 @@ html footer {
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 5.5em;
+  height: 3em;
   padding: 1em;
   background: whitesmoke;
   position: relative;
   top: calc(100vh - 100px);
   left: 0;
   bottom: 0;
-}
-html footer i {
-  margin: 0.2em;
-}
-html footer .fa-facebook-official {
-  color: #00008b;
-  font-size: 2rem;
-}
-html footer .fa-instagram {
-  color: red;
-  font-size: 2rem;
-}
-html footer .fa-twitter {
-  color: lightblue;
-  font-size: 2rem;
 }
 html .search-overlay {
   background: rgb(224, 224, 224);
@@ -975,7 +1017,7 @@ html .spinner::before {
   left: 50%;
   width: 4em;
   height: 4em;
-  border: solid 2px #00008b;
+  border: solid 6px #00008b;
   border-bottom-color: #f0f8ff;
   border-radius: 50%;
   -webkit-animation: spinner 0.6s linear infinite;

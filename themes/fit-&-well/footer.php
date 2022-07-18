@@ -1,9 +1,4 @@
   <footer>
-    <div class="social-media">
-      <i class="fa fa-facebook-official"></i>
-      <i class="fa fa-instagram"></i>
-      <i class="fa fa-twitter"></i>
-    </div>
     <div class="copyright">
       <p class="copyright-text"> Copyright <span> &#169 </span> 2022 Fit&Well.</p>
     </div>

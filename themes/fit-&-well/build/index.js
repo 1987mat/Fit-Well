@@ -13,9 +13,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_Search__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/Search */ "./src/modules/Search.js");
 /* harmony import */ var _modules_MyComments__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/MyComments */ "./src/modules/MyComments.js");
 /* harmony import */ var _modules_Like__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/Like */ "./src/modules/Like.js");
+/* harmony import */ var _modules_NavbarScroll__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/NavbarScroll */ "./src/modules/NavbarScroll.js");
  // Our modules / classes
 // import MobileMenu from './modules/MobileMenu';
 // import HeroSlider from './modules/HeroSlider';
+
 
 
 
@@ -25,7 +27,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const search = new _modules_Search__WEBPACK_IMPORTED_MODULE_1__["default"]();
 const myComments = new _modules_MyComments__WEBPACK_IMPORTED_MODULE_2__["default"]();
-const likes = new _modules_Like__WEBPACK_IMPORTED_MODULE_3__["default"]();
+const likes = new _modules_Like__WEBPACK_IMPORTED_MODULE_3__["default"](); // const navbar = new Navbar();
 
 /***/ }),
 
@@ -353,6 +355,31 @@ class MyComments {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (MyComments);
+
+/***/ }),
+
+/***/ "./src/modules/NavbarScroll.js":
+/*!*************************************!*\
+  !*** ./src/modules/NavbarScroll.js ***!
+  \*************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+class Navbar {
+  constructor() {
+    this.navBar = document.querySelector('.site-header');
+    this.events();
+  }
+
+  events() {
+    window.addEventListener('scroll', () => {
+      this.navBar.style.display = 'none';
+    });
+  }
+
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Navbar);
 
 /***/ }),
 

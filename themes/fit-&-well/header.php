@@ -24,10 +24,10 @@
           <li <?php if(get_post_type() == 'event' or is_page('past-events')) echo 'class="current-menu-item"'?>><a href="<?php echo get_post_type_archive_link('event'); ?>">Events</a></li?>
           <li <?php if(get_post_type() == 'post') echo 'class="current-menu-item"'?>><a href="<?php echo site_url('/blog'); ?>">Blog</a></li?>
           <li <?php if(is_page('contact') or wp_get_post_parent_id(0) == 2) echo 'class="current-menu-item"'?>><a href="<?php echo site_url('/contact'); ?>">Contact</a></li>
+          <li><a onclick="return false;" href="<?php echo esc_url(site_url('/search'));?>"><i class="fa fa-search" id="search-icon"></i></a></li>
         </ul>
       </nav>
       <div class="header-util">
-        <a onclick="return false;" href="<?php echo esc_url(site_url('/search'));?>"><i class="fa fa-search" id="search-icon"></i></a>
         <!-- Leave a comment if user is logged in or Log Out  -->
          <?php if(is_user_logged_in()) { ?>
           <!-- Leave comment button -->

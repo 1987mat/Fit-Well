@@ -6,6 +6,7 @@ import '../css/style.scss';
 import Search from './modules/Search';
 import MyComments from './modules/MyComments';
 import Like from './modules/Like';
+import Navbar from './modules/NavbarScroll';
 
 // Instantiate a new object using our modules/classes
 // const mobileMenu = new MobileMenu();
@@ -13,3 +14,4 @@ import Like from './modules/Like';
 const search = new Search();
 const myComments = new MyComments();
 const likes = new Like();
+// const navbar = new Navbar();
