@@ -5,8 +5,17 @@ class Navbar {
   }
 
   events() {
+    let lastScroll = 0;
     window.addEventListener('scroll', () => {
-      this.navBar.style.display = 'none';
+      let currentScroll = window.scrollY;
+      if (currentScroll - lastScroll > 0) {
+        // Scroll Down
+        this.navBar.classList.add('hide');
+      } else {
+        // Scroll Up
+        this.navBar.classList.remove('hide');
+      }
+      lastScroll = currentScroll;
     });
   }
 }

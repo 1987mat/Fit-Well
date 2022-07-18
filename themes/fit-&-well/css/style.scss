@@ -151,6 +151,11 @@ html {
       padding: 1.5em;
       margin-bottom: 10em;
       z-index: 5;
+      transition: all 0.2s ease-in;
+
+      &.hide {
+        top: -100px;
+      }
 
       .container {
         height: 3em;
@@ -244,7 +249,6 @@ html {
           padding: 2em;
           margin: 0 auto;
           margin-top: 15em;
-
           opacity: 0.7;
           background-color: #282828;
           border-radius: 2px;
@@ -279,7 +283,7 @@ html {
           img {
             width: 40%;
             height: 30%;
-            border-radius: 2px;
+            border-radius: 5px;
           }
         }
       }
@@ -319,7 +323,7 @@ html {
             width: 45%;
             transition: all 0.2s ease-in;
             opacity: 0.7;
-            border-radius: 2px;
+            border-radius: 5px;
 
             &:hover {
               cursor: pointer;
@@ -335,7 +339,7 @@ html {
             width: 45%;
             transition: all 0.2s ease-in;
             opacity: 0.7;
-            border-radius: 2px;
+            border-radius: 5px;
 
             &:hover {
               cursor: pointer;
@@ -351,7 +355,7 @@ html {
             width: 45%;
             transition: all 0.2s ease-in;
             opacity: 0.7;
-            border-radius: 2px;
+            border-radius: 5px;
 
             &:hover {
               cursor: pointer;
@@ -367,7 +371,7 @@ html {
             width: 45%;
             transition: all 0.2s ease-in;
             opacity: 0.7;
-            border-radius: 2px;
+            border-radius: 5px;
 
             &:hover {
               cursor: pointer;
@@ -406,7 +410,7 @@ html {
               img {
                 width: 100%;
                 height: 80%;
-                border-radius: 2px;
+                border-radius: 5px;
               }
 
               a {
@@ -459,7 +463,7 @@ html {
             padding-top: 1em;
             font-size: 2rem;
             background-color: #778899;
-            border-radius: 2px;
+            border-radius: 5px;
             opacity: 0.8;
             color: white;
             transition: all 0.3s ease-in;
@@ -525,7 +529,7 @@ html {
           img {
             width: 25%;
             height: 15%;
-            border-radius: 2px;
+            border-radius: 5px;
           }
         }
       }
@@ -534,6 +538,137 @@ html {
     .blog-section {
       h1 {
         font-size: 2.5rem;
+      }
+    }
+
+    /* ABOUT PAGE */
+
+    /* WORKOUTS PAGE */
+    .posts-container {
+      h1 {
+        text-align: center;
+        font-size: 2.5rem;
+      }
+
+      .workout-wrapper {
+        display: flex;
+        justify-content: center;
+        margin: 2em;
+        gap: 1em;
+
+        a {
+          position: relative;
+          text-align: center;
+
+          .workout-card-image {
+            border-radius: 5px;
+            opacity: 0.7;
+            transition: all 0.2s ease-in;
+          }
+
+          h3 {
+            position: absolute;
+            top: 30%;
+            left: 13%;
+            font-size: 1.8rem;
+            font-weight: bolder;
+            padding: 0.5em;
+            color: white;
+          }
+
+          &:hover {
+            cursor: pointer;
+
+            .workout-card-image {
+              opacity: 0.8;
+            }
+          }
+        }
+      }
+    }
+
+    /* CLASSES PAGE */
+    .posts-container {
+      .classes-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 4em;
+        gap: 1em;
+
+        .single-class h3 {
+          position: relative;
+          top: 40%;
+          width: 50%;
+          margin: 0 auto;
+          font-size: 2rem;
+          font-weight: bolder;
+          padding: 0.5em;
+          color: white;
+        }
+
+        .yoga {
+          background-image: url('../images/yoga.jpg');
+          background-size: cover;
+          background-position: center;
+          height: 25em;
+          width: 40%;
+          transition: all 0.2s ease-in;
+          opacity: 0.7;
+          border-radius: 5px;
+
+          &:hover {
+            cursor: pointer;
+            opacity: 0.8;
+          }
+        }
+
+        .zumba {
+          background-image: url('../images/zumba.jpg');
+          background-size: cover;
+          background-position: center;
+          height: 25em;
+          width: 40%;
+          transition: all 0.2s ease-in;
+          opacity: 0.7;
+          border-radius: 5px;
+
+          &:hover {
+            cursor: pointer;
+            opacity: 0.8;
+          }
+        }
+
+        .outdoor {
+          background-image: url('../images/outdoor.jpg');
+          background-size: cover;
+          background-position: center;
+          height: 25em;
+          width: 40%;
+          transition: all 0.2s ease-in;
+          opacity: 0.7;
+          border-radius: 5px;
+
+          &:hover {
+            cursor: pointer;
+            opacity: 0.8;
+          }
+        }
+
+        .cycling {
+          background-image: url('../images/cycling.jpg');
+          background-size: cover;
+          background-position: center;
+          height: 25em;
+          width: 40%;
+          transition: all 0.2s ease-in;
+          opacity: 0.7;
+          border-radius: 5px;
+
+          &:hover {
+            cursor: pointer;
+            opacity: 0.8;
+          }
+        }
       }
     }
 
@@ -546,7 +681,8 @@ html {
       align-items: center;
 
       h1 {
-        font-size: 2.5rem;
+        font-size: 3rem;
+        margin-bottom: 1em;
       }
 
       .contact-form {
@@ -581,6 +717,12 @@ html {
           padding: 1em;
         }
       }
+    }
+
+    /* MAP */
+    .mapp-layout {
+      position: relative;
+      z-index: 1;
     }
 
     .page-container {
@@ -667,6 +809,7 @@ html {
                 display: block;
                 width: 30em;
                 height: 22em;
+                border-radius: 5px;
               }
 
               .text-overlay {
@@ -705,7 +848,7 @@ html {
         flex-direction: column;
         justify-content: center;
         background-color: #778899;
-        border-radius: 2px;
+        border-radius: 5px;
         width: 60%;
         margin: 0 auto;
         margin-top: -5em;
@@ -722,7 +865,7 @@ html {
           margin: 0.5em;
           padding: 0.5em;
           border: none;
-          border-radius: 2px;
+          border-radius: 5px;
           resize: none;
           outline: none;
           font-family: 'Montserrat', sans-serif;
@@ -868,114 +1011,9 @@ html {
     }
   }
 
-  .class-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 1em;
-
-    a {
-      text-align: center;
-      font-size: 2.3rem;
-      font-weight: bolder;
-      padding: 0.5em;
-      color: black;
-    }
-
-    .yoga {
-      background-image: url('../images/yoga.jpg');
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: contain;
-      width: 60em;
-      height: 60em;
-      transition: all 0.2s ease-in;
-      opacity: 0.7;
-
-      &:hover {
-        cursor: pointer;
-        opacity: 0.8;
-      }
-    }
-
-    .zumba {
-      background-image: url('../images/zumba.jpg');
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: contain;
-      width: 60em;
-      height: 60em;
-      transition: all 0.2s ease-in;
-      opacity: 0.7;
-
-      &:hover {
-        cursor: pointer;
-        opacity: 0.8;
-      }
-    }
-
-    .outdoor {
-      background-image: url('../images/outdoor-workout.jpg');
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: contain;
-      width: 60em;
-      height: 60em;
-      transition: all 0.2s ease-in;
-      opacity: 0.7;
-
-      &:hover {
-        cursor: pointer;
-        opacity: 0.8;
-      }
-    }
-
-    .cycling {
-      background-image: url('../images/cycling.jpg');
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: contain;
-      width: 60em;
-      height: 60em;
-      transition: all 0.2s ease-in;
-      opacity: 0.7;
-
-      &:hover {
-        cursor: pointer;
-        opacity: 0.8;
-      }
-    }
-
-    &:hover {
-      cursor: pointer;
-
-      .text-overlay-class {
-        opacity: 0.9;
-      }
-    }
-  }
-
-  /* MAP */
-  .mapp-layout {
-    position: relative;
-    z-index: 1;
-  }
-
-  /* WORKOUTS PAGE */
-  .posts-container {
-    margin: 8em;
-
-    h1 {
-      text-align: center;
-      font-size: 2.5rem;
-    }
-  }
-
   .related-post {
     margin: 3em;
   }
-
-  /* ABOUT PAGE */
 
   /* FOOTER */
   footer {
@@ -1108,28 +1146,6 @@ html {
 
               /* Text overlay on image */
               @include classImage(80%, 80%);
-              // .image-link {
-              //   text-decoration: none;
-              //   position: relative;
-              //   text-align: center;
-
-              //   img {
-              //     height: 80%;
-              //     width: 80%;
-              //   }
-
-              //   span {
-              //     width: 100%;
-              //     background-color: lightgray;
-              //     color: #000000;
-              //     position: absolute;
-              //     top: 50%;
-              //     left: 50%;
-              //     transform: translate(-50%, -50%);
-              //     padding-top: 0.5em;
-              //     padding-bottom: 0.5em;
-              //   }
-              // }
             }
           }
         }
@@ -1173,6 +1189,8 @@ html {
     margin: 7em;
   }
 }
+
+/* MEDIA QUERIES */
 
 /* Portrait tablet to landscape and desktop */
 // @media screen and (min-width: 768px) and (max-width: 979px) { ... }

@@ -27,7 +27,8 @@ __webpack_require__.r(__webpack_exports__);
 
 const search = new _modules_Search__WEBPACK_IMPORTED_MODULE_1__["default"]();
 const myComments = new _modules_MyComments__WEBPACK_IMPORTED_MODULE_2__["default"]();
-const likes = new _modules_Like__WEBPACK_IMPORTED_MODULE_3__["default"](); // const navbar = new Navbar();
+const likes = new _modules_Like__WEBPACK_IMPORTED_MODULE_3__["default"]();
+const navbar = new _modules_NavbarScroll__WEBPACK_IMPORTED_MODULE_4__["default"]();
 
 /***/ }),
 
@@ -372,8 +373,19 @@ class Navbar {
   }
 
   events() {
+    let lastScroll = 0;
     window.addEventListener('scroll', () => {
-      this.navBar.style.display = 'none';
+      let currentScroll = window.scrollY;
+
+      if (currentScroll - lastScroll > 0) {
+        // Scroll Down
+        this.navBar.classList.add('hide');
+      } else {
+        // Scroll Up
+        this.navBar.classList.remove('hide');
+      }
+
+      lastScroll = currentScroll;
     });
   }
 

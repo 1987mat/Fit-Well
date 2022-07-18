@@ -19,9 +19,6 @@ html {
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
-  /* MAP */
-  /* WORKOUTS PAGE */
-  /* ABOUT PAGE */
   /* FOOTER */
   /* SEARCH OVERLAY */
   /* LOADING SPINNER */
@@ -35,7 +32,11 @@ html body {
   overflow-x: hidden;
   /* HEADER */
   /* MAIN */
+  /* ABOUT PAGE */
+  /* WORKOUTS PAGE */
+  /* CLASSES PAGE */
   /* CONTACT PAGE */
+  /* MAP */
 }
 
 html body.no-scroll {
@@ -57,6 +58,12 @@ html body header {
   padding: 1.5em;
   margin-bottom: 10em;
   z-index: 5;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+
+html body header.hide {
+  top: -100px;
 }
 
 html body header .container {
@@ -218,7 +225,7 @@ html body main .history-section .our-history {
 html body main .history-section .our-history img {
   width: 40%;
   height: 30%;
-  border-radius: 2px;
+  border-radius: 5px;
 }
 
 html body main .homepage-classes {
@@ -264,7 +271,7 @@ html body main .homepage-classes .classes-container .yoga {
   -webkit-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
   opacity: 0.7;
-  border-radius: 2px;
+  border-radius: 5px;
 }
 
 html body main .homepage-classes .classes-container .yoga:hover {
@@ -281,7 +288,7 @@ html body main .homepage-classes .classes-container .zumba {
   -webkit-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
   opacity: 0.7;
-  border-radius: 2px;
+  border-radius: 5px;
 }
 
 html body main .homepage-classes .classes-container .zumba:hover {
@@ -298,7 +305,7 @@ html body main .homepage-classes .classes-container .outdoor {
   -webkit-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
   opacity: 0.7;
-  border-radius: 2px;
+  border-radius: 5px;
 }
 
 html body main .homepage-classes .classes-container .outdoor:hover {
@@ -315,7 +322,7 @@ html body main .homepage-classes .classes-container .cycling {
   -webkit-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
   opacity: 0.7;
-  border-radius: 2px;
+  border-radius: 5px;
 }
 
 html body main .homepage-classes .classes-container .cycling:hover {
@@ -373,7 +380,7 @@ html body main .homepage-workouts .workouts-container .workouts-heading .workout
 html body main .homepage-workouts .workouts-container .workouts-heading .workout-image-container img {
   width: 100%;
   height: 80%;
-  border-radius: 2px;
+  border-radius: 5px;
 }
 
 html body main .homepage-workouts .workouts-container .workouts-heading .workout-image-container a {
@@ -425,7 +432,7 @@ html body main .homepage-events .events-heading a {
   padding-top: 1em;
   font-size: 2rem;
   background-color: #778899;
-  border-radius: 2px;
+  border-radius: 5px;
   opacity: 0.8;
   color: white;
   -webkit-transition: all 0.3s ease-in;
@@ -505,11 +512,147 @@ html body main .homepage-feeds .feed-container {
 html body main .homepage-feeds .feed-container img {
   width: 25%;
   height: 15%;
-  border-radius: 2px;
+  border-radius: 5px;
 }
 
 html body .blog-section h1 {
   font-size: 2.5rem;
+}
+
+html body .posts-container h1 {
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+html body .posts-container .workout-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 2em;
+  gap: 1em;
+}
+
+html body .posts-container .workout-wrapper a {
+  position: relative;
+  text-align: center;
+}
+
+html body .posts-container .workout-wrapper a .workout-card-image {
+  border-radius: 5px;
+  opacity: 0.7;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+
+html body .posts-container .workout-wrapper a h3 {
+  position: absolute;
+  top: 30%;
+  left: 13%;
+  font-size: 1.8rem;
+  font-weight: bolder;
+  padding: 0.5em;
+  color: white;
+}
+
+html body .posts-container .workout-wrapper a:hover {
+  cursor: pointer;
+}
+
+html body .posts-container .workout-wrapper a:hover .workout-card-image {
+  opacity: 0.8;
+}
+
+html body .posts-container .classes-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 4em;
+  gap: 1em;
+}
+
+html body .posts-container .classes-container .single-class h3 {
+  position: relative;
+  top: 40%;
+  width: 50%;
+  margin: 0 auto;
+  font-size: 2rem;
+  font-weight: bolder;
+  padding: 0.5em;
+  color: white;
+}
+
+html body .posts-container .classes-container .yoga {
+  background-image: url("../images/yoga.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 25em;
+  width: 40%;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  opacity: 0.7;
+  border-radius: 5px;
+}
+
+html body .posts-container .classes-container .yoga:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+html body .posts-container .classes-container .zumba {
+  background-image: url("../images/zumba.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 25em;
+  width: 40%;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  opacity: 0.7;
+  border-radius: 5px;
+}
+
+html body .posts-container .classes-container .zumba:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+html body .posts-container .classes-container .outdoor {
+  background-image: url("../images/outdoor.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 25em;
+  width: 40%;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  opacity: 0.7;
+  border-radius: 5px;
+}
+
+html body .posts-container .classes-container .outdoor:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+html body .posts-container .classes-container .cycling {
+  background-image: url("../images/cycling.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 25em;
+  width: 40%;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  opacity: 0.7;
+  border-radius: 5px;
+}
+
+html body .posts-container .classes-container .cycling:hover {
+  cursor: pointer;
+  opacity: 0.8;
 }
 
 html body .form-container {
@@ -528,7 +671,8 @@ html body .form-container {
 }
 
 html body .form-container h1 {
-  font-size: 2.5rem;
+  font-size: 3rem;
+  margin-bottom: 1em;
 }
 
 html body .form-container .contact-form {
@@ -570,6 +714,11 @@ html body .form-container .contact-form textarea {
   border-radius: 5px;
   margin: 0.5em;
   padding: 1em;
+}
+
+html body .mapp-layout {
+  position: relative;
+  z-index: 1;
 }
 
 html body .page-container {
@@ -733,6 +882,7 @@ html body .page-container .link-list li a .related-post-container img {
   display: block;
   width: 30em;
   height: 22em;
+  border-radius: 5px;
 }
 
 html body .page-container .link-list li a .related-post-container .text-overlay {
@@ -798,7 +948,7 @@ html body .page-container .create-comment {
       -ms-flex-pack: center;
           justify-content: center;
   background-color: #778899;
-  border-radius: 2px;
+  border-radius: 5px;
   width: 60%;
   margin: 0 auto;
   margin-top: -5em;
@@ -816,7 +966,7 @@ html body .page-container .create-comment textarea {
   margin: 0.5em;
   padding: 0.5em;
   border: none;
-  border-radius: 2px;
+  border-radius: 5px;
   resize: none;
   outline: none;
   font-family: 'Montserrat', sans-serif;
@@ -1001,118 +1151,6 @@ html body .generic-content .search-form-container .search-form .search-form-inpu
 html body .generic-content .search-form-container .search-form .search-form-inputs .search-input-submit:hover {
   cursor: pointer;
   background-color: #f0f8ff;
-}
-
-html .class-wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  margin: 1em;
-}
-
-html .class-wrapper a {
-  text-align: center;
-  font-size: 2.3rem;
-  font-weight: bolder;
-  padding: 0.5em;
-  color: black;
-}
-
-html .class-wrapper .yoga {
-  background-image: url("../images/yoga.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: 60em;
-  height: 60em;
-  -webkit-transition: all 0.2s ease-in;
-  transition: all 0.2s ease-in;
-  opacity: 0.7;
-}
-
-html .class-wrapper .yoga:hover {
-  cursor: pointer;
-  opacity: 0.8;
-}
-
-html .class-wrapper .zumba {
-  background-image: url("../images/zumba.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: 60em;
-  height: 60em;
-  -webkit-transition: all 0.2s ease-in;
-  transition: all 0.2s ease-in;
-  opacity: 0.7;
-}
-
-html .class-wrapper .zumba:hover {
-  cursor: pointer;
-  opacity: 0.8;
-}
-
-html .class-wrapper .outdoor {
-  background-image: url("../images/outdoor-workout.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: 60em;
-  height: 60em;
-  -webkit-transition: all 0.2s ease-in;
-  transition: all 0.2s ease-in;
-  opacity: 0.7;
-}
-
-html .class-wrapper .outdoor:hover {
-  cursor: pointer;
-  opacity: 0.8;
-}
-
-html .class-wrapper .cycling {
-  background-image: url("../images/cycling.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: 60em;
-  height: 60em;
-  -webkit-transition: all 0.2s ease-in;
-  transition: all 0.2s ease-in;
-  opacity: 0.7;
-}
-
-html .class-wrapper .cycling:hover {
-  cursor: pointer;
-  opacity: 0.8;
-}
-
-html .class-wrapper:hover {
-  cursor: pointer;
-}
-
-html .class-wrapper:hover .text-overlay-class {
-  opacity: 0.9;
-}
-
-html .mapp-layout {
-  position: relative;
-  z-index: 1;
-}
-
-html .posts-container {
-  margin: 8em;
-}
-
-html .posts-container h1 {
-  text-align: center;
-  font-size: 2.5rem;
 }
 
 html .related-post {
@@ -1397,6 +1435,7 @@ html .page-container {
   margin: 7em;
 }
 
+/* MEDIA QUERIES */
 /* Portrait tablet to landscape and desktop */
 /* Landscape phone to portrait tablet */
 /* Landscape phones and down */

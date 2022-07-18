@@ -14,4 +14,4 @@ import Navbar from './modules/NavbarScroll';
 const search = new Search();
 const myComments = new MyComments();
 const likes = new Like();
-// const navbar = new Navbar();
+const navbar = new Navbar();
