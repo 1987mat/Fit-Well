@@ -22,6 +22,9 @@ while(have_posts()) {
       </div>
     </div>
 
+    <hr>
+
+
     <?php 
 
       // Get the 'Class' Pod

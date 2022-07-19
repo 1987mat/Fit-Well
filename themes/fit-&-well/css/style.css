@@ -30,14 +30,17 @@ html body {
   min-height: 100vh;
   margin-bottom: 8em;
   overflow-x: hidden;
+  background: #cccbe0;
+  background: -webkit-gradient(linear, left top, right top, from(#cccbe0), color-stop(94%, #fafafa));
+  background: linear-gradient(90deg, #cccbe0 0%, #fafafa 94%);
   /* HEADER */
   /* MAIN */
   /* ABOUT PAGE */
   /* WORKOUTS PAGE */
-  /* CLASSES PAGE */
-  /* EVENTS / SINGLE CLASS PAGE */
+  /* CLASSES & WORKOUT PAGE */
   /* CONTACT PAGE */
   /* MAP */
+  /* BLOG & EVENTS PAGE */
 }
 
 html body.no-scroll {
@@ -50,7 +53,9 @@ html body a {
 }
 
 html body header {
-  background: whitesmoke;
+  background: #faf4f4;
+  background: -webkit-gradient(linear, left top, right top, from(#faf4f4), color-stop(94%, #fafafa));
+  background: linear-gradient(90deg, #faf4f4 0%, #fafafa 94%);
   position: fixed;
   top: 0;
   left: 0;
@@ -96,14 +101,17 @@ html body header .container nav ul li {
 
 html body header .container nav ul li a {
   margin-right: 3em;
+  padding-bottom: 0.2em;
   font-size: 1rem;
   -webkit-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
 }
 
-html body header .container nav li a:hover {
+html body header .container nav ul li a:hover {
   color: #778899;
   cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 8px;
 }
 
 html body header .container .header-util {
@@ -646,6 +654,19 @@ html body .posts-container .workout-wrapper a:hover .workout-card-image {
   opacity: 0.8;
 }
 
+html body .posts-container .workout-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+html body .posts-container .workout-wrapper h3 {
+  font-size: 2rem;
+}
+
 html body .posts-container .classes-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -737,13 +758,88 @@ html body .posts-container .classes-container .cycling:hover {
   opacity: 0.8;
 }
 
+html body .form-container {
+  margin: 6em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  justify-self: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+html body .form-container h1 {
+  font-size: 3rem;
+  margin-bottom: 1em;
+}
+
+html body .form-container .contact-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 60%;
+}
+
+html body .form-container .contact-form button {
+  margin: 0.5em;
+  padding: 1em;
+  border-radius: 5px;
+  border: none;
+  font-weight: bold;
+  height: 3.5em;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  background-color: lightblue;
+}
+
+html body .form-container .contact-form button:hover {
+  cursor: pointer;
+  background-color: #f0f8ff;
+}
+
+html body .form-container .contact-form button:active {
+  -webkit-transform: translateY(-2px);
+          transform: translateY(-2px);
+}
+
+html body .form-container .contact-form input,
+html body .form-container .contact-form textarea {
+  font-family: 'Montserrat', sans-serif;
+  border-top: none;
+  border-radius: 5px;
+  margin: 0.5em;
+  padding: 1em;
+}
+
+html body .map-title {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+html body .mapp-layout {
+  position: relative;
+  z-index: 1;
+}
+
+html body .page-container {
+  margin-bottom: 5em;
+  /* Text overlay on image */
+  /* MY COMMENTS PAGE */
+}
+
 html body .page-container .event-time {
   text-align: center;
   margin-top: -2em;
-}
-
-html body .page-container .generic-content {
-  margin-bottom: 5em;
 }
 
 html body .page-container h2 {
@@ -875,80 +971,8 @@ html body .page-container .single-post:hover {
   opacity: 0.7;
 }
 
-html body .form-container {
-  margin: 6em;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  justify-self: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-html body .form-container h1 {
-  font-size: 3rem;
-  margin-bottom: 1em;
-}
-
-html body .form-container .contact-form {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  width: 60%;
-}
-
-html body .form-container .contact-form button {
-  margin: 0.5em;
-  padding: 1em;
-  border-radius: 5px;
-  border: none;
-  font-weight: bold;
-  height: 3.5em;
-  -webkit-transition: all 0.2s ease-in;
-  transition: all 0.2s ease-in;
-}
-
-html body .form-container .contact-form button:hover {
-  cursor: pointer;
-  background-color: #f0f8ff;
-}
-
-html body .form-container .contact-form button:active {
-  -webkit-transform: translateY(-2px);
-          transform: translateY(-2px);
-}
-
-html body .form-container .contact-form input,
-html body .form-container .contact-form textarea {
-  font-family: 'Montserrat', sans-serif;
-  border-top: none;
-  border-radius: 5px;
-  margin: 0.5em;
-  padding: 1em;
-}
-
-html body .mapp-layout {
-  position: relative;
-  z-index: 1;
-}
-
-html body .page-container {
-  margin-bottom: 5em;
-  /* Text overlay on image */
-  /* MY COMMENTS PAGE */
-}
-
 html body .page-container .generic-content {
-  margin-top: 5em;
+  margin: 5em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1084,6 +1108,19 @@ html body .page-container .image-link span {
   padding-bottom: 0.5em;
 }
 
+html body .page-container hr {
+  margin: 3em;
+}
+
+html body .page-container .link-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 html body .page-container .link-list li {
   list-style-type: none;
 }
@@ -1094,14 +1131,14 @@ html body .page-container .link-list li a {
 }
 
 html body .page-container .link-list li a .related-post-container {
-  width: 30em;
-  height: 22em;
+  width: 20em;
+  height: 15em;
 }
 
 html body .page-container .link-list li a .related-post-container img {
   display: block;
-  width: 30em;
-  height: 22em;
+  width: 20em;
+  height: 15em;
   border-radius: 5px;
 }
 
@@ -1119,7 +1156,6 @@ html body .page-container .link-list li a .related-post-container .text-overlay 
 
 html body .page-container .link-list li a .related-post-container .text-overlay h3 {
   font-size: 1rem;
-  padding-top: 0.5em;
 }
 
 html body .page-container .link-list li a:hover {
@@ -1394,7 +1430,9 @@ html footer {
   width: 100%;
   height: 3em;
   padding: 1em;
-  background: whitesmoke;
+  background: #faf4f4;
+  background: -webkit-gradient(linear, left top, right top, from(#faf4f4), color-stop(94%, #fafafa));
+  background: linear-gradient(90deg, #faf4f4 0%, #fafafa 94%);
   position: relative;
   top: calc(100vh - 100px);
   left: 0;
@@ -1406,23 +1444,28 @@ html .search-overlay {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   visibility: hidden;
+  opacity: 0;
+  -webkit-transition: opacity 250ms ease-in, visibility 0ms ease-in 250ms;
+  transition: opacity 250ms ease-in, visibility 0ms ease-in 250ms;
   position: fixed;
   z-index: 10;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  opacity: 0.98;
   min-height: 100%;
+  /* FADE IN ANIMATION */
 }
 
-html .search-overlay--active {
-  display: block;
+html .search-overlay--show {
   visibility: visible;
+  opacity: 1;
+  -webkit-transition: opacity 250ms ease-in, visibility 0ms ease-in 0ms;
+  transition: opacity 250ms ease-in, visibility 0ms ease-in 0ms;
 }
 
 html .search-overlay .search-overlay-top {
-  background-color: #778899;
+  background-color: lightgrey;
   height: 5em;
   position: relative;
   top: -2;
@@ -1483,10 +1526,13 @@ html .search-overlay .search-overlay-top .search-container .fa-search {
 html .search-overlay .search-overlay-top .search-container .fa-window-close {
   font-size: 1.5rem;
   color: #000000;
+  -webkit-transition: all 0.1s ease-in;
+  transition: all 0.1s ease-in;
 }
 
 html .search-overlay .search-overlay-top .search-container .fa-window-close:hover {
   cursor: pointer;
+  opacity: 0.6;
 }
 
 html .search-overlay .results-container {
@@ -1635,7 +1681,7 @@ html .spinner::before {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   position: absolute;
-  top: 10%;
+  top: 15%;
   left: 50%;
   width: 4em;
   height: 4em;

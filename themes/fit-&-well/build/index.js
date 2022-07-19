@@ -426,14 +426,14 @@ class Search {
 
 
   openOverlay() {
-    this.searchOverlay.classList.add('search-overlay--active');
+    this.searchOverlay.classList.add('search-overlay--show');
     this.searchInput.focus();
     document.body.classList.add('no-scroll');
     this.isOverlayOpen = true;
   }
 
   closeOverlay() {
-    this.searchOverlay.classList.remove('search-overlay--active');
+    this.searchOverlay.classList.remove('search-overlay--show');
     document.body.classList.remove('no-scroll');
     this.searchInput.value = '';
     this.resultsDiv.innerHTML = '';

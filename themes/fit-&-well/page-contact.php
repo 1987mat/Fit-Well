@@ -18,6 +18,7 @@ get_header();
   </div>
 
   <!-- MAP -->
+  <h1 class="map-title">Meet Us</h2>
   <?php
     $mymap = new Mappress_Map(array("width" => 600));
     $mypoi = new Mappress_Poi(array("title" => "500 Chestnut St", "body" => "Independence National Park, Philadelphia, PA<br/>19106", "point" => array("lat" => 39.948712,"lng" => -75.15001)));

@@ -18,10 +18,14 @@ while(have_posts()) {
       <div class="one-third">
         <?php the_post_thumbnail('portrait'); ?>
       </div>
+    
 
       <div class="two-thirds">
         <?php the_content(); ?>
-      </div>    </div>
+      </div>  
+    </div>  
+
+    <hr>
 
     <?php
 
@@ -44,14 +48,21 @@ while(have_posts()) {
 
     if($relatedClasses->have_posts()) {
       echo '<h2>Related ' . get_the_title() . ' Class</h2>';
+      echo '<ul class="link-list">';
+
       while($relatedClasses->have_posts()) {
         $relatedClasses->the_post(); ?>
 
-        <div class="single-class">
-          <div class="class-info">
-            <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-          </div>
-        </div>
+        <li>
+          <a class="related-post" href="<?php the_permalink(); ?>">
+            <div class="related-post-container">
+              <img class="post-image" src="<?php echo get_the_post_thumbnail_url();?>">
+              <div class="text-overlay">
+                <h3 class="post-title"><?php the_title() ;?></h3>
+              </div>
+            </div>    
+          </a>
+        </li>
       <?php 
       }    
     } 
