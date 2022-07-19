@@ -39,6 +39,7 @@ html body {
   /* ABOUT PAGE */
   /* WORKOUTS PAGE */
   /* CLASSES PAGE */
+  /* EVENTS / SINGLE CLASS PAGE */
   /* CONTACT PAGE */
   /* MAP */
 }
@@ -290,13 +291,13 @@ html body main .homepage-workouts .workouts-container .workouts-heading .workout
 }
 html body main .homepage-workouts .workouts-container .workouts-heading .workout-image-container a {
   position: absolute;
-  left: 40%;
+  left: 25%;
   top: 30%;
   width: 8em;
   text-align: center;
-  background-color: #778899;
   border-radius: 2px;
-  color: #f0f8ff;
+  color: white;
+  font-size: 2rem;
   padding: 1em;
   opacity: 0;
   transition: all 0.2s ease-in;
@@ -387,6 +388,64 @@ html body main .homepage-feeds .feed-container img {
 html body .blog-section h1 {
   font-size: 2.5rem;
 }
+html body .metabox {
+  margin-left: 3em;
+}
+html body .metabox a {
+  box-shadow: 1px 1px #888888;
+  background-color: lightblue;
+  opacity: 0.8;
+  padding: 0.5em;
+  border: none;
+  border-radius: 5px;
+  transition: all 0.2s ease-in;
+}
+html body .metabox:hover {
+  cursor: pointer;
+}
+html body .metabox:hover a {
+  opacity: 0.6;
+}
+html body .about-container {
+  margin-top: 3em;
+  display: flex;
+  justify-content: space-around;
+  gap: 5em;
+  padding: 2em;
+}
+html body .about-container .about-image {
+  width: 40%;
+  height: 20%;
+  border-radius: 5px;
+}
+html body .about-container .page-list {
+  display: flex;
+  flex-direction: column;
+  background-color: lightblue;
+  padding: 0.5em;
+  margin-right: 2em;
+  border-radius: 5px;
+  width: 100%;
+  height: 50%;
+}
+html body .about-container .page-list h2 {
+  padding-left: 0.2em;
+}
+html body .about-container .page-list h2:hover a {
+  color: #778899;
+  cursor: pointer;
+}
+html body .about-container .page-list ul {
+  margin-left: -2em;
+}
+html body .about-container .page-list ul li {
+  list-style-type: none;
+  margin-bottom: 0.5em;
+}
+html body .about-container .page-list ul li:hover a {
+  color: #778899;
+  cursor: pointer;
+}
 html body .posts-container h1 {
   text-align: center;
   font-size: 2.5rem;
@@ -425,6 +484,7 @@ html body .posts-container .classes-container {
   display: flex;
   justify-content: center;
   margin-top: 4em;
+  padding: 2em;
   gap: 1em;
 }
 html body .posts-container .classes-container .single-class h3 {
@@ -492,6 +552,110 @@ html body .posts-container .classes-container .cycling {
 html body .posts-container .classes-container .cycling:hover {
   cursor: pointer;
   opacity: 0.8;
+}
+html body .page-container .event-time {
+  text-align: center;
+  margin-top: -2em;
+}
+html body .page-container .generic-content {
+  margin-bottom: 5em;
+}
+html body .page-container h2 {
+  text-align: center;
+}
+html body .page-container .past-events-link {
+  text-decoration: underline;
+}
+html body .page-container .metabox-blog-post p {
+  font-size: smaller;
+  margin-top: 2em;
+}
+html body .page-container .metabox-blog-post p a {
+  text-decoration: underline;
+  background-color: transparent;
+  box-shadow: none;
+}
+html body .page-container .metabox-blog-post .blog-home {
+  box-shadow: 1px 1px #888888;
+  background-color: lightblue;
+  opacity: 0.8;
+  padding: 0.5em;
+  border: none;
+  border-radius: 5px;
+  transition: all 0.2s ease-in;
+}
+html body .page-container .metabox-blog-post:hover {
+  cursor: pointer;
+}
+html body .page-container .metabox-blog-post:hover a {
+  opacity: 0.6;
+}
+html body .page-container .metabox {
+  margin: 0;
+}
+html body .page-container .metabox a {
+  box-shadow: 1px 1px #888888;
+  background-color: lightblue;
+  opacity: 0.8;
+  padding: 0.5em;
+  border: none;
+  border-radius: 5px;
+  transition: all 0.2s ease-in;
+}
+html body .page-container .metabox:hover {
+  cursor: pointer;
+}
+html body .page-container .metabox:hover a {
+  opacity: 0.6;
+}
+html body .page-container .all-events-link {
+  box-shadow: 1px 1px #888888;
+  background-color: lightblue;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5em;
+  transition: all 0.2s ease-in;
+}
+html body .page-container .all-events-link:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+html body .page-container .single-event {
+  margin-top: 2em;
+}
+html body .page-container .single-event .event-info h2 {
+  text-align: start;
+  margin-bottom: -2em;
+}
+html body .page-container .single-event .event-info .generic-content {
+  margin-left: -2em;
+}
+html body .page-container .single-post {
+  background-color: whitesmoke;
+  border-radius: 5px;
+  padding: 1em;
+  margin-bottom: 2em;
+  box-shadow: 1px 1px gray;
+  transition: all 0.2s ease-in;
+}
+html body .page-container .single-post .metabox p {
+  font-size: smaller;
+}
+html body .page-container .single-post .metabox p a {
+  text-decoration: underline;
+  background-color: transparent;
+  box-shadow: none;
+}
+html body .page-container .single-post .generic-content {
+  margin: 0;
+  margin-left: -2em;
+}
+html body .page-container .single-post .generic-content a {
+  font-size: smaller;
+}
+html body .page-container .single-post:hover {
+  cursor: pointer;
+  opacity: 0.7;
 }
 html body .form-container {
   margin: 6em;

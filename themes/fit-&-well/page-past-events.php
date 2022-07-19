@@ -10,6 +10,7 @@
 </div>
 
 <div class="page-container"> 
+  <a href="<?php echo get_post_type_archive_link('event');?>" class="all-events-link">All Events</a>
 
   <?php 
     
@@ -41,8 +42,6 @@
   ));
 
   ?> 
-
-  <a href="<?php echo get_post_type_archive_link('event');?>">Go Back</a>
 
 </div>
 

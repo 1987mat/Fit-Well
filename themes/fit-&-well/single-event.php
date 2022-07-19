@@ -10,8 +10,7 @@ while(have_posts()) {
     pageBanner();
   ?>
 
-    <p><?php the_time('F j y'); ?></p>
-    <hr>
+    <p class="event-time"><?php the_time('F j y'); ?></p>
     <div class="metabox">
         <a href="<?php echo get_post_type_archive_link('event'); ?>">Go Back</a>
     </div>
@@ -50,8 +49,6 @@ while(have_posts()) {
             $existStatus = 'yes';
           }
         }
-      
-
       ?>
 
       <div class="like-box" data-like = "<?php echo $existQuery->posts[0]->ID;?>" data-event ="<?php the_ID();?>" data-exist="<?php echo $existStatus; ?>">

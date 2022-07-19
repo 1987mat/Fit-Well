@@ -55,7 +55,7 @@
   <section class="homepage-workouts">
     <h2>Workout Plans</h2>
     <div class="workouts-container">
-      <p>lorem ipsum</p>
+      <p>replace text</p>
       <div class="workouts-heading">
         <?php
           $img_src = get_template_directory_uri() . '/images/workout-homepage.jpg';

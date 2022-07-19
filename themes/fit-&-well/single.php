@@ -8,9 +8,9 @@ while(have_posts()) {
   <div class="page-container">
     <h2><?php the_title();?></h2>
 
-    <div class="metabox">
-        <a href="<?php echo site_url('/blog'); ?>">Blog Home</a>
-        <span>Posted by <?php the_author_posts_link(); ?> on <?php the_time('n.d.y'); ?> in <?php echo get_the_category_list(', '); ?></span>
+    <div class="metabox-blog-post">
+        <a class="blog-home" href="<?php echo site_url('/blog'); ?>">Blog Home</a>
+        <p>Posted by <?php the_author_posts_link(); ?> on <?php the_time('n.d.y'); ?> in <?php echo get_the_category_list(', '); ?></p>
     </div>
   
     <div class="generic-content">

@@ -1,4 +1,6 @@
-<?php get_header(); ?>
+<?php 
+  get_header(); 
+?>
 
 <div class="posts-container"> 
   <?php pageBanner(array(
@@ -9,35 +11,35 @@
 </div>
 
 <div class="page-container"> 
-
-  <?php 
   
-  $today = date('Y-m-d');
-  $events = new WP_Query(array(
-    'posts_per_page' => 2,
-    'post_type' => 'event',
-    'orderby' => 'post_date',
-    'order' => 'ASC',
-    // Don't show past events
-    'meta_query' => array(
-      array(
-        'key' => 'event_date',
-        'compare' => '>=',
-        'value' => $today,
-        'type' => 'numeric'
+  <?php 
+    $today = date('Y-m-d');
+    $events = new WP_Query(array(
+      'posts_per_page' => 2,
+      'post_type' => 'event',
+      'orderby' => 'post_date',
+      'order' => 'ASC',
+      // Don't show past events
+      'meta_query' => array(
+        array(
+          'key' => 'event_date',
+          'compare' => '>=',
+          'value' => $today,
+          'type' => 'numeric'
+        )
       )
-    )
-  ));
+    ));
 
-  while($events->have_posts()) {
-    $events->the_post();
-    get_template_part('content', 'event');   
-  } 
-  echo paginate_links();
-  ?> 
+    while($events->have_posts()) {
+      $events->the_post();
+      get_template_part('content', 'event');   
+    } 
+    echo paginate_links();
+    ?> 
   <hr>
-  <p>Looking for a recap of past events? <a href="<?php echo site_url('/past-events');?>">Check out our past events!</a></p>
+  <p>Looking for a recap of past events? Check out our <a href="<?php echo site_url('/past-events');?>" class="past-events-link">past events!</a></p>
 </div>
 
-
-<?php get_footer(); ?> 
+<?php 
+  get_footer(); 
+?> 

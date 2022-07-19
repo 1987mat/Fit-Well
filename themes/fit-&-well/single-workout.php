@@ -15,8 +15,13 @@ while(have_posts()) {
     </div>
 
     <div class="generic-content">
-      <?php echo get_post_meta( get_the_ID(), 'main_body_content', true );?>
-    </div>
+      <div class="one-third">
+        <?php the_post_thumbnail('portrait'); ?>
+      </div>
+
+      <div class="two-thirds">
+        <?php the_content(); ?>
+      </div>    </div>
 
     <?php
 
