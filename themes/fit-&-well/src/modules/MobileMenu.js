@@ -1,19 +1,19 @@
 class MobileMenu {
   constructor() {
-    this.menu = document.querySelector(".site-header__menu")
-    this.openButton = document.querySelector(".site-header__menu-trigger")
-    this.events()
+    this.hamburgerMenu = document.querySelector('.hamburger');
+    this.mobileNav = document.querySelector('.mobile-menu');
+    this.events();
   }
 
   events() {
-    this.openButton.addEventListener("click", () => this.openMenu())
+    this.hamburgerMenu.addEventListener('click', () => this.openMenu());
   }
 
   openMenu() {
-    this.openButton.classList.toggle("fa-bars")
-    this.openButton.classList.toggle("fa-window-close")
-    this.menu.classList.toggle("site-header__menu--active")
+    this.hamburgerMenu.classList.toggle('clicked');
+    this.mobileNav.classList.toggle('show');
+    document.body.classList.toggle('no-scroll');
   }
 }
 
-export default MobileMenu
+export default MobileMenu;

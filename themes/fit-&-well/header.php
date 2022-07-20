@@ -27,6 +27,20 @@
           <li><a onclick="return false;" href="<?php echo esc_url(site_url('/search'));?>"><i class="fa fa-search" id="search-icon"></i></a></li>
         </ul>
       </nav>
+      <div class="hamburger">
+        <span class="bar bar-1"></span>
+        <span class="bar bar-2"></span>
+        <span class="bar bar-3"></span>
+      </div>
+      <ul class="mobile-menu">
+      <li><a href="<?php echo site_url(); ?>">Home</a></li>
+      <li><a href="<?php echo get_post_type_archive_link('workout'); ?>">Workouts</a></li>
+      <li><a href="<?php echo get_post_type_archive_link('class'); ?>">Classes</a></li>
+      <li><a href="<?php echo get_post_type_archive_link('event'); ?>">Events</a></li?>
+      <li><a href="<?php echo site_url('/blog'); ?>">Blog</a></li?>
+      <li><a href="<?php echo site_url('/about'); ?>">About Us</a></li?>
+      <li><a href="<?php echo site_url('/contact'); ?>">Contact</a></li>
+      </ul>
       <div class="header-util">
         <!-- Leave a comment if user is logged in or Log Out  -->
          <?php if(is_user_logged_in()) { ?>

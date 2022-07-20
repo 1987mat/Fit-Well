@@ -10,25 +10,26 @@
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _css_style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../css/style.scss */ "./css/style.scss");
-/* harmony import */ var _modules_Search__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/Search */ "./src/modules/Search.js");
-/* harmony import */ var _modules_MyComments__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/MyComments */ "./src/modules/MyComments.js");
-/* harmony import */ var _modules_Like__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/Like */ "./src/modules/Like.js");
-/* harmony import */ var _modules_NavbarScroll__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/NavbarScroll */ "./src/modules/NavbarScroll.js");
+/* harmony import */ var _modules_MobileMenu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/MobileMenu */ "./src/modules/MobileMenu.js");
+/* harmony import */ var _modules_Search__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/Search */ "./src/modules/Search.js");
+/* harmony import */ var _modules_MyComments__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/MyComments */ "./src/modules/MyComments.js");
+/* harmony import */ var _modules_Like__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/Like */ "./src/modules/Like.js");
+/* harmony import */ var _modules_NavbarScroll__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/NavbarScroll */ "./src/modules/NavbarScroll.js");
  // Our modules / classes
-// import MobileMenu from './modules/MobileMenu';
-// import HeroSlider from './modules/HeroSlider';
+
+ // import HeroSlider from './modules/HeroSlider';
 
 
 
 
  // Instantiate a new object using our modules/classes
-// const mobileMenu = new MobileMenu();
-// const heroSlider = new HeroSlider();
 
-const search = new _modules_Search__WEBPACK_IMPORTED_MODULE_1__["default"]();
-const myComments = new _modules_MyComments__WEBPACK_IMPORTED_MODULE_2__["default"]();
-const likes = new _modules_Like__WEBPACK_IMPORTED_MODULE_3__["default"]();
-const navbar = new _modules_NavbarScroll__WEBPACK_IMPORTED_MODULE_4__["default"]();
+const mobileMenu = new _modules_MobileMenu__WEBPACK_IMPORTED_MODULE_1__["default"](); // const heroSlider = new HeroSlider();
+
+const search = new _modules_Search__WEBPACK_IMPORTED_MODULE_2__["default"]();
+const myComments = new _modules_MyComments__WEBPACK_IMPORTED_MODULE_3__["default"]();
+const likes = new _modules_Like__WEBPACK_IMPORTED_MODULE_4__["default"]();
+const navbar = new _modules_NavbarScroll__WEBPACK_IMPORTED_MODULE_5__["default"]();
 
 /***/ }),
 
@@ -126,6 +127,36 @@ class Like {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Like);
+
+/***/ }),
+
+/***/ "./src/modules/MobileMenu.js":
+/*!***********************************!*\
+  !*** ./src/modules/MobileMenu.js ***!
+  \***********************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+class MobileMenu {
+  constructor() {
+    this.hamburgerMenu = document.querySelector('.hamburger');
+    this.mobileNav = document.querySelector('.mobile-menu');
+    this.events();
+  }
+
+  events() {
+    this.hamburgerMenu.addEventListener('click', () => this.openMenu());
+  }
+
+  openMenu() {
+    this.hamburgerMenu.classList.toggle('clicked');
+    this.mobileNav.classList.toggle('show');
+    document.body.classList.toggle('no-scroll');
+  }
+
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (MobileMenu);
 
 /***/ }),
 

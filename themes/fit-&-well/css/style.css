@@ -44,7 +44,7 @@ html body {
 }
 
 html body.no-scroll {
-  overflow-y: hidden;
+  overflow: hidden;
 }
 
 html body a {
@@ -83,6 +83,97 @@ html body header .container {
   /* Highlight current page link */
 }
 
+html body header .container .hamburger {
+  cursor: pointer;
+  width: 35px;
+  height: 30px;
+  position: fixed;
+  top: 2%;
+  left: 2%;
+  z-index: 200;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+html body header .container .hamburger .bar {
+  background-color: #000000;
+  display: block;
+  border-radius: 2px;
+  width: 35px;
+  height: 5px;
+}
+
+html body header .container .hamburger .bar-1 {
+  -webkit-transform: translateY(-4px);
+          transform: translateY(-4px);
+}
+
+html body header .container .hamburger .bar-3 {
+  -webkit-transform: translateY(4px);
+          transform: translateY(4px);
+}
+
+html body header .container .hamburger.clicked .bar-1 {
+  -webkit-transform: translateY(4px) rotate(-45deg);
+          transform: translateY(4px) rotate(-45deg);
+}
+
+html body header .container .hamburger.clicked .bar-3 {
+  -webkit-transform: translateY(-6px) rotate(45deg);
+          transform: translateY(-6px) rotate(45deg);
+}
+
+html body header .container .hamburger.clicked .bar-2 {
+  opacity: 0;
+}
+
+html body header .container .mobile-menu {
+  opacity: 0;
+  background-color: whitesmoke;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 1.5em;
+  position: fixed;
+  padding-top: 1em;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 30em;
+  height: 100vh;
+  -webkit-transition: opacity 250ms ease-in;
+  transition: opacity 250ms ease-in;
+}
+
+html body header .container .mobile-menu li {
+  list-style-type: none;
+  font-size: 1.2rem;
+}
+
+html body header .container .mobile-menu li a:hover {
+  color: #778899;
+  cursor: pointer;
+}
+
+html body header .container .mobile-menu.show {
+  opacity: 0.9;
+  -webkit-transition: opacity 250ms ease-in;
+  transition: opacity 250ms ease-in;
+}
+
 html body header .container h1 {
   margin-top: -5px;
   margin-left: -5px;
@@ -93,6 +184,7 @@ html body header .container nav ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  visibility: hidden;
 }
 
 html body header .container nav ul li {
