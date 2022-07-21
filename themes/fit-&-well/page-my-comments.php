@@ -22,12 +22,11 @@
       <input class="comment-title" placeholder="Title">
       <textarea class="comment-body" rows="6"
       placeholder="Your comment here..."></textarea>
-      <div>
+      <div class="submit-comment-wrapper">
         <input type="submit" class="submit-comment-btn">
         <span class="comment-limit-message">Comment limit reached. Please delete any existing comment below.</span> 
       </div>
     </div>
-
 
     <ul id="my-comments">
       <?php
@@ -44,18 +43,15 @@
         <li data-id="<?php the_ID();?>">
           <div class="comment-top">
             <input class="comment-input-field" readonly value="<?php echo esc_attr(get_the_title()); ?>">
-            <button class="edit-btn"><i class="fa fa-pencil" aria-hidden="true"></i>Edit</button>
-            <button class="delete-btn"><i class="fa fa-trash-o" aria-hidden="true"></i>Delete</button>
-         </div>
+            <button class="edit-btn"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+            <button class="delete-btn"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+        </div>
           <textarea class="comment-body-field" readonly>"<?php echo esc_attr(wp_strip_all_tags(get_the_content())); ?>"</textarea>
-          <button class="update-btn"><i class="fa fa-check" aria-hidden="true"></i>Save</button>
+          <button class="update-btn"><i class="fa fa-check" aria-hidden="true"></i></button>
         </li>
 
       <?php }
-
       ?>
-
-
     </ul>
   </div>
 

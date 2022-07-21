@@ -102,7 +102,7 @@
 }
 
 * {
-  color: #303030;
+  color: #282828;
 }
 
 /* Override Wordpress official styles for login page */
@@ -126,10 +126,12 @@ html {
   scroll-behavior: smooth;
 
   body {
-    font-family: 'Montserrat', sans-serif;
-    margin-left: 0;
     min-height: 100vh;
-    margin-bottom: 8em;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
     overflow-x: hidden;
     background: rgb(204, 203, 224);
     background: linear-gradient(
@@ -137,10 +139,6 @@ html {
       rgba(204, 203, 224, 1) 0%,
       rgba(250, 250, 250, 1) 94%
     );
-
-    &.no-scroll {
-      overflow: hidden;
-    }
 
     a {
       @include linkStyle();
@@ -171,50 +169,8 @@ html {
       .container {
         height: 3em;
         display: flex;
-        justify-content: space-around;
+        justify-content: space-evenly;
         padding-bottom: 2em;
-
-        .hamburger {
-          cursor: pointer;
-          width: 35px;
-          height: 30px;
-          position: fixed;
-          top: 2%;
-          left: 2%;
-          z-index: 200;
-          display: flex;
-          flex-direction: column;
-
-          .bar {
-            background-color: #000000;
-            display: block;
-            border-radius: 2px;
-            width: 35px;
-            height: 5px;
-          }
-
-          .bar-1 {
-            transform: translateY(-4px);
-          }
-
-          .bar-3 {
-            transform: translateY(4px);
-          }
-
-          &.clicked {
-            .bar-1 {
-              transform: translateY(4px) rotate(-45deg);
-            }
-
-            .bar-3 {
-              transform: translateY(-6px) rotate(45deg);
-            }
-
-            .bar-2 {
-              opacity: 0;
-            }
-          }
-        }
 
         .mobile-menu {
           opacity: 0;
@@ -222,20 +178,19 @@ html {
           display: flex;
           flex-direction: column;
           justify-content: center;
-          gap: 1.5em;
+          gap: 3em;
           position: fixed;
-          padding-top: 1em;
-          z-index: 100;
-          top: 0;
-          left: 0;
-          right: 0;
+          padding: 1em 2em;
+          top: -2%;
+          left: -50%;
           bottom: 30em;
           height: 100vh;
+          width: 20em;
           transition: opacity 250ms ease-in;
 
           li {
             list-style-type: none;
-            font-size: 1.2rem;
+            font-size: 1.5rem;
 
             a:hover {
               @include linkHover();
@@ -243,7 +198,8 @@ html {
           }
 
           &.show {
-            opacity: 0.9;
+            left: 0;
+            opacity: 0.98;
             transition: opacity 250ms ease-in;
           }
         }
@@ -254,10 +210,9 @@ html {
           font-size: 3rem;
         }
 
-        nav {
+        .main-navigation {
           ul {
             display: flex;
-            visibility: hidden;
 
             li {
               list-style-type: none;
@@ -278,9 +233,19 @@ html {
           }
         }
 
+        .fa-search {
+          margin-top: 1em;
+          margin-left: -1.5em;
+          transition: all 0.2s ease-in;
+          opacity: 1;
+
+          &:hover {
+            transform: scale(1.1);
+            opacity: 0.7;
+          }
+        }
+
         .header-util {
-          margin-top: -1em;
-          margin-right: 2em;
           a,
           span {
             font-size: 0.8rem;
@@ -313,6 +278,7 @@ html {
     main {
       display: flex;
       flex-direction: column;
+      margin-bottom: 10em;
 
       .heading-section {
         background-image: url('../images/image-front.jpg');
@@ -393,7 +359,7 @@ html {
           margin: 5em;
           gap: 6em;
 
-          .single-class h3 {
+          .single-class h4 {
             position: relative;
             top: 40%;
             width: 50%;
@@ -485,44 +451,36 @@ html {
           margin: 5em;
           display: flex;
           justify-content: center;
-          gap: 15em;
 
-          .workouts-heading {
-            display: flex;
-            justify-content: center;
-            gap: 5em;
+          .workout-image-container {
+            position: relative;
+            transition: all 0.2s ease-in;
 
-            .workout-image-container {
-              position: relative;
-              transition: all 0.2s ease-in;
+            img {
+              width: 100%;
+              height: 90%;
+              border-radius: 5px;
+            }
 
-              img {
-                width: 100%;
-                height: 80%;
-                border-radius: 5px;
-              }
-
-              a {
-                position: absolute;
-                left: 25%;
-                top: 30%;
-                width: 8em;
-                text-align: center;
-                border-radius: 2px;
-                color: white;
-                font-size: 2rem;
-                padding: 1em;
-                opacity: 0;
-                transition: all 0.2s ease-in;
-              }
+            a {
+              position: absolute;
+              left: 30%;
+              top: 30%;
+              width: 8em;
+              border-radius: 5px;
+              opacity: 0.8;
+              color: white;
+              text-align: center;
+              color: white;
+              font-size: 2rem;
+              padding: 1em;
+              background-color: #778899;
+              transition: all 0.3s ease-in;
 
               &:hover {
+                opacity: 0.75;
+                background-color: #282828;
                 cursor: pointer;
-                opacity: 0.9;
-
-                a {
-                  opacity: 0.9;
-                }
               }
             }
           }
@@ -569,6 +527,7 @@ html {
       /* HOMEPAGE SOCIAL MEDIA FEEDS */
       .homepage-feeds {
         margin-top: 5em;
+        margin-bottom: 5em;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -626,38 +585,33 @@ html {
 
     .blog-section {
       h1 {
+        margin-top: -2.3em;
         font-size: 2.5rem;
       }
     }
 
-    /* ABOUT PAGE */
+    /* ABOUT US PAGE */
     .metabox {
       margin-left: 3em;
 
       a {
-        box-shadow: 1px 1px #888888;
-        background-color: lightblue;
-        opacity: 0.8;
-        padding: 0.5em;
-        border: none;
-        border-radius: 5px;
+        text-decoration: underline;
+        font-weight: bold;
         transition: all 0.2s ease-in;
-      }
 
-      &:hover {
-        cursor: pointer;
-        a {
+        &:hover {
+          cursor: pointer;
           opacity: 0.6;
         }
       }
     }
 
     .about-container {
-      margin-top: 3em;
       display: flex;
-      justify-content: space-around;
-      gap: 5em;
-      padding: 2em;
+      justify-content: center;
+      gap: 2em;
+      padding: 4em;
+      margin-bottom: 10em;
 
       .about-image {
         width: 40%;
@@ -668,16 +622,17 @@ html {
       .page-list {
         display: flex;
         flex-direction: column;
-        background-color: lightblue;
-        padding: 0.5em;
+        background-color: #f0f0f0;
+        justify-content: space-between;
+        padding: 1em;
         margin-right: 2em;
         border-radius: 5px;
+        box-shadow: 1px 1px gray;
         width: 100%;
         height: 50%;
 
         h2 {
-          padding-left: 0.2em;
-
+          margin: 0 auto;
           &:hover {
             a {
               @include linkHover();
@@ -686,11 +641,9 @@ html {
         }
 
         ul {
-          margin-left: -2em;
-
           li {
-            list-style-type: none;
             margin-bottom: 0.5em;
+            font-size: 1rem;
 
             &:hover {
               a {
@@ -702,8 +655,10 @@ html {
       }
     }
 
-    /* WORKOUTS PAGE */
+    /* CLASSES & WORKOUTS PAGE */
     .posts-container {
+      margin-bottom: 15em;
+
       h1 {
         text-align: center;
         font-size: 2.5rem;
@@ -712,16 +667,19 @@ html {
       .workout-wrapper {
         display: flex;
         justify-content: center;
-        margin: 2em;
         gap: 1em;
+        margin-top: 5em;
 
         a {
           position: relative;
           text-align: center;
 
           .workout-card-image {
+            width: 100%;
+            max-width: 650px;
+            height: auto;
             border-radius: 5px;
-            opacity: 0.7;
+            opacity: 0.8;
             transition: all 0.2s ease-in;
           }
 
@@ -739,21 +697,9 @@ html {
             cursor: pointer;
 
             .workout-card-image {
-              opacity: 0.8;
+              opacity: 0.85;
             }
           }
-        }
-      }
-    }
-
-    /* CLASSES & WORKOUT PAGE */
-    .posts-container {
-      .workout-wrapper {
-        display: flex;
-        justify-content: center;
-
-        h3 {
-          font-size: 2rem;
         }
       }
 
@@ -767,9 +713,9 @@ html {
         .single-class h3 {
           position: relative;
           top: 40%;
+          left: 25%;
           width: 50%;
-          margin: 0 auto;
-          font-size: 2rem;
+          font-size: 1.8rem;
           font-weight: bolder;
           padding: 0.5em;
           color: white;
@@ -782,12 +728,12 @@ html {
           height: 25em;
           width: 40%;
           transition: all 0.2s ease-in;
-          opacity: 0.7;
+          opacity: 0.8;
           border-radius: 5px;
 
           &:hover {
             cursor: pointer;
-            opacity: 0.8;
+            opacity: 0.85;
           }
         }
 
@@ -798,12 +744,12 @@ html {
           height: 25em;
           width: 40%;
           transition: all 0.2s ease-in;
-          opacity: 0.7;
+          opacity: 0.8;
           border-radius: 5px;
 
           &:hover {
             cursor: pointer;
-            opacity: 0.8;
+            opacity: 0.85;
           }
         }
 
@@ -814,12 +760,12 @@ html {
           height: 25em;
           width: 40%;
           transition: all 0.2s ease-in;
-          opacity: 0.7;
+          opacity: 0.8;
           border-radius: 5px;
 
           &:hover {
             cursor: pointer;
-            opacity: 0.8;
+            opacity: 0.85;
           }
         }
 
@@ -830,12 +776,12 @@ html {
           height: 25em;
           width: 40%;
           transition: all 0.2s ease-in;
-          opacity: 0.7;
+          opacity: 0.8;
           border-radius: 5px;
 
           &:hover {
             cursor: pointer;
-            opacity: 0.8;
+            opacity: 0.85;
           }
         }
       }
@@ -867,7 +813,8 @@ html {
           font-weight: bold;
           height: 3.5em;
           transition: all 0.2s ease-in;
-          background-color: lightblue;
+          background-color: #f0f0f0;
+          color: darkblue;
 
           &:hover {
             @include buttonHover();
@@ -889,16 +836,22 @@ html {
       }
     }
 
-    /* MAP */
-    .map-title {
-      font-size: 3rem;
-      text-align: center;
-      margin-bottom: 2em;
-    }
+    .contact-wrapper {
+      margin-bottom: 10em;
 
-    .mapp-layout {
-      position: relative;
-      z-index: 1;
+      /* MAP */
+      .map-title {
+        font-size: 3rem;
+        text-align: center;
+        margin-bottom: 2em;
+      }
+
+      .mapp-layout {
+        position: relative;
+        z-index: 1;
+        width: 90%;
+        height: 90%;
+      }
     }
 
     /* BLOG & EVENTS PAGE */
@@ -922,26 +875,15 @@ html {
         p {
           font-size: smaller;
           margin-top: 2em;
-          a {
-            text-decoration: underline;
-            background-color: transparent;
-            box-shadow: none;
-          }
         }
 
         .blog-home {
-          box-shadow: 1px 1px #888888;
-          background-color: lightblue;
-          opacity: 0.8;
-          padding: 0.5em;
-          border: none;
-          border-radius: 5px;
+          text-decoration: underline;
+          text-underline-offset: 2px;
           transition: all 0.2s ease-in;
-        }
 
-        &:hover {
-          cursor: pointer;
-          a {
+          &:hover {
+            cursor: pointer;
             opacity: 0.6;
           }
         }
@@ -969,11 +911,9 @@ html {
       }
 
       .all-events-link {
-        box-shadow: 1px 1px #888888;
-        background-color: lightblue;
-        border: none;
-        border-radius: 5px;
-        padding: 0.5em;
+        margin: 0;
+        text-decoration: underline;
+        text-underline-offset: 2px;
         transition: all 0.2s ease-in;
 
         &:hover {
@@ -983,7 +923,7 @@ html {
       }
 
       .single-event {
-        margin-top: 2em;
+        margin-top: 4em;
 
         .event-info {
           h2 {
@@ -1036,6 +976,15 @@ html {
         display: flex;
         justify-content: center;
         gap: 2em;
+
+        /* Single Class */
+        .one-third {
+          img {
+            width: 100%;
+            max-width: 650px;
+            height: auto;
+          }
+        }
 
         /* LIKE HEART */
         .like-box {
@@ -1104,23 +1053,23 @@ html {
       .link-list {
         display: flex;
         justify-content: center;
+        align-items: center;
 
         li {
           list-style-type: none;
 
           a {
             position: relative;
-            display: inline-block;
 
             .related-post-container {
               width: 20em;
               height: 15em;
 
               img {
-                display: block;
-                width: 20em;
-                height: 15em;
                 border-radius: 5px;
+                width: 80%;
+                max-width: 650px;
+                height: auto;
               }
 
               .text-overlay {
@@ -1160,6 +1109,7 @@ html {
         background-color: #778899;
         border-radius: 5px;
         width: 60%;
+        height: auto;
         margin: 0 auto;
         margin-top: -5em;
         margin-bottom: 6em;
@@ -1186,12 +1136,17 @@ html {
           color: orange;
         }
 
-        .submit-comment-btn {
-          font-weight: bold;
-          width: 15%;
+        .submit-comment-wrapper {
+          display: flex;
+          flex-direction: column;
 
-          &:hover {
-            @include linkHover();
+          .submit-comment-btn {
+            font-weight: bold;
+            width: 5em;
+
+            &:hover {
+              @include linkHover();
+            }
           }
         }
 
@@ -1211,11 +1166,10 @@ html {
         li {
           display: flex;
           flex-direction: column;
-          gap: 1em;
+          gap: 0.5em;
           list-style-type: none;
-          margin: 3em;
+          margin-bottom: 3em;
           transition: all 0.4s ease-out;
-          opacity: 1;
 
           &.fade-out {
             height: 0px !important;
@@ -1236,10 +1190,14 @@ html {
           }
 
           .comment-top {
+            display: flex;
+            gap: 1em;
+
             input {
               border: none;
               font-size: 2rem;
               outline: none;
+              background-color: transparent;
 
               &.edit-mode {
                 outline: auto;
@@ -1252,6 +1210,7 @@ html {
             border: none;
             outline: none;
             resize: none;
+            background-color: transparent;
 
             &.edit-mode {
               outline: auto;
@@ -1259,17 +1218,15 @@ html {
           }
 
           button {
+            width: 2em;
+            height: 2em;
+            font-size: 1rem;
             border: none;
-            padding: 1em;
             border-radius: 5px;
             transition: all 0.2s ease-in;
 
             &:hover {
               @include buttonHover();
-            }
-
-            i {
-              margin: 0.2em;
             }
           }
 
@@ -1280,12 +1237,13 @@ html {
 
           .update-btn {
             display: none;
-            border: none;
-            padding: 1em;
-            border-radius: 5px;
-            width: 6em;
             background-color: darkblue;
             color: #f0f8ff;
+            width: 5em;
+            height: 2em;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
             transition: all 0.2s ease-in;
 
             &.--visible {
@@ -1321,12 +1279,19 @@ html {
     }
   }
 
+  .page-banner {
+    h1 {
+      margin-top: 0;
+    }
+  }
+
   .related-post {
     margin: 3em;
   }
 
   /* FOOTER */
   footer {
+    margin-top: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1340,10 +1305,6 @@ html {
       rgba(250, 244, 244, 1) 0%,
       rgba(250, 250, 250, 1) 94%
     );
-    position: relative;
-    top: calc(100vh - 100px);
-    left: 0;
-    bottom: 0;
   }
 
   /* SEARCH OVERLAY */
@@ -1490,10 +1451,10 @@ html {
       box-sizing: border-box;
       position: absolute;
       top: 15%;
-      left: 50%;
+      left: 45%;
       width: 4em;
       height: 4em;
-      border: solid 6px #00008b;
+      border: solid 4px #00008b;
       border-bottom-color: #f0f8ff;
       border-radius: 50%;
       animation: spinner 0.6s linear infinite;
@@ -1511,6 +1472,133 @@ html {
 }
 
 /* MEDIA QUERIES */
+
+/* Mobile */
+@media screen and (max-width: 320px) {
+  html {
+    min-height: 100%;
+    min-width: 100%;
+    font-size: 35%;
+    overflow-x: hidden;
+
+    header {
+      .container {
+        .hamburger {
+          cursor: pointer;
+          width: 28px;
+          height: 30px;
+          position: fixed;
+          top: 2%;
+          left: 1%;
+          z-index: 200;
+          display: flex;
+          flex-direction: column;
+          transition: all 0.2s ease-in;
+
+          &.hide {
+            top: -100px;
+          }
+
+          .bar {
+            background-color: #000000;
+            display: block;
+            border-radius: 2px;
+            width: 28px;
+            height: 5px;
+          }
+
+          .bar-1 {
+            transform: translateY(-4px);
+          }
+
+          .bar-3 {
+            transform: translateY(4px);
+          }
+
+          &.clicked {
+            .bar-1 {
+              transform: translateY(4px) rotate(-45deg);
+            }
+
+            .bar-3 {
+              transform: translateY(-6px) rotate(45deg);
+            }
+
+            .bar-2 {
+              opacity: 0;
+            }
+          }
+        }
+
+        #search-icon {
+          padding-top: 0.2em;
+          font-size: 3.5rem;
+          position: absolute;
+          left: 20%;
+          bottom: 20%;
+        }
+
+        h1 {
+          padding-top: 0.2em;
+          margin-right: -8em;
+        }
+
+        .header-util {
+          margin-right: -18em;
+        }
+
+        .main-navigation {
+          display: none;
+        }
+      }
+    }
+
+    main {
+      .homepage-feeds {
+        .feed-container {
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 3em;
+        }
+      }
+    }
+
+    #my-comments {
+      li {
+        opacity: 1;
+        background-color: whitesmoke;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 1px 1px gray;
+        width: 100%;
+      }
+    }
+
+    /* Workouts Page */
+    .posts-container {
+      .workout-wrapper {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 3em;
+
+        a {
+          width: 50%;
+          height: 50%;
+        }
+      }
+    }
+
+    .contact-wrapper {
+      .mapp-layout {
+        .mapp-wrapper {
+          width: 5em;
+        }
+      }
+    }
+  }
+}
 
 /* Portrait tablet to landscape and desktop */
 // @media screen and (min-width: 768px) and (max-width: 979px) { ... }

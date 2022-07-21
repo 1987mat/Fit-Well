@@ -12,7 +12,7 @@
       if($theParent) {
         ?> 
         <div class="metabox">
-          <a href="<?php echo get_permalink($theParent); ?>">Back To <?php echo get_the_title($theParent);?></a>
+          <span>Back To <a href="<?php echo get_permalink($theParent); ?>"><?php echo get_the_title($theParent);?></a></span>
         </div>
         <?php
       } 

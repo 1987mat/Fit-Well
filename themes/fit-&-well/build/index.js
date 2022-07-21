@@ -151,7 +151,6 @@ class MobileMenu {
   openMenu() {
     this.hamburgerMenu.classList.toggle('clicked');
     this.mobileNav.classList.toggle('show');
-    document.body.classList.toggle('no-scroll');
   }
 
 }
@@ -209,7 +208,7 @@ class MyComments {
 
   makeCommentEditable(comment) {
     // Change edit button to cancel button
-    comment.querySelector('.edit-btn').innerHTML = '<i class="fa fa-times" aria-hidden="true"></i>Cancel';
+    comment.querySelector('.edit-btn').innerHTML = '<i class="fa fa-times" aria-hidden="true"></i>';
     comment.querySelectorAll('input, textarea').forEach(item => {
       item.readOnly = false;
       item.classList.add('edit-mode');
@@ -222,7 +221,7 @@ class MyComments {
 
   makeCommentReadOnly(comment) {
     // Change edit button to cancel button
-    comment.querySelector('.edit-btn').innerHTML = '<i class="fa fa-pencil" aria-hidden="true"></i>Edit';
+    comment.querySelector('.edit-btn').innerHTML = '<i class="fa fa-pencil" aria-hidden="true"></i>';
     comment.querySelectorAll('input, textarea').forEach(item => {
       item.readOnly = true;
       item.classList.remove('edit-mode');
@@ -342,11 +341,11 @@ class MyComments {
               <li data-id="${result.id}" class="fade-in-calc">
                 <div class="comment-top">
                   <input class="comment-input-field" readonly value="${result.title.raw}">
-                  <button class="edit-btn"><i class="fa fa-pencil" aria-hidden="true"></i>Edit</button>
-                  <button class="delete-btn"><i class="fa fa-trash-o" aria-hidden="true"></i>Delete</button>
+                  <button class="edit-btn"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                  <button class="delete-btn"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                 </div>
                 <textarea class="comment-body-field" readonly>${result.content.raw}</textarea>
-                <button class="update-btn"><i class="fa fa-check" aria-hidden="true"></i>Save</button>
+                <button class="update-btn"><i class="fa fa-check" aria-hidden="true"></i></button>
               </li>`); // Fade in transition
 
             let finalHeight,
@@ -400,6 +399,7 @@ __webpack_require__.r(__webpack_exports__);
 class Navbar {
   constructor() {
     this.navBar = document.querySelector('.site-header');
+    this.hamburger = document.querySelector('.hamburger');
     this.events();
   }
 
@@ -411,9 +411,11 @@ class Navbar {
       if (currentScroll - lastScroll > 0) {
         // Scroll Down
         this.navBar.classList.add('hide');
+        this.hamburger.classList.add('hide');
       } else {
         // Scroll Up
         this.navBar.classList.remove('hide');
+        this.hamburger.classList.remove('hide');
       }
 
       lastScroll = currentScroll;

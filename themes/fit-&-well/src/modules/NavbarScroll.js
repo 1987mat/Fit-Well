@@ -1,6 +1,7 @@
 class Navbar {
   constructor() {
     this.navBar = document.querySelector('.site-header');
+    this.hamburger = document.querySelector('.hamburger');
     this.events();
   }
 
@@ -11,9 +12,11 @@ class Navbar {
       if (currentScroll - lastScroll > 0) {
         // Scroll Down
         this.navBar.classList.add('hide');
+        this.hamburger.classList.add('hide');
       } else {
         // Scroll Up
         this.navBar.classList.remove('hide');
+        this.hamburger.classList.remove('hide');
       }
       lastScroll = currentScroll;
     });

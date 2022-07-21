@@ -57,7 +57,7 @@ class MyComments {
   makeCommentEditable(comment) {
     // Change edit button to cancel button
     comment.querySelector('.edit-btn').innerHTML =
-      '<i class="fa fa-times" aria-hidden="true"></i>Cancel';
+      '<i class="fa fa-times" aria-hidden="true"></i>';
 
     comment.querySelectorAll('input, textarea').forEach((item) => {
       item.readOnly = false;
@@ -74,7 +74,7 @@ class MyComments {
   makeCommentReadOnly(comment) {
     // Change edit button to cancel button
     comment.querySelector('.edit-btn').innerHTML =
-      '<i class="fa fa-pencil" aria-hidden="true"></i>Edit';
+      '<i class="fa fa-pencil" aria-hidden="true"></i>';
 
     comment.querySelectorAll('input, textarea').forEach((item) => {
       item.readOnly = true;
@@ -222,11 +222,11 @@ class MyComments {
               <li data-id="${result.id}" class="fade-in-calc">
                 <div class="comment-top">
                   <input class="comment-input-field" readonly value="${result.title.raw}">
-                  <button class="edit-btn"><i class="fa fa-pencil" aria-hidden="true"></i>Edit</button>
-                  <button class="delete-btn"><i class="fa fa-trash-o" aria-hidden="true"></i>Delete</button>
+                  <button class="edit-btn"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                  <button class="delete-btn"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                 </div>
                 <textarea class="comment-body-field" readonly>${result.content.raw}</textarea>
-                <button class="update-btn"><i class="fa fa-check" aria-hidden="true"></i>Save</button>
+                <button class="update-btn"><i class="fa fa-check" aria-hidden="true"></i></button>
               </li>`
             );
 

@@ -5,7 +5,7 @@ get_header();
 ?>
 
 <!-- CONTACT FORM -->
-<div>
+<div class="contact-wrapper">
   <div class="form-container">
     <h1>Get in touch!</h1>
     <form class="contact-form">

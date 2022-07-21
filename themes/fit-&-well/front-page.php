@@ -43,7 +43,7 @@
 
             <!-- Have different classes based on post title -->
             <a class="single-class <?php echo $classTitle; ?>" href="<?php echo get_post_type_archive_link('class'); ?>">              
-              <h3><?php the_title(); ?></h3> 
+            <h4><?php the_title(); ?></h4> 
             </a>
 
           <?php } 
@@ -56,14 +56,11 @@
     <h2>Workout Plans</h2>
     <div class="workouts-container">
       <p>replace text</p>
-      <div class="workouts-heading">
-        <?php
-          $img_src = get_template_directory_uri() . '/images/workout-homepage.jpg';
-        ?>
-        <div class="workout-image-container">
-          <img src="<?php echo $img_src ?>">
-          <a href="<?php echo site_url('/workout'); ?>">View More</a>
-        </div>
+      <?php
+        $img_src = get_template_directory_uri() . '/images/workout-homepage.jpg';
+      ?>
+      <div class="workout-image-container">
+        <img src="<?php echo $img_src ?>">
       </div>
     </div>
   </section>
@@ -106,3 +103,5 @@
 </main>
 
 <?php get_footer(); ?>
+
+
