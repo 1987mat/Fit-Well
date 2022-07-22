@@ -112,7 +112,7 @@ html body header .container .mobile-menu {
 
 html body header .container .mobile-menu li {
   list-style-type: none;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
 }
 
 html body header .container .mobile-menu li a:hover {
@@ -414,48 +414,36 @@ html body main .homepage-workouts h2 {
 }
 
 html body main .homepage-workouts .workouts-container {
-  margin: 5em;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-html body main .homepage-workouts .workouts-container .workout-image-container {
-  position: relative;
+  margin: 6em;
+  background-image: url("../images/workout-homepage.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 25em;
+  width: 40em;
   -webkit-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
-}
-
-html body main .homepage-workouts .workouts-container .workout-image-container img {
-  width: 100%;
-  height: 90%;
+  opacity: 0.7;
   border-radius: 5px;
 }
 
-html body main .homepage-workouts .workouts-container .workout-image-container a {
-  position: absolute;
-  left: 30%;
-  top: 30%;
-  width: 8em;
-  border-radius: 5px;
-  opacity: 0.8;
-  color: white;
-  text-align: center;
-  color: white;
-  font-size: 2rem;
-  padding: 1em;
-  background-color: #778899;
-  -webkit-transition: all 0.3s ease-in;
-  transition: all 0.3s ease-in;
-}
-
-html body main .homepage-workouts .workouts-container .workout-image-container a:hover {
-  opacity: 0.75;
-  background-color: #282828;
+html body main .homepage-workouts .workouts-container:hover {
   cursor: pointer;
+  opacity: 0.8;
+}
+
+html body main .homepage-workouts .workouts-container h3 {
+  background-color: #778899;
+  border-radius: 5px;
+  padding: 1em;
+  opacity: 0.8;
+  text-align: center;
+  width: 6em;
+  position: relative;
+  top: 30%;
+  margin: 0 auto;
+  font-size: 2rem;
+  font-weight: bolder;
+  color: white;
 }
 
 html body main .homepage-events .events-heading {
@@ -568,7 +556,6 @@ html body main .homepage-feeds .feed-container img {
 }
 
 html body .blog-section h1 {
-  margin-top: -2.3em;
   font-size: 2.5rem;
 }
 
@@ -588,66 +575,67 @@ html body .metabox a:hover {
   opacity: 0.6;
 }
 
-html body .about-container {
+html body .page-container .page-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1em;
+  margin-right: 2em;
+  height: 20%;
+}
+
+html body .page-container .page-list h2 {
+  margin: 0 auto;
+}
+
+html body .page-container .page-list h2:hover a {
+  color: #778899;
+  cursor: pointer;
+}
+
+html body .page-container .page-list ul li {
+  margin-bottom: 0.5em;
+  font-size: 1rem;
+}
+
+html body .page-container .page-list ul li:hover a {
+  color: #778899;
+  cursor: pointer;
+}
+
+html body .page-container .about-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  gap: 2em;
-  padding: 4em;
+  gap: 4em;
+  margin-top: 4em;
   margin-bottom: 10em;
+  padding: 4em;
 }
 
-html body .about-container .about-image {
-  width: 40%;
-  height: 20%;
+html body .page-container .about-container .about-image {
+  width: 50%;
+  height: 30%;
   border-radius: 5px;
 }
 
-html body .about-container .page-list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  background-color: #f0f0f0;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  padding: 1em;
-  margin-right: 2em;
-  border-radius: 5px;
-  -webkit-box-shadow: 1px 1px gray;
-          box-shadow: 1px 1px gray;
-  width: 100%;
-  height: 50%;
-}
-
-html body .about-container .page-list h2 {
-  margin: 0 auto;
-}
-
-html body .about-container .page-list h2:hover a {
-  color: #778899;
-  cursor: pointer;
-}
-
-html body .about-container .page-list ul li {
-  margin-bottom: 0.5em;
-  font-size: 1rem;
-}
-
-html body .about-container .page-list ul li:hover a {
-  color: #778899;
-  cursor: pointer;
+html body .page-container .about-container .generic-content {
+  text-align: center;
 }
 
 html body .posts-container {
   margin-bottom: 15em;
+}
+
+html body .posts-container .page-banner {
+  margin-top: 10em;
+}
+
+html body .posts-container .page-banner h1 {
+  font-size: 3rem;
 }
 
 html body .posts-container h1 {
@@ -666,12 +654,11 @@ html body .posts-container .workout-wrapper {
   margin-top: 5em;
 }
 
-html body .posts-container .workout-wrapper a {
+html body .posts-container .workout-wrapper .single-workout {
   position: relative;
-  text-align: center;
 }
 
-html body .posts-container .workout-wrapper a .workout-card-image {
+html body .posts-container .workout-wrapper .single-workout .workout-card-image {
   width: 100%;
   max-width: 650px;
   height: auto;
@@ -681,21 +668,22 @@ html body .posts-container .workout-wrapper a .workout-card-image {
   transition: all 0.2s ease-in;
 }
 
-html body .posts-container .workout-wrapper a h3 {
+html body .posts-container .workout-wrapper .single-workout h3 {
   position: absolute;
   top: 30%;
-  left: 13%;
+  left: 0;
+  text-align: center;
+  width: 100%;
   font-size: 1.8rem;
   font-weight: bolder;
-  padding: 0.5em;
   color: white;
 }
 
-html body .posts-container .workout-wrapper a:hover {
+html body .posts-container .workout-wrapper .single-workout:hover {
   cursor: pointer;
 }
 
-html body .posts-container .workout-wrapper a:hover .workout-card-image {
+html body .posts-container .workout-wrapper .single-workout:hover .workout-card-image {
   opacity: 0.85;
 }
 
@@ -707,91 +695,73 @@ html body .posts-container .classes-container {
       -ms-flex-pack: center;
           justify-content: center;
   margin-top: 4em;
-  padding: 2em;
+  padding-left: 4em;
+  padding-right: 4em;
   gap: 1em;
 }
 
-html body .posts-container .classes-container .single-class h3 {
+html body .posts-container .classes-container .single-class-wrapper {
   position: relative;
-  top: 40%;
-  left: 25%;
-  width: 50%;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  opacity: 0.8;
+}
+
+html body .posts-container .classes-container .single-class-wrapper h3 {
+  position: absolute;
+  top: 30%;
+  left: 0;
+  width: 100%;
+  text-align: center;
   font-size: 1.8rem;
   font-weight: bolder;
-  padding: 0.5em;
   color: white;
 }
 
-html body .posts-container .classes-container .yoga {
+html body .posts-container .classes-container .single-class-wrapper .yoga {
   background-image: url("../images/yoga.jpg");
   background-size: cover;
   background-position: center;
   height: 25em;
-  width: 40%;
-  -webkit-transition: all 0.2s ease-in;
-  transition: all 0.2s ease-in;
-  opacity: 0.8;
+  width: 18em;
   border-radius: 5px;
 }
 
-html body .posts-container .classes-container .yoga:hover {
-  cursor: pointer;
-  opacity: 0.85;
-}
-
-html body .posts-container .classes-container .zumba {
+html body .posts-container .classes-container .single-class-wrapper .zumba {
   background-image: url("../images/zumba.jpg");
   background-size: cover;
   background-position: center;
   height: 25em;
-  width: 40%;
-  -webkit-transition: all 0.2s ease-in;
-  transition: all 0.2s ease-in;
-  opacity: 0.8;
+  width: 18em;
   border-radius: 5px;
 }
 
-html body .posts-container .classes-container .zumba:hover {
-  cursor: pointer;
-  opacity: 0.85;
-}
-
-html body .posts-container .classes-container .outdoor {
+html body .posts-container .classes-container .single-class-wrapper .outdoor {
   background-image: url("../images/outdoor.jpg");
   background-size: cover;
   background-position: center;
   height: 25em;
-  width: 40%;
-  -webkit-transition: all 0.2s ease-in;
-  transition: all 0.2s ease-in;
-  opacity: 0.8;
+  width: 18em;
   border-radius: 5px;
 }
 
-html body .posts-container .classes-container .outdoor:hover {
-  cursor: pointer;
-  opacity: 0.85;
-}
-
-html body .posts-container .classes-container .cycling {
+html body .posts-container .classes-container .single-class-wrapper .cycling {
   background-image: url("../images/cycling.jpg");
   background-size: cover;
   background-position: center;
   height: 25em;
-  width: 40%;
-  -webkit-transition: all 0.2s ease-in;
-  transition: all 0.2s ease-in;
-  opacity: 0.8;
+  width: 18em;
   border-radius: 5px;
 }
 
-html body .posts-container .classes-container .cycling:hover {
+html body .posts-container .classes-container .single-class-wrapper:hover {
   cursor: pointer;
-  opacity: 0.85;
+  opacity: 0.9;
 }
 
 html body .form-container {
-  margin: 6em;
+  margin-top: 8em;
+  margin-bottom: 8em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -807,7 +777,7 @@ html body .form-container {
 
 html body .form-container h1 {
   font-size: 3rem;
-  margin-bottom: 1em;
+  margin-bottom: 2em;
 }
 
 html body .form-container .contact-form {
@@ -877,6 +847,14 @@ html body .page-container {
   /* MY COMMENTS PAGE */
 }
 
+html body .page-container .page-banner {
+  margin-top: 4em;
+}
+
+html body .page-container .page-banner h1 {
+  font-size: 3rem;
+}
+
 html body .page-container .event-time {
   text-align: center;
   margin-top: -2em;
@@ -912,23 +890,14 @@ html body .page-container .metabox {
 }
 
 html body .page-container .metabox a {
-  -webkit-box-shadow: 1px 1px #888888;
-          box-shadow: 1px 1px #888888;
-  background-color: lightblue;
-  opacity: 0.8;
-  padding: 0.5em;
-  border: none;
-  border-radius: 5px;
+  text-decoration: underline;
   -webkit-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
 }
 
-html body .page-container .metabox:hover {
+html body .page-container .metabox a:hover {
   cursor: pointer;
-}
-
-html body .page-container .metabox:hover a {
-  opacity: 0.6;
+  opacity: 0.8;
 }
 
 html body .page-container .all-events-link {
@@ -1113,30 +1082,6 @@ html body .page-container .generic-content .search-form-container .search-form .
   background-color: #f0f8ff;
 }
 
-html body .page-container .image-link {
-  text-decoration: none;
-  position: relative;
-  text-align: center;
-}
-
-html body .page-container .image-link img {
-  height: 25%;
-  width: 25%;
-}
-
-html body .page-container .image-link span {
-  width: 100%;
-  background-color: lightgray;
-  color: #000000;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
-}
-
 html body .page-container hr {
   margin: 3em;
 }
@@ -1157,11 +1102,8 @@ html body .page-container .link-list li {
   list-style-type: none;
 }
 
-html body .page-container .link-list li a {
-  position: relative;
-}
-
 html body .page-container .link-list li a .related-post-container {
+  position: relative;
   width: 20em;
   height: 15em;
 }
@@ -1176,9 +1118,11 @@ html body .page-container .link-list li a .related-post-container img {
 html body .page-container .link-list li a .related-post-container .text-overlay {
   position: absolute;
   text-align: center;
-  bottom: 0;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  bottom: 28%;
   background-color: #f0f8ff;
-  width: 100%;
+  width: 80%;
   height: 20%;
   opacity: 0;
   -webkit-transition: all 0.2s ease-in;
@@ -1194,7 +1138,7 @@ html body .page-container .link-list li a:hover {
 }
 
 html body .page-container .link-list li a:hover .text-overlay {
-  opacity: 0.9;
+  opacity: 1;
 }
 
 html body .page-container .single-event {
@@ -1239,7 +1183,7 @@ html body .page-container .create-comment {
   width: 60%;
   height: auto;
   margin: 0 auto;
-  margin-top: -5em;
+  margin-top: 4em;
   margin-bottom: 6em;
   padding: 1em;
 }
@@ -1406,14 +1350,6 @@ html body .page-container #my-comments li .update-btn i {
   margin: 0.2em;
 }
 
-html body .page-banner {
-  margin-top: 8em;
-}
-
-html body .page-banner h1 {
-  font-size: 3rem;
-}
-
 html body .generic-content {
   /* SEARCH FORM WITH JS DISABLED */
 }
@@ -1458,8 +1394,8 @@ html body .generic-content .search-form-container .search-form .search-form-inpu
   background-color: #f0f8ff;
 }
 
-html .page-banner h1 {
-  margin-top: 0;
+html .page-container {
+  margin: 6em;
 }
 
 html .related-post {
@@ -1599,6 +1535,8 @@ html .search-overlay .results-container .row {
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  gap: 2em;
+  margin-bottom: 20em;
 }
 
 html .search-overlay .results-container .row .one-third {
@@ -1638,9 +1576,6 @@ html .search-overlay .results-container .row .one-third .search-list {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
 }
 
 html .search-overlay .results-container .row .one-third .search-list li {
@@ -1652,33 +1587,37 @@ html .search-overlay .results-container .row .one-third .search-list li {
   /* Text overlay on image */
 }
 
-html .search-overlay .results-container .row .one-third .search-list li:hover {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
-}
-
 html .search-overlay .results-container .row .one-third .search-list li .image-link {
   text-decoration: none;
   position: relative;
-  text-align: center;
+  width: 20em;
+  height: 15em;
 }
 
 html .search-overlay .results-container .row .one-third .search-list li .image-link img {
-  height: 80%;
+  border-radius: 5px;
   width: 80%;
 }
 
 html .search-overlay .results-container .row .one-third .search-list li .image-link span {
-  width: 100%;
-  background-color: lightgray;
-  color: #000000;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  text-align: center;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  top: 0;
+  left: 0;
+  background-color: #f0f8ff;
+  width: 100%;
+  height: 2em;
   padding-top: 0.5em;
-  padding-bottom: 0.5em;
+  opacity: 1;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+
+html .search-overlay .results-container .row .one-third .search-list li:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 html .search-overlay .results-container .row .single-event {
@@ -1747,10 +1686,6 @@ html .blog-section {
   text-align: center;
 }
 
-html .page-container {
-  margin: 7em;
-}
-
 /* MEDIA QUERIES */
 /* Mobile */
 @media screen and (max-width: 320px) {
@@ -1759,7 +1694,6 @@ html .page-container {
     min-width: 100%;
     font-size: 35%;
     overflow-x: hidden;
-    /* Workouts Page */
   }
   html header .container .hamburger {
     cursor: pointer;
@@ -1847,6 +1781,10 @@ html .page-container {
             box-shadow: 1px 1px gray;
     width: 100%;
   }
+  html .posts-container {
+    /* Workouts Page */
+    /* Classes Page */
+  }
   html .posts-container .workout-wrapper {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -1864,8 +1802,32 @@ html .page-container {
     width: 50%;
     height: 50%;
   }
+  html .posts-container .classes-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
   html .contact-wrapper .mapp-layout .mapp-wrapper {
     width: 5em;
+  }
+  html .about-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
 }
 

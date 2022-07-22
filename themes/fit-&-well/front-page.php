@@ -55,13 +55,13 @@
   <section class="homepage-workouts">
     <h2>Workout Plans</h2>
     <div class="workouts-container">
-      <p>replace text</p>
-      <?php
+      <!-- <?php
         $img_src = get_template_directory_uri() . '/images/workout-homepage.jpg';
-      ?>
-      <div class="workout-image-container">
-        <img src="<?php echo $img_src ?>">
-      </div>
+      ?> -->
+      <a href="<?php echo get_post_type_archive_link('workout'); ?>" class="workout-image-container">
+        <!-- <img src="<?php echo $img_src ?>"> -->
+        <h3 >View More</h3>
+      </a>
     </div>
   </section>
 

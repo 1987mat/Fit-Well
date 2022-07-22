@@ -1,45 +1,25 @@
 <?php
-
   get_header(); 
+?>
 
-  while(have_posts()) {
-    the_post(); 
-    pageBanner(); 
-    ?>
+<div class="page-container"> 
 
-    <div class="about-container">
+  <?php
+    while(have_posts()) {
+      the_post(); 
+      pageBanner();
 
-      <img src="<?php echo get_the_post_thumbnail_url();?>" class="about-image">
-    
-      <?php
-        $theParent = wp_get_post_parent_id(get_the_ID());
-        // If the current page has a parent page show the navigation link
-          if($theParent) {
-            ?> 
-            <div class="metabox">
-              <a href="<?php echo get_permalink($theParent); ?>">Go Back To <?php echo get_the_title($theParent);?></a>
-              <p><?php the_title(); ?>
-            </div>
-            <?php
-          } 
-        ?>
+      $testArray = get_pages(array(
+        'child_of' => get_the_ID()
+      ));
 
-      <div class="generic-content">
-          <p><?php the_content();?></p>
-      </div>
+      // Show side menu only if the page is a parent or child page
+      if($theParent or $testArray) {    
+      ?>
+        <div class="page-list">
+          <ul class="list">
 
-      <?php 
-        $testArray = get_pages(array(
-          'child_of' => get_the_ID()
-        ));
-
-        // Show side menu only if the page is a parent or child page
-        if($theParent or $testArray) { ?>
-          <div class="page-list">
-            <h2><a href="<?php echo get_permalink($theParent); ?>"><?php echo get_the_title($theParent);?></a></h2>
-            <ul class="list">
             <?php 
-              
               // Current page is a child
               if($theParent) {
                 $findChildrenOf = $theParent;
@@ -56,16 +36,31 @@
                 'sort_column' => 'menu_order'
               ));  
             ?>
-            </ul>
-          </div> 
+          </ul>
+        </div> 
       <?php
-        }
-      ?>
+      }
+    }  
+
+    $theParent = wp_get_post_parent_id(get_the_ID());
+    // If the current page has a parent page show the navigation link
+      if($theParent) {
+        ?> 
+        <div class="metabox">
+          <a href="<?php echo get_permalink($theParent); ?>">Go Back To <?php echo get_the_title($theParent);?></a>
+          <p><?php the_title(); ?>
+        </div>
+      <?php
+      } 
+    ?>
+
+    <div class="about-container">
+      <div class="generic-content">
+          <p><?php the_content();?></p>
+      </div>
+      <img src="<?php echo get_the_post_thumbnail_url();?>" class="about-image">
     </div>
-  <?php
-    } 
-  ?>
- </div>
+</div>
 
 <?php
   get_footer();

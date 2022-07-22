@@ -28,7 +28,8 @@
         $classTitle = lcfirst(get_the_title());
         ?>
 
-        <a class="single-class <?php echo $classTitle; ?>" href="<?php the_permalink();?>">              
+        <a class="single-class-wrapper" href="<?php the_permalink();?>">
+          <div class="single-class <?php echo $classTitle; ?>"></div>            
           <h3><?php the_title(); ?></h3> 
         </a>
 

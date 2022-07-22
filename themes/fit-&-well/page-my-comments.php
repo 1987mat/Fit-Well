@@ -8,16 +8,20 @@
 
   get_header();
 
+  ?>
+
+<div class="page-container">
+
+<?php
+
   while(have_posts()) {
     the_post();
     pageBanner();
 
   ?>
 
-  <div class="page-container">
-
     <div class="create-comment">
-    <span class="message"></span>
+      <span class="message"></span>
       <h2>Add New Comment</h2>
       <input class="comment-title" placeholder="Title">
       <textarea class="comment-body" rows="6"
@@ -53,11 +57,13 @@
       <?php }
       ?>
     </ul>
-  </div>
 
-  <?php } 
+  <?php   
+    } 
+  ?>
+</div>
 
+<?php
   get_footer();
-
 ?>
 
