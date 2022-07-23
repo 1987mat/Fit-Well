@@ -10,7 +10,7 @@ while(have_posts()) {
 
     <div class="metabox-blog-post">
         <a class="blog-home" href="<?php echo site_url('/blog'); ?>">Blog Home</a>
-        <p>Posted by <?php the_author_posts_link(); ?> on <?php the_time('n.d.y'); ?> in <?php echo get_the_category_list(', '); ?></p>
+        <p>Posted by <strong><?php the_author_posts_link(); ?></strong> on <?php the_time('n.d.y'); ?> in <i><?php echo get_the_category_list(', '); ?></i></p>
     </div>
   
     <div class="generic-content">

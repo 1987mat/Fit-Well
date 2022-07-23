@@ -6,9 +6,9 @@ while(have_posts()) {
   the_post(); 
   ?>
   <div class="page-container">
-  <?php
-    pageBanner();
-  ?>
+    <?php
+      pageBanner();
+    ?>
 
     <p class="event-time"><?php the_time('F j y'); ?></p>
     <div class="metabox">
@@ -16,8 +16,9 @@ while(have_posts()) {
     </div>
   
     <div class="generic-content">
-      <?php the_content(); 
+      <p><?php the_content(); ?></p>
 
+      <?php
         // Create the query object for the like count
         $likeCount = new WP_Query(array(
           'post_type' => 'like',
@@ -52,14 +53,15 @@ while(have_posts()) {
       ?>
 
       <div class="like-box" data-like = "<?php echo $existQuery->posts[0]->ID;?>" data-event ="<?php the_ID();?>" data-exist="<?php echo $existStatus; ?>">
-        <i class="fa fa-heart-o" aria-hidden="true"></i>
-        <i class="fa fa-heart" aria-hidden="true"></i>
-        <span class="like-count"><?php echo $likeCount->found_posts; ?></span>
+        <div>
+          <i class="fa fa-heart-o" aria-hidden="true"></i>
+          <i class="fa fa-heart" aria-hidden="true"></i>
+        </div>
+        <span class="like-count"><?php echo $likeCount->found_posts; ?></span>  
       </div>
     </div>
 
     <?php 
-
       // Get the 'Event' Pod
       $pod = pods( 'event', get_the_id() );
       // Get the related field related_workouts
@@ -73,21 +75,24 @@ while(have_posts()) {
         foreach ( $relatedWorkouts as $rel ) {
           // Get the ID 
           $id = $rel[ 'ID' ];
-
-          // Display link with the related post's title
-          echo '<li>
-                  <a class="related-post" href="'.esc_url( get_permalink( $id ) ).'">'.get_the_title( $id ).'</a>
-                </li>';
+          ?>
+          <li>
+            <a class="related-post" href="<?php echo get_permalink( $id ) ?>">
+              <div class="related-post-container">
+                <img class="post-image" src="<?php echo get_the_post_thumbnail_url($id);?>">
+                <div class="text-overlay">
+                  <h3 class="post-title"><?php echo get_the_title($id) ;?></h3>
+                </div>
+              </div>    
+            </a>
+          </li>
+        <?php
         }
-        echo '</ul>';
-
-      
+        echo '</ul>'; 
       }
-    
     ?>
   </div>
+<?php 
+} 
 
-<?php } 
-
-
-get_footer();
+  get_footer();

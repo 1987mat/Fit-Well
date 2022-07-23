@@ -52,7 +52,7 @@ while(have_posts()) {
               </div>    
             </a>
           </li>
-          <?php 
+        <?php 
         }
         echo '</ul>';
       }

@@ -2,7 +2,7 @@
   get_header(); 
 ?>
 
-<div class="page-container"> 
+<div class="page-container-about"> 
 
   <?php
     while(have_posts()) {
@@ -16,28 +16,25 @@
       // Show side menu only if the page is a parent or child page
       if($theParent or $testArray) {    
       ?>
-        <div class="page-list">
-          <ul class="list">
+        <ul class="link-list">
+          <?php 
+            // Current page is a child
+            if($theParent) {
+              $findChildrenOf = $theParent;
 
-            <?php 
-              // Current page is a child
-              if($theParent) {
-                $findChildrenOf = $theParent;
+              // Current page is a parent
+            } else {
+              $findChildrenOf = get_the_ID();
+            }
 
-                // Current page is a parent
-              } else {
-                $findChildrenOf = get_the_ID();
-              }
-
-              // Associative array
-              wp_list_pages(array(
-                'title_li' => NULL,
-                'child_of' => $findChildrenOf,
-                'sort_column' => 'menu_order'
-              ));  
-            ?>
-          </ul>
-        </div> 
+            // Associative array
+            wp_list_pages(array(
+              'title_li' => NULL,
+              'child_of' => $findChildrenOf,
+              'sort_column' => 'menu_order'
+            ));  
+          ?>
+        </ul>
       <?php
       }
     }  

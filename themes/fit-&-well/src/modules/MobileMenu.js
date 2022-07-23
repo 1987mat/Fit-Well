@@ -7,6 +7,18 @@ class MobileMenu {
 
   events() {
     this.hamburgerMenu.addEventListener('click', () => this.openMenu());
+
+    // Close Mobile Menu when click outside of it
+    window.addEventListener('click', (e) => {
+      if (
+        !e.target.closest('.hamburger') &&
+        !e.target.closest('.mobile-menu') &&
+        this.mobileNav.classList.contains('show')
+      ) {
+        this.mobileNav.classList.toggle('show');
+        this.hamburgerMenu.classList.toggle('clicked');
+      }
+    });
   }
 
   openMenu() {

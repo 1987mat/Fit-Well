@@ -16,9 +16,8 @@ while(have_posts()) {
 
     <div class="generic-content">
       <div class="one-third">
-        <?php the_post_thumbnail('portrait'); ?>
+        <?php the_post_thumbnail(); ?>
       </div>
-    
 
       <div class="two-thirds">
         <?php the_content(); ?>
