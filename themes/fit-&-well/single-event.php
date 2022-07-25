@@ -16,7 +16,7 @@ while(have_posts()) {
     </div>
   
     <div class="generic-content">
-      <p><?php the_content(); ?></p>
+      <p><?php the_excerpt(); ?></p>
 
       <?php
         // Create the query object for the like count

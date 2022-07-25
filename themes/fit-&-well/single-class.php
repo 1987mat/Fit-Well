@@ -16,15 +16,8 @@ while(have_posts()) {
       <div class="one-third">
         <?php the_post_thumbnail(); ?>
       </div>
-
-      <div class="two-thirds">
-        <?php the_content(); ?>
-      </div>
     </div>
-
     <hr>
-
-
     <?php 
 
       // Get the 'Class' Pod

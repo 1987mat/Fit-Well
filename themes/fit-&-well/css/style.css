@@ -48,6 +48,10 @@ html body {
   /* BLOG & EVENTS PAGE */
 }
 
+html body.no-scroll {
+  position: fixed;
+}
+
 html body a {
   text-decoration: none;
   color: #000000;
@@ -85,8 +89,23 @@ html body header .container {
   /* Highlight current page link */
 }
 
+html body header .container .main-navigation {
+  height: 4em;
+}
+
 html body header .container h1 {
   font-size: 2.7rem;
+}
+
+html body header .container #search-icon {
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+
+html body header .container #search-icon:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  opacity: 0.7;
 }
 
 html body header .container .header-util {
@@ -319,6 +338,7 @@ html body main .homepage-workouts {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-bottom: 5em;
 }
 
 html body main .homepage-workouts h2 {
@@ -518,7 +538,7 @@ html body .page-container-about .link-list li {
   font-size: 1.2rem;
 }
 
-html body .page-container-about .link-list li:hover a {
+html body .page-container-about .link-list li a:hover {
   color: #778899;
   cursor: pointer;
 }
@@ -855,7 +875,18 @@ html body .page-container .single-event .event-info h2 {
 }
 
 html body .page-container .single-event .event-info .generic-content {
-  margin-left: -2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1em;
+}
+
+html body .page-container .single-event .event-info .generic-content .continue-reading-link {
+  font-size: smaller;
 }
 
 html body .page-container .single-post {
@@ -902,7 +933,7 @@ html body .page-container .generic-content {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  gap: 8em;
+  gap: 2em;
   /* Single Class / Single Workout */
   /* LIKE HEART */
   /* SEARCH FORM WITH JS DISABLED */
@@ -912,6 +943,7 @@ html body .page-container .generic-content .one-third img {
   width: 100%;
   max-width: 650px;
   height: auto;
+  border-radius: 5px;
 }
 
 html body .page-container .generic-content .like-box {
@@ -1702,23 +1734,24 @@ html .blog-section {
     position: absolute;
     left: 12%;
     bottom: 20%;
+    z-index: 100;
   }
   html header .container .main-navigation {
     background: #faf4f4;
     background: -webkit-gradient(linear, left top, right top, from(#faf4f4), color-stop(94%, #fafafa));
     background: linear-gradient(90deg, #faf4f4 0%, #fafafa 94%);
-    width: 25em;
+    width: 100vw;
     min-height: 100vh;
-    position: absolute;
+    position: fixed;
     z-index: 100;
-    left: -50%;
+    left: -100%;
     top: 0;
     opacity: 0;
     -webkit-transition: all 0.3s ease-in;
     transition: all 0.3s ease-in;
   }
   html header .container .main-navigation ul {
-    padding-top: 10em;
+    padding: 12em 5em;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1726,7 +1759,13 @@ html .blog-section {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    gap: 4em;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 5em;
   }
   html header .container .main-navigation ul li {
     list-style-type: none;
@@ -1737,7 +1776,7 @@ html .blog-section {
   }
   html header .container h1 {
     position: absolute;
-    right: 42%;
+    right: 43%;
     top: -50%;
   }
   html header .container .header-util {
@@ -1823,12 +1862,15 @@ html .blog-section {
   html header .container .hamburger {
     top: 2.5%;
   }
+  html header .container .main-navigation ul {
+    padding-top: 8em;
+  }
   html header .container h1 {
     right: 47%;
   }
   html header .container #search-icon {
     left: 6%;
-    bottom: 25%;
+    bottom: 22%;
   }
   html .posts-container .classes-container {
     -webkit-box-orient: horizontal;
@@ -1849,12 +1891,24 @@ html .blog-section {
     width: 100%;
     height: 100%;
   }
+  html .about-container {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
 }
 
 /* Desktop */
 @media screen and (min-width: 992px) {
   html {
-    font-size: 100%;
+    font-size: 85%;
   }
   html header .container .hamburger {
     visibility: hidden;
@@ -1864,12 +1918,11 @@ html .blog-section {
     top: -50%;
   }
   html header .container .main-navigation {
+    position: relative;
     width: auto;
-    min-height: auto;
-    background: transparent;
-    z-index: 0;
-    top: -150%;
-    left: 19%;
+    min-height: 4em;
+    top: 0;
+    left: 5%;
     opacity: 1;
   }
   html header .container .main-navigation ul {
@@ -1880,7 +1933,9 @@ html .blog-section {
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
-    gap: 3em;
+    padding: 0;
+    height: 1em;
+    gap: 2em;
   }
   html header .container .main-navigation ul li {
     list-style-type: none;
@@ -1897,22 +1952,40 @@ html .blog-section {
     text-underline-offset: 8px;
   }
   html header .container #search-icon {
-    left: 76%;
-    top: 50%;
+    left: 73%;
+    top: 42%;
     font-size: 1rem;
-    -webkit-transition: all 0.2s ease-in;
-    transition: all 0.2s ease-in;
-  }
-  html header .container #search-icon:hover {
-    -webkit-transform: scale(1.1);
-            transform: scale(1.1);
-    opacity: 0.7;
   }
   html main .homepage-feeds .feed-container {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
+  }
+  html .posts-container {
+    /* Workouts Page */
+  }
+  html .posts-container .workout-wrapper {
+    padding: 2em;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+
+/* Large Screens */
+@media screen and (min-width: 1200px) {
+  html {
+    font-size: 100%;
+  }
+  html header .container .main-navigation ul {
+    gap: 3em;
+  }
+  html header .container #search-icon {
+    left: 76%;
+    top: 43%;
+    font-size: 1rem;
   }
 }
 /*# sourceMappingURL=style.css.map */

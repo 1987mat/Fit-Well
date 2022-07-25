@@ -204,3 +204,7 @@ function remove_private_prefix($title) {
 	return $title;
 }
 add_filter('the_title', 'remove_private_prefix');
+
+
+remove_filter( 'the_excerpt', 'wpautop' ); the_content(); 
+remove_filter( 'the_content', 'wpautop' ); the_content();

@@ -24,6 +24,8 @@ class MobileMenu {
   openMenu() {
     this.hamburgerMenu.classList.toggle('clicked');
     this.mobileNav.classList.toggle('show');
+    // Prevent scrolling
+    document.body.classList.toggle('no-scroll');
   }
 }
 

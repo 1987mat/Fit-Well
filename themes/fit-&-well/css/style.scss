@@ -118,6 +118,10 @@ html {
       rgba(250, 250, 250, 1) 94%
     );
 
+    &.no-scroll {
+      position: fixed;
+    }
+
     a {
       @include linkStyle();
     }
@@ -150,8 +154,21 @@ html {
         justify-content: space-evenly;
         padding-bottom: 2em;
 
+        .main-navigation {
+          height: 4em;
+        }
+
         h1 {
           font-size: 2.7rem;
+        }
+
+        #search-icon {
+          transition: all 0.2s ease-in;
+
+          &:hover {
+            transform: scale(1.1);
+            opacity: 0.7;
+          }
         }
 
         .header-util {
@@ -345,6 +362,7 @@ html {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        margin-bottom: 5em;
 
         h2 {
           font-size: 2.5rem;
@@ -525,10 +543,8 @@ html {
           list-style-type: none;
           font-size: 1.2rem;
 
-          &:hover {
-            a {
-              @include linkHover();
-            }
+          a:hover {
+            @include linkHover();
           }
         }
       }
@@ -749,9 +765,6 @@ html {
             padding-right: 2em;
           }
         }
-        // padding: 4em;
-        // width: 50%;
-        // height: 50%;
       }
     }
 
@@ -834,7 +847,13 @@ html {
           }
 
           .generic-content {
-            margin-left: -2em;
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+
+            .continue-reading-link {
+              font-size: smaller;
+            }
           }
         }
       }
@@ -877,7 +896,7 @@ html {
         margin: 5em;
         display: flex;
         justify-content: center;
-        gap: 8em;
+        gap: 2em;
 
         /* Single Class / Single Workout */
         .one-third {
@@ -885,6 +904,7 @@ html {
             width: 100%;
             max-width: 650px;
             height: auto;
+            border-radius: 5px;
           }
         }
 
@@ -1403,7 +1423,6 @@ html {
 }
 
 /* MEDIA QUERIES */
-
 @media (hover: hover) {
   a:hover {
     @include linkHover();
@@ -1474,6 +1493,7 @@ html {
           position: absolute;
           left: 12%;
           bottom: 20%;
+          z-index: 100;
         }
 
         .main-navigation {
@@ -1483,20 +1503,22 @@ html {
             rgba(250, 244, 244, 1) 0%,
             rgba(250, 250, 250, 1) 94%
           );
-          width: 25em;
+          width: 100vw;
           min-height: 100vh;
-          position: absolute;
+          position: fixed;
           z-index: 100;
-          left: -50%;
+          left: -100%;
           top: 0;
           opacity: 0;
           transition: all 0.3s ease-in;
 
           ul {
-            padding-top: 10em;
+            padding: 12em 5em;
             display: flex;
             flex-direction: column;
-            gap: 4em;
+            justify-content: center;
+            align-items: center;
+            gap: 5em;
 
             li {
               list-style-type: none;
@@ -1511,7 +1533,7 @@ html {
 
         h1 {
           position: absolute;
-          right: 42%;
+          right: 43%;
           top: -50%;
         }
 
@@ -1599,13 +1621,19 @@ html {
           top: 2.5%;
         }
 
+        .main-navigation {
+          ul {
+            padding-top: 8em;
+          }
+        }
+
         h1 {
           right: 47%;
         }
 
         #search-icon {
           left: 6%;
-          bottom: 25%;
+          bottom: 22%;
         }
       }
     }
@@ -1629,13 +1657,19 @@ html {
         }
       }
     }
+
+    .about-container {
+      flex-direction: row;
+      justify-content: center;
+      align-items: flex-start;
+    }
   }
 }
 
 /* Desktop */
 @media screen and (min-width: 992px) {
   html {
-    font-size: 100%;
+    font-size: 85%;
 
     header {
       .container {
@@ -1649,18 +1683,19 @@ html {
         }
 
         .main-navigation {
+          position: relative;
           width: auto;
-          min-height: auto;
-          background: transparent;
-          z-index: 0;
-          top: -150%;
-          left: 19%;
+          min-height: 4em;
+          top: 0;
+          left: 5%;
           opacity: 1;
 
           ul {
             display: flex;
             flex-direction: row;
-            gap: 3em;
+            padding: 0;
+            height: 1em;
+            gap: 2em;
 
             li {
               list-style-type: none;
@@ -1680,15 +1715,9 @@ html {
         }
 
         #search-icon {
-          left: 76%;
-          top: 50%;
+          left: 73%;
+          top: 42%;
           font-size: 1rem;
-          transition: all 0.2s ease-in;
-
-          &:hover {
-            transform: scale(1.1);
-            opacity: 0.7;
-          }
         }
       }
     }
@@ -1697,6 +1726,36 @@ html {
       .homepage-feeds {
         .feed-container {
           flex-direction: row;
+        }
+      }
+    }
+
+    .posts-container {
+      /* Workouts Page */
+      .workout-wrapper {
+        padding: 2em;
+        flex-direction: row;
+      }
+    }
+  }
+}
+
+/* Large Screens */
+@media screen and (min-width: 1200px) {
+  html {
+    font-size: 100%;
+    header {
+      .container {
+        .main-navigation {
+          ul {
+            gap: 3em;
+          }
+        }
+
+        #search-icon {
+          left: 76%;
+          top: 43%;
+          font-size: 1rem;
         }
       }
     }
