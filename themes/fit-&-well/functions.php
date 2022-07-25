@@ -206,5 +206,6 @@ function remove_private_prefix($title) {
 add_filter('the_title', 'remove_private_prefix');
 
 
+// Remove empty <p> tags
 remove_filter( 'the_excerpt', 'wpautop' ); the_content(); 
 remove_filter( 'the_content', 'wpautop' ); the_content();

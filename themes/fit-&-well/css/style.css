@@ -933,7 +933,7 @@ html body .page-container .generic-content {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  gap: 2em;
+  gap: 3em;
   /* Single Class / Single Workout */
   /* LIKE HEART */
   /* SEARCH FORM WITH JS DISABLED */
