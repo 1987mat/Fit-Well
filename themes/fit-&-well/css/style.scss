@@ -151,60 +151,17 @@ html {
         padding-bottom: 2em;
 
         h1 {
-          margin-top: -5px;
-          margin-left: -5px;
-          font-size: 3rem;
-        }
-
-        .main-navigation {
-          ul {
-            display: flex;
-
-            li {
-              list-style-type: none;
-
-              a {
-                margin-right: 3em;
-                padding-bottom: 0.2em;
-                font-size: 1rem;
-                transition: all 0.2s ease-in;
-
-                &:hover {
-                  @include linkHover();
-                  text-decoration: underline;
-                  text-underline-offset: 8px;
-                }
-              }
-            }
-          }
-        }
-
-        .fa-search {
-          margin-top: 1em;
-          margin-left: -1.5em;
-          transition: all 0.2s ease-in;
-          opacity: 1;
-
-          &:hover {
-            transform: scale(1.1);
-            opacity: 0.7;
-          }
+          font-size: 2.7rem;
         }
 
         .header-util {
+          margin-right: -1em;
+
           a,
           span {
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             margin-right: 0.5em;
             transition: all 0.2s ease-in;
-
-            &:hover {
-              @include linkHover();
-            }
-          }
-
-          i {
-            font-size: 0.8rem;
 
             &:hover {
               @include linkHover();
@@ -466,6 +423,7 @@ html {
       /* HOMEPAGE SOCIAL MEDIA FEEDS */
       .homepage-feeds {
         margin-top: 5em;
+        padding: 2em;
         margin-bottom: 5em;
         display: flex;
         flex-direction: column;
@@ -1462,40 +1420,9 @@ html {
 
     header {
       .container {
-        .mobile-menu {
-          opacity: 0;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          gap: 3.5em;
-          position: fixed;
-          padding: 0 2em;
-          top: -1em;
-          left: -50%;
-          bottom: 30em;
-          height: 100vh;
-          width: 20em;
-          background: rgb(250, 244, 244);
-          background: linear-gradient(
-            90deg,
-            rgba(250, 244, 244, 1) 0%,
-            rgba(250, 250, 250, 1) 94%
-          );
-          transition: all 0.3s ease-in;
-
-          &.show {
-            left: 0;
-            opacity: 0.9;
-          }
-
-          li {
-            list-style-type: none;
-            font-size: 2rem;
-          }
-        }
+        justify-content: center;
 
         .hamburger {
-          cursor: pointer;
           width: 28px;
           height: 30px;
           position: fixed;
@@ -1545,21 +1472,52 @@ html {
           padding-top: 0.2em;
           font-size: 3.5rem;
           position: absolute;
-          left: 20%;
+          left: 12%;
           bottom: 20%;
         }
 
+        .main-navigation {
+          background: rgb(250, 244, 244);
+          background: linear-gradient(
+            90deg,
+            rgba(250, 244, 244, 1) 0%,
+            rgba(250, 250, 250, 1) 94%
+          );
+          width: 25em;
+          min-height: 100vh;
+          position: absolute;
+          z-index: 100;
+          left: -50%;
+          top: 0;
+          opacity: 0;
+          transition: all 0.3s ease-in;
+
+          ul {
+            padding-top: 10em;
+            display: flex;
+            flex-direction: column;
+            gap: 4em;
+
+            li {
+              list-style-type: none;
+            }
+          }
+
+          &.show {
+            left: 0;
+            opacity: 1;
+          }
+        }
+
         h1 {
-          padding-top: 0.2em;
-          margin-right: -8em;
+          position: absolute;
+          right: 42%;
+          top: -50%;
         }
 
         .header-util {
-          margin-right: -18em;
-        }
-
-        .main-navigation {
-          display: none;
+          position: absolute;
+          right: 7.5%;
         }
       }
     }
@@ -1606,14 +1564,6 @@ html {
                 opacity: 1;
               }
             }
-
-            // &:hover {
-            //   cursor: pointer;
-
-            //   .text-overlay {
-            //     opacity: 1;
-            //   }
-            // }
           }
         }
       }
@@ -1643,13 +1593,22 @@ html {
   html {
     font-size: 45%;
 
-    // header {
-    //   .container {
-    //     .mobile-menu {
-    //       top: 4%;
-    //     }
-    //   }
-    // }
+    header {
+      .container {
+        .hamburger {
+          top: 2.5%;
+        }
+
+        h1 {
+          right: 47%;
+        }
+
+        #search-icon {
+          left: 6%;
+          bottom: 25%;
+        }
+      }
+    }
 
     /* Classes Page */
     .posts-container {
@@ -1657,6 +1616,17 @@ html {
         flex-direction: row;
         justify-content: center;
         align-items: center;
+      }
+    }
+
+    .contact-wrapper {
+      .mapp-layout {
+        border: none;
+
+        .mapp-content {
+          width: 100%;
+          height: 100%;
+        }
       }
     }
   }
@@ -1673,21 +1643,60 @@ html {
           visibility: hidden;
         }
 
-        #search-icon {
-          visibility: hidden;
-        }
-
         h1 {
-          padding-top: 0em;
-          margin-right: 0;
-        }
-
-        .header-util {
-          margin-right: 0;
+          left: 1%;
+          top: -50%;
         }
 
         .main-navigation {
-          display: block;
+          width: auto;
+          min-height: auto;
+          background: transparent;
+          z-index: 0;
+          top: -150%;
+          left: 19%;
+          opacity: 1;
+
+          ul {
+            display: flex;
+            flex-direction: row;
+            gap: 3em;
+
+            li {
+              list-style-type: none;
+
+              a {
+                font-size: 0.9rem;
+                transition: all 0.2s ease-in;
+
+                &:hover {
+                  @include linkHover();
+                  text-decoration: underline;
+                  text-underline-offset: 8px;
+                }
+              }
+            }
+          }
+        }
+
+        #search-icon {
+          left: 76%;
+          top: 50%;
+          font-size: 1rem;
+          transition: all 0.2s ease-in;
+
+          &:hover {
+            transform: scale(1.1);
+            opacity: 0.7;
+          }
+        }
+      }
+    }
+
+    main {
+      .homepage-feeds {
+        .feed-container {
+          flex-direction: row;
         }
       }
     }

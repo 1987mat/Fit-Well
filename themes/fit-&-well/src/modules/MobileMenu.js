@@ -1,7 +1,7 @@
 class MobileMenu {
   constructor() {
     this.hamburgerMenu = document.querySelector('.hamburger');
-    this.mobileNav = document.querySelector('.mobile-menu');
+    this.mobileNav = document.querySelector('nav');
     this.events();
   }
 
@@ -12,7 +12,7 @@ class MobileMenu {
     window.addEventListener('click', (e) => {
       if (
         !e.target.closest('.hamburger') &&
-        !e.target.closest('.mobile-menu') &&
+        !e.target.closest('nav') &&
         this.mobileNav.classList.contains('show')
       ) {
         this.mobileNav.classList.toggle('show');

@@ -140,7 +140,7 @@ __webpack_require__.r(__webpack_exports__);
 class MobileMenu {
   constructor() {
     this.hamburgerMenu = document.querySelector('.hamburger');
-    this.mobileNav = document.querySelector('.mobile-menu');
+    this.mobileNav = document.querySelector('nav');
     this.events();
   }
 
@@ -148,7 +148,7 @@ class MobileMenu {
     this.hamburgerMenu.addEventListener('click', () => this.openMenu()); // Close Mobile Menu when click outside of it
 
     window.addEventListener('click', e => {
-      if (!e.target.closest('.hamburger') && !e.target.closest('.mobile-menu') && this.mobileNav.classList.contains('show')) {
+      if (!e.target.closest('.hamburger') && !e.target.closest('nav') && this.mobileNav.classList.contains('show')) {
         this.mobileNav.classList.toggle('show');
         this.hamburgerMenu.classList.toggle('clicked');
       }
